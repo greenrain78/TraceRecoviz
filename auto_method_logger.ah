@@ -1,0 +1,23 @@
+#include "aspect_common.ah"
+
+aspect AutoMethodLogger {
+
+// --- Trace for: (int) ---
+advice call("% %::%(int)") : before() {
+    std::ostringstream oss;
+    oss << "[CALL   ] " << tjp->signature() << "(" << "arg0=" << *tjp->arg<0>() << ")";
+    AspectLogger::log(oss.str());
+}
+
+advice call("% %::%(int)") : after() {
+    std::ostringstream oss;
+    oss << "[RETURN ] " << tjp->signature();
+    if (tjp->result()) {
+        oss << " => " << *tjp->result();
+    } else {
+        oss << " => void";
+    }
+    AspectLogger::log(oss.str());
+}
+
+};

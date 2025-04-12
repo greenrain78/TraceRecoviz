@@ -1,6 +1,7 @@
 ACXX = ag++
-CXXFLAGS = -std=c++17 -I./src -I. -I./builder
-LDFLAGS = -lgtest -lgtest_main -pthread
+CXXFLAGS = -std=c++17 -I./src -I. -I./builder -I./gtest/googletest/googletest/include
+LDFLAGS = -lpthread
+GTEST_LIBS = ./gtest/libgtest.a ./gtest/libgtest_main.a
 
 TARGET = test
 
@@ -17,7 +18,7 @@ prepare:
 	python3 builder/generate_function_logger.py
 
 $(TARGET): $(OBJS)
-	$(ACXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+	$(ACXX) $(CXXFLAGS) -o $@ $^ $(GTEST_LIBS) $(LDFLAGS)
 
 # src/my_class.cc → src/my_class.o
 src/%.o: src/%.cc
