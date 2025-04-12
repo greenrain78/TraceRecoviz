@@ -1,5 +1,5 @@
 ACXX = ag++
-CXXFLAGS = -std=c++17 -I./src -I.
+CXXFLAGS = -std=c++17 -I./src -I. -I./builder
 LDFLAGS = -lgtest -lgtest_main -pthread
 
 TARGET = test
@@ -8,7 +8,13 @@ TARGET = test
 SRCS = src/sample1.cc src/sample1_unittest.cc
 OBJS = $(patsubst %.cc, %.o, $(SRCS))
 
-all: $(TARGET)
+all: prepare $(TARGET)
+
+prepare:
+	@echo "🔧 Running Python scripts..."
+	python3 builder/generate_class_logger.py
+	python3 builder/generate_method_logger.py
+	python3 builder/generate_function_logger.py
 
 $(TARGET): $(OBJS)
 	$(ACXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
@@ -22,4 +28,4 @@ src/%.o: src/%.cc
 	$(ACXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f src/*.o *.o *.acd $(TARGET) trace.log 
+	rm -f src/*.o *.o *.acd $(TARGET) trace.log auto_*_logger.ah
