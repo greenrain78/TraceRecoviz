@@ -1,0 +1,7 @@
+#include "aspect_common.ah"
+
+aspect AutoFunctionLogger {
+
+{{ADVICE_BLOCKS}}
+
+};

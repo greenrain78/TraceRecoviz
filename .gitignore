@@ -1,2 +1,9 @@
 
-function_logger.ah
+test
+*.o
+
+# 로그파일도 샘플로 일단 git에 올리자
+# *.log
+
+# auto-generated files - 샘플로 일단 git에 올리자
+# auto_*_logger.ah
