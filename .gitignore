@@ -1,7 +1,11 @@
+.vscode/
 
 test
+test_exec
+libgtest.a
 *.o
 
+googletest
 # 로그파일도 샘플로 일단 git에 올리자
 # *.log
 

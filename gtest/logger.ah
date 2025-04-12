@@ -1,0 +1,11 @@
+#include <iostream>
+
+aspect Logger {
+    advice execution("void testing::Test::Run()") : before() {
+        std::cout << "[LOG] Run 시작: " << JoinPoint::signature() << std::endl;
+    }
+
+    advice execution("void testing::Test::Run()") : after() {
+        std::cout << "[LOG] Run 끝: " << JoinPoint::signature() << std::endl;
+    }
+};
