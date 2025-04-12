@@ -2,18 +2,19 @@
 
 aspect AutoMethodLogger {
 
-// --- Trace for: (int) ---
-advice call("% %::%(int)") : before() {
+// --- Trace for: (const char*) ---
+advice call("% %::%(const char*)") : before() {
     std::ostringstream oss;
     oss << "[CALL   ] " << tjp->signature() << "(" << "arg0=" << *tjp->arg<0>() << ")";
     AspectLogger::log(oss.str());
 }
 
-advice call("% %::%(int)") : after() {
+advice call("% %::%(const char*)") : after() {
     std::ostringstream oss;
     oss << "[RETURN ] " << tjp->signature();
     if (tjp->result()) {
-        oss << " => " << *tjp->result();
+        oss << " => " << tjp->result();
+        // oss << " => " << *tjp->result();  // void함수까지 인식해서 실제값을 출력 못함
     } else {
         oss << " => void";
     }

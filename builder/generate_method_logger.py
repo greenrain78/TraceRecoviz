@@ -5,10 +5,8 @@ OUTPUT_FILE = "auto_method_logger.ah"
 
 # === 1. 추적할 함수 시그니처 정의 ===
 signature_list: List[List[str]] = [
-    ["int"],
-    # ["int", "int"],
-    # ["float"],
-    # ["std::string", "double"]
+    # ["int"],  # sample1
+    ["const char*"],
 ]
 
 # === 2. arg 로그 표현 생성 ===
@@ -33,7 +31,8 @@ advice call("% %::%({sig_str})") : after() {{
     std::ostringstream oss;
     oss << "[RETURN ] " << tjp->signature();
     if (tjp->result()) {{
-        oss << " => " << *tjp->result();
+        oss << " => " << tjp->result();
+        // oss << " => " << *tjp->result();  // void함수까지 인식해서 실제값을 출력 못함
     }} else {{
         oss << " => void";
     }}

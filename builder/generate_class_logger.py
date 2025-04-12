@@ -4,7 +4,7 @@ from typing import List
 TEMPLATE_FILE = "builder/template_class.txt"
 OUTPUT_FILE = "auto_class_logger.ah"
 TARGET_CLASSES: List[str] = [
-    # "MyString"
+    "MyString"
 ]
 
 # 생성자/소멸자 advice 블록 생성 함수

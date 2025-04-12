@@ -5,10 +5,7 @@ OUTPUT_FILE = "auto_function_logger.ah"
 
 # === 1. 추적할 함수 시그니처 정의 ===
 signature_list: List[List[str]] = [
-    ["int"],
-    # ["int", "int"],
-    # ["float"],
-    # ["std::string", "double"]
+    # ["int"], # sample1
 ]
 
 # === 2. arg 로그 표현 생성 ===
