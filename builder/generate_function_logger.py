@@ -24,19 +24,21 @@ def generate_advice_block(arg_types: List[str]) -> str:
     return f"""
 // --- Trace for: ({sig_str}) ---
 advice call("% %({sig_str})") : before() {{
+    AspectLogger::depth()++;
     std::ostringstream oss;
-    oss << "[CALL   ] " << tjp->signature() << "(" << {arg_log} << ")";
+    oss << AspectLogger::indent() << "[CALL   ] depth=" << AspectLogger::depth() << " " << tjp->signature() << "(" << {arg_log} << ")";
     AspectLogger::log(oss.str());
 }}
 advice call("% %({sig_str})") : after() {{
     std::ostringstream oss;
-    oss << "[RETURN ] " << tjp->signature();
+    oss << AspectLogger::indent() << "[RETURN ] depth=" << AspectLogger::depth() << " " << tjp->signature();
     if (tjp->result()) {{
         oss << " => " << *tjp->result();
     }} else {{
         oss << " => void";
     }}
     AspectLogger::log(oss.str());
+    AspectLogger::depth()--;
 }}
 """.strip()
 

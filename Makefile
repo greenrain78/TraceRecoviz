@@ -1,5 +1,5 @@
 ACXX = ag++
-CXXFLAGS = -std=c++17 -I./src -I. -I./builder -I./gtest/googletest/googletest/include
+CXXFLAGS = -std=c++17 -I./src -I. -I./builder -I./gtest -I./gtest/googletest/googletest/include
 LDFLAGS = -lpthread
 GTEST_LIBS = ./gtest/libgtest.a ./gtest/libgtest_main.a
 

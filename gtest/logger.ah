@@ -1,37 +1,15 @@
-#include <iostream>
-#include <fstream>
-#include <mutex>
-#include <sstream>
-
-
-class GtestLogger {
-public:
-    static std::ofstream& stream() {
-        static std::ofstream log("trace.log", std::ios::out | std::ios::app);
-        return log;
-    }
-
-    static std::mutex& lock() {
-        static std::mutex mtx;
-        return mtx;
-    }
-
-    static void log(const std::string& msg) {
-        std::lock_guard<std::mutex> guard(lock());
-        stream() << msg << std::endl;
-    }
-};
+#include "aspect_common.ah"
 
 aspect Logger {
     advice execution("void testing::Test::Run()") : before() {     
         std::ostringstream oss;
-        oss << "[LOG] Run 시작: " << JoinPoint::signature() << std::endl;
-        GtestLogger::log(oss.str());
+        oss << std::endl << "[LOG    ] Run 시작: " << JoinPoint::signature();
+        AspectLogger::log(oss.str());
     }
 
     advice execution("void testing::Test::Run()") : after() {
         std::ostringstream oss;
-        oss << "[LOG] Run 끝: " << JoinPoint::signature() << std::endl;
-        GtestLogger::log(oss.str());
+        oss << "[LOG    ] Run 끝: " << JoinPoint::signature() << std::endl;
+        AspectLogger::log(oss.str());
     }
 };

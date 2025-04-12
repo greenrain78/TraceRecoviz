@@ -4,19 +4,21 @@ aspect AutoFunctionLogger {
 
 // --- Trace for: (int) ---
 advice call("% %(int)") : before() {
+    AspectLogger::depth()++;
     std::ostringstream oss;
-    oss << "[CALL   ] " << tjp->signature() << "(" << "arg0=" << *tjp->arg<0>() << ")";
+    oss << AspectLogger::indent() << "[CALL   ] depth=" << AspectLogger::depth() << " " << tjp->signature() << "(" << "arg0=" << *tjp->arg<0>() << ")";
     AspectLogger::log(oss.str());
 }
 advice call("% %(int)") : after() {
     std::ostringstream oss;
-    oss << "[RETURN ] " << tjp->signature();
+    oss << AspectLogger::indent() << "[RETURN ] depth=" << AspectLogger::depth() << " " << tjp->signature();
     if (tjp->result()) {
         oss << " => " << *tjp->result();
     } else {
         oss << " => void";
     }
     AspectLogger::log(oss.str());
+    AspectLogger::depth()--;
 }
 
 };

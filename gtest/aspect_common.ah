@@ -5,6 +5,7 @@
 #include <fstream>
 #include <mutex>
 #include <sstream>
+#include <atomic>
 
 class AspectLogger {
 public:
@@ -21,6 +22,15 @@ public:
     static void log(const std::string& msg) {
         std::lock_guard<std::mutex> guard(lock());
         stream() << msg << std::endl;
+    }
+
+    static std::atomic<int>& depth() {
+        static std::atomic<int> d{0};
+        return d;
+    }
+
+    static std::string indent() {
+        return std::string(depth() * 2, ' ');
     }
 };
 
