@@ -12,7 +12,13 @@ make SRCS="src/sample1.cc src/sample1_unittest.cc" TARGET=my_test
 # install
     
 ``` bash
-sudo apt-get install libboost-all-dev
+sudo apt update
+sudo apt install llvm-17 clang-17 libclang-17-dev
+
+python3 -m venv venv
+source venv/bin/activate
+pip install libclang
+
 ```
 # 설명
 ## analyer 

@@ -1,4 +1,5 @@
 .vscode/
+venv/
 
 test
 test_exec
