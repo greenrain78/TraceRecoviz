@@ -43,7 +43,7 @@ def extract_class_info(cursor, file_path, result):
         return
 
     ns = get_namespace(cursor)
-    # 필터링: 특정 네임스페이스로 시작하는 경우 제외
+    # 필터링: 특정 네임스페이스로 시작하는 경우 제외 추가
     if ns.startswith("std") or ns.startswith("__gnu_cxx") or ns.startswith("testing") or ns.startswith("__cxxabiv1"):
         return
 
