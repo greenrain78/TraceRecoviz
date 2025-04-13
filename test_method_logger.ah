@@ -1,0 +1,19 @@
+#include "aspect_common.ah"
+
+aspect AutoMethodLogger {
+
+  // 멤버 함수 및 전역 함수 모두 감지 (void 리턴 포함)
+    advice call("% %::%(...)") : before() {
+        std::ostringstream oss;
+        oss << "[ENTER] " << tjp->signature();
+        AspectLogger::log(oss.str());
+    }
+
+    advice call("% %::%(...)") : after() {
+        std::ostringstream oss;
+        oss << "[EXIT ] " << tjp->signature();
+        AspectLogger::log(oss.str());
+    }
+
+
+};
