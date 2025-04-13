@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Clone Repository
         run: |
-          git clone https://github.com/${{ github.event.client_payload.repository }} source-code
-          ls
+          git clone https://github.com/${{ github.repository }} source-code
           cd source-code
           git checkout ${{ github.event.client_payload.commit_sha }}
 
