@@ -12,6 +12,7 @@ jobs:
       - name: Clone appropriate repo
         run: |
           git clone https://github.com/${{ github.repository }}.git repo-temp
+          mkdir repo-temp/source-code
           mv repo-temp/source-code ./source-code
           mv repo-temp/sonar-project.properties ./sonar-project.properties
 
