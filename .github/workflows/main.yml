@@ -7,14 +7,12 @@ on:
 jobs:
   external-ci:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Clone appropriate repo
+      - name: Clone Repository
         run: |
-          git clone https://github.com/${{ github.repository }}.git repo-temp
-          mkdir repo-temp/source-code
-          mv repo-temp/source-code ./source-code
-          mv repo-temp/sonar-project.properties ./sonar-project.properties
+          git clone https://github.com/${{ github.event.client_payload.repository }} source-code
+          cd source-code
+          git checkout ${{ github.event.client_payload.commit_sha }}
 
       - name: Debug CMakeLists
         run: |
