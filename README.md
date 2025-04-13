@@ -20,6 +20,14 @@ source venv/bin/activate
 pip install libclang
 
 ```
+
+## builder
+
+``` bash
+sudo apt install aspectc++
+```
+
+
 # 설명
 ## analyer 
 1단계: 정적 분석기 (C++ 파서)
