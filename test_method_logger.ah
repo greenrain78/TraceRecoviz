@@ -1,16 +1,48 @@
 #include "aspect_common.ah"
+#include <typeinfo>
+
+// 출력 가능 여부 판별
+template<typename T, typename = void>
+struct has_insertion : std::false_type {};
+template<typename T>
+struct has_insertion<T, std::void_t<decltype(std::declval<std::ostream&>() << std::declval<const T&>())>>
+    : std::true_type {};
 
 aspect AutoMethodLogger {
 
-    pointcut VoidSetFunctions() = execution("void ...::CloneCString(...)");
-    pointcut NonVoidSetFunctions() = execution("% ...::CloneCString(...)") && !VoidSetFunctions();
+    pointcut NonVoidSetFunctions() = execution("% ...::CloneCString(...)") && !execution("void ...::CloneCString(...)");
 
     advice NonVoidSetFunctions() : before() {
         std::ostringstream oss;
-        oss << "[ENTER] " << tjp->signature();
+        oss << "[ENTER] " << tjp->signature() << " (";
 
-        // 인자 출력 시작
+        constexpr int argc = JoinPoint::ARGS;
 
+        if constexpr (argc > 0) {
+            using A0 = JoinPoint::template Arg<0>::Type;
+            A0* a0 = tjp->template arg<0>();
+            oss << "arg0=";
+            if constexpr (has_insertion<A0>::value) oss << *a0;
+            else oss << static_cast<const void*>(a0);
+        }
+
+        if constexpr (argc > 1) {
+            using A1 = JoinPoint::template Arg<1>::Type;
+            A1* a1 = tjp->template arg<1>();
+            oss << ", arg1=";
+            if constexpr (has_insertion<A1>::value) oss << *a1;
+            else oss << static_cast<const void*>(a1);
+        }
+
+        if constexpr (argc > 2) {
+            using A2 = JoinPoint::template Arg<2>::Type;
+            A2* a2 = tjp->template arg<2>();
+            oss << ", arg2=";
+            if constexpr (has_insertion<A2>::value) oss << *a2;
+            else oss << static_cast<const void*>(a2);
+        }
+
+        oss << ")";
         AspectLogger::log(oss.str());
     }
 
