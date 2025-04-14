@@ -5,7 +5,9 @@
 
 ``` bash
 
-make SRCS="src/sample1.cc src/sample1_unittest.cc" TARGET=my_test
+make SRCS="src/sample1.cc src/sample1_unittest.cc" TARGET=test1
+make SRCS="src/sample2.cc src/sample2_unittest.cc" TARGET=test2
+make SRCS="src/sample3_unittest.cc" TARGET=test3
 
 ```
 

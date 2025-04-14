@@ -2,18 +2,22 @@
 
 aspect AutoMethodLogger {
 
-  // 멤버 함수 및 전역 함수 모두 감지 (void 리턴 포함)
-    advice call("% %::%(...)") : before() {
+    pointcut VoidSetFunctions() = execution("void ...::CloneCString(...)");
+    pointcut NonVoidSetFunctions() = execution("% ...::CloneCString(...)") && !VoidSetFunctions();
+
+    advice NonVoidSetFunctions() : before() {
         std::ostringstream oss;
         oss << "[ENTER] " << tjp->signature();
+
+        // 인자 출력 시작
+
         AspectLogger::log(oss.str());
     }
 
-    advice call("% %::%(...)") : after() {
+    advice NonVoidSetFunctions() : after() {
         std::ostringstream oss;
-        oss << "[EXIT ] " << tjp->signature();
+        oss << "[EXIT ] " << tjp->signature()
+            << " => " << *tjp->result();
         AspectLogger::log(oss.str());
     }
-
-
 };
