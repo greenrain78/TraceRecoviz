@@ -19,10 +19,30 @@
 [FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=1)
 [FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 1
 [FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=2)
+[FactorialTest.Positive]    [CALL   ] (0) int Factorial(int) (arg0=1)
+[FactorialTest.Positive]    [RETURN1] (0) int Factorial(int) => 1
 [FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 2
 [FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=3)
+[FactorialTest.Positive]    [CALL   ] (0) int Factorial(int) (arg0=2)
+[FactorialTest.Positive]      [CALL   ] (0) int Factorial(int) (arg0=1)
+[FactorialTest.Positive]      [RETURN1] (0) int Factorial(int) => 1
+[FactorialTest.Positive]    [RETURN1] (0) int Factorial(int) => 2
 [FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 6
 [FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=8)
+[FactorialTest.Positive]    [CALL   ] (0) int Factorial(int) (arg0=7)
+[FactorialTest.Positive]      [CALL   ] (0) int Factorial(int) (arg0=6)
+[FactorialTest.Positive]        [CALL   ] (0) int Factorial(int) (arg0=5)
+[FactorialTest.Positive]          [CALL   ] (0) int Factorial(int) (arg0=4)
+[FactorialTest.Positive]            [CALL   ] (0) int Factorial(int) (arg0=3)
+[FactorialTest.Positive]              [CALL   ] (0) int Factorial(int) (arg0=2)
+[FactorialTest.Positive]                [CALL   ] (0) int Factorial(int) (arg0=1)
+[FactorialTest.Positive]                [RETURN1] (0) int Factorial(int) => 1
+[FactorialTest.Positive]              [RETURN1] (0) int Factorial(int) => 2
+[FactorialTest.Positive]            [RETURN1] (0) int Factorial(int) => 6
+[FactorialTest.Positive]          [RETURN1] (0) int Factorial(int) => 24
+[FactorialTest.Positive]        [RETURN1] (0) int Factorial(int) => 120
+[FactorialTest.Positive]      [RETURN1] (0) int Factorial(int) => 720
+[FactorialTest.Positive]    [RETURN1] (0) int Factorial(int) => 5040
 [FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 40320
 [LOG    ] Run 끝: void testing::Test::Run()
 

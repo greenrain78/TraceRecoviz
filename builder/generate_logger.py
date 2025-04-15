@@ -4,8 +4,11 @@ TEMPLATE_PATH = "builder/template_aspect.txt"
 OUTPUT_PATH = "auto_aspect_logger.ah"
 
 # 추적할 함수 이름들
-TARGET_FUNCTIONS = ["TestBody", "Enqueue", "Push", "Pop"]
-
+TARGET_FUNCTIONS = [
+    "Factorial", "IsPrime", 
+    "CloneCString", "Set", "c_string", "Length",
+    "element", "next", "Clear", "Size", "Head", "Last", "Enqueue", "Dequeue", "Map",
+    ]
 
 def generate_pointcut_block(function_names: List[str]) -> str:
     def join_calls(prefix: str) -> str:
