@@ -6,14 +6,14 @@ GTEST_LIBS = ./gtest/libgtest.a ./gtest/libgtest_main.a
 TARGET = test
 
 # 소스 파일과 오브젝트 파일 정의
-SRCS =  src/sample3_unittest.cc
+SRCS =  src/sample2.cc src/sample2_unittest.cc
 OBJS = $(patsubst %.cc, %.o, $(SRCS))
 
 all: prepare $(TARGET)
 
 prepare:
 	@echo "🔧 Running Python scripts..."
-	# python3 builder/generate_logger.py
+	python3 builder/generate_logger.py
 
 $(TARGET): $(OBJS)
 	$(ACXX) $(CXXFLAGS) -o $@ $^ $(GTEST_LIBS) $(LDFLAGS)

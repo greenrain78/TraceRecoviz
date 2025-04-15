@@ -10,6 +10,7 @@ make SRCS="src/sample2.cc src/sample2_unittest.cc" TARGET=test2
 make SRCS="src/sample3_unittest.cc" TARGET=test3
 
 ```
+https://greenrain78.github.io/GTestGraph/html/sd6.html?data=data/unittest6/sd1.json
 
 # install
     
