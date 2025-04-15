@@ -10,46 +10,61 @@ struct has_insertion<T, std::void_t<decltype(std::declval<std::ostream&>() << st
 
 aspect AutoMethodLogger {
 
-    pointcut NonVoidSetFunctions() = execution("% ...::CloneCString(...)") && !execution("void ...::CloneCString(...)");
+     // 공통 Set 함수
+    pointcut AllSetFunctions() = call("% ...::CloneCString(...)");
 
-    advice NonVoidSetFunctions() : before() {
-        std::ostringstream oss;
+    // void가 아닌 Set 함수
+    pointcut NonVoidSetFunctions() = call("% ...::CloneCString(...)") && !call("void ...::CloneCString(...)");
+    // void 리턴 Set 함수
+    pointcut VoidSetFunctions() = call("void ...::CloneCString(...)");
+
+    // 진입 로그 (공통)
+    advice AllSetFunctions() : before() {
+        std::ostringstream oss; 
         oss << "[ENTER] " << tjp->signature() << " (";
 
         constexpr int argc = JoinPoint::ARGS;
 
         if constexpr (argc > 0) {
             using A0 = JoinPoint::template Arg<0>::Type;
-            A0* a0 = tjp->template arg<0>();
+            auto& a0 = *tjp->template arg<0>();
             oss << "arg0=";
-            if constexpr (has_insertion<A0>::value) oss << *a0;
-            else oss << static_cast<const void*>(a0);
+            if constexpr (has_insertion<A0>::value) oss << a0;
+            else oss << static_cast<const void*>(&a0);
         }
 
         if constexpr (argc > 1) {
             using A1 = JoinPoint::template Arg<1>::Type;
-            A1* a1 = tjp->template arg<1>();
+            auto& a1 = *tjp->template arg<1>();
             oss << ", arg1=";
-            if constexpr (has_insertion<A1>::value) oss << *a1;
-            else oss << static_cast<const void*>(a1);
+            if constexpr (has_insertion<A1>::value) oss << a1;
+            else oss << static_cast<const void*>(&a1);
         }
 
         if constexpr (argc > 2) {
             using A2 = JoinPoint::template Arg<2>::Type;
-            A2* a2 = tjp->template arg<2>();
+            auto& a2 = *tjp->template arg<2>();
             oss << ", arg2=";
-            if constexpr (has_insertion<A2>::value) oss << *a2;
-            else oss << static_cast<const void*>(a2);
+            if constexpr (has_insertion<A2>::value) oss << a2;
+            else oss << static_cast<const void*>(&a2);
         }
 
         oss << ")";
         AspectLogger::log(oss.str());
     }
 
+    // void가 아닌 리턴
     advice NonVoidSetFunctions() : after() {
         std::ostringstream oss;
         oss << "[EXIT ] " << tjp->signature()
             << " => " << *tjp->result();
+        AspectLogger::log(oss.str());
+    }
+
+    // void 리턴
+    advice VoidSetFunctions() : after() {
+        std::ostringstream oss;
+        oss << "[EXIT ] " << tjp->signature() << " => void";
         AspectLogger::log(oss.str());
     }
 };
