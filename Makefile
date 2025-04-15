@@ -13,9 +13,7 @@ all: prepare $(TARGET)
 
 prepare:
 	@echo "🔧 Running Python scripts..."
-	# python3 builder/generate_class_logger.py
-	# python3 builder/generate_method_logger.py
-	# python3 builder/generate_function_logger.py
+	python3 builder/generate_logger.py
 
 $(TARGET): $(OBJS)
 	$(ACXX) $(CXXFLAGS) -o $@ $^ $(GTEST_LIBS) $(LDFLAGS)

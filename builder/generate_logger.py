@@ -1,51 +1,37 @@
 from typing import List
-from template import ADVICE_FUNCTION, SIGNATURE_FUNCTION
+
+TEMPLATE_PATH = "builder/template_aspect.txt"
+OUTPUT_PATH = "auto_aspect_logger.ah"
+
+# 추적할 함수 이름들
+TARGET_FUNCTIONS = ["TestBody", "Enqueue", "Push", "Pop"]
 
 
-TEMPLATE_FILE = "builder/template_function.txt"
-OUTPUT_FILE = "auto_test_logger.ah"
+def generate_pointcut_block(function_names: List[str]) -> str:
+    def join_calls(prefix: str) -> str:
+        return ' || '.join([f'call("{prefix} ...::{name}(...)")' for name in function_names])
 
-# === 1. 추적할 함수 시그니처 정의 ===
-signature_list: List[List[str]] = [
-    # ["int"], # sample1
-]
+    all_calls = join_calls("%")
+    void_calls = join_calls("void")
 
-# === 2. arg 로그 표현 생성 ===
-def format_arg_log(num_args: int) -> str:
-    parts = [f'"arg{i}=" << *tjp->arg<{i}>()' for i in range(num_args)]
-    return ' << ", " << '.join(parts)
+    return f"""\
+    pointcut AllTargetFunctions() = {all_calls};
+    pointcut VoidTargetFunctions() = {void_calls};
+    pointcut NonVoidTargetFunctions() = AllTargetFunctions() && !VoidTargetFunctions();"""
 
-# === 3. 어드바이스 코드 생성 ===
-def generate_advice_block(sign: str, arg_types: List[str]) -> str:
-    sig_str = f"%{sign}%(', '.join(arg_types))"
-    args_log = format_arg_log(len(arg_types))
 
-    advice = ADVICE_FUNCTION.replace("{{SIGNATURE}}", sig_str)
-    advice = advice.replace("{{ARGS_LOG}}", args_log)
-    return advice
-
-# === 4. 전체 어드바이스 블록 생성 ===
-def generate_advice_blocks() -> str:
-    return "\n\n".join(generate_advice_block(sig) for sig in signature_list)
-
-# === 5. 템플릿 기반 전체 Aspect 파일 생성 ===
-def generate_aspect_file(template_file: str, output_file: str):
-    with open(template_file, "r", encoding="utf-8") as f:
+def generate_aspect_file(template_path: str, output_path: str, pointcut_code: str) -> None:
+    with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
 
-    advice_code = generate_advice_blocks()
-    final_code = template.replace("{{ADVICE_BLOCKS}}", advice_code)
+    output = template.replace("{{POINTCUTS}}", pointcut_code)
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write(final_code)
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(output)
 
-    print(f"[✓] Generated {output_file} with {len(signature_list)} signature variants.")
+    print(f"✅ Generated {output_path} with {len(TARGET_FUNCTIONS)} target functions.")
 
-# === 6. 실행 ===
+
 if __name__ == "__main__":
-    # generate_aspect_file(TEMPLATE_FILE, OUTPUT_FILE)
-    test_signature = [
-        ("Factorial(int)", ["int"]),
-    ]
-    print(f"generate_advice_block")
-    print(generate_advice_block(*test_signature[0]))  # Test the function with a sample signature
+    pointcut_code = generate_pointcut_block(TARGET_FUNCTIONS)
+    generate_aspect_file(TEMPLATE_PATH, OUTPUT_PATH, pointcut_code)
