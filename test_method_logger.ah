@@ -1,6 +1,19 @@
 #include "aspect_common.ah"
 #include <typeinfo>
 
+
+#include <gtest/gtest.h>
+#include <iostream>
+
+void print_current_test_name() {
+    const ::testing::TestInfo* const test_info =
+        ::testing::UnitTest::GetInstance()->current_test_info();
+    if (test_info) {
+        std::cout << "[TEST INFO] "
+                  << test_info->test_case_name() << "." << test_info->name() << std::endl;
+    }
+}
+
 // 출력 가능 여부 판별
 template<typename T, typename = void>
 struct has_insertion : std::false_type {};
@@ -10,19 +23,15 @@ struct has_insertion<T, std::void_t<decltype(std::declval<std::ostream&>() << st
 
 aspect AutoMethodLogger {
 
-     // 공통 Set 함수
-    pointcut AllSetFunctions() = call("% ...::CloneCString(...)");
+    pointcut AllTargetFunctions() = call("% ...::TestBody(...)") || call("% ...::Enqueue(...)");
+    pointcut VoidTargetFunctions() = call("void ...::TestBody(...)") || call("void ...::Enqueue(...)");
+    pointcut NonVoidTargetFunctions() = AllTargetFunctions() && !VoidTargetFunctions();
 
-    // void가 아닌 Set 함수
-    pointcut NonVoidSetFunctions() = call("% ...::CloneCString(...)") && !call("void ...::CloneCString(...)");
-    // void 리턴 Set 함수
-    pointcut VoidSetFunctions() = call("void ...::CloneCString(...)");
-
-    // 진입 로그 (공통)
-    advice AllSetFunctions() : before() {
+    advice AllTargetFunctions() : before() {
+        print_current_test_name ();
         std::ostringstream oss; 
-        oss << "[ENTER] " << tjp->signature() << " (";
-
+        oss << "[CALL   ] (" << tjp->target() << ") " << tjp->signature() << " (";
+ 
         constexpr int argc = JoinPoint::ARGS;
 
         if constexpr (argc > 0) {
@@ -53,18 +62,15 @@ aspect AutoMethodLogger {
         AspectLogger::log(oss.str());
     }
 
-    // void가 아닌 리턴
-    advice NonVoidSetFunctions() : after() {
+    advice NonVoidTargetFunctions() : after() {
         std::ostringstream oss;
-        oss << "[EXIT ] " << tjp->signature()
-            << " => " << *tjp->result();
+        oss << "[RETURN1] (" << tjp->target() << ") " << tjp->signature() << " => " << *tjp->result();
         AspectLogger::log(oss.str());
     }
 
-    // void 리턴
-    advice VoidSetFunctions() : after() {
+    advice VoidTargetFunctions() : after() {
         std::ostringstream oss;
-        oss << "[EXIT ] " << tjp->signature() << " => void";
+        oss << "[RETURN2] (" << tjp->target() << ") "  << tjp->signature() << " => void";
         AspectLogger::log(oss.str());
     }
 };

@@ -12,4 +12,22 @@ aspect Logger {
         oss << "[LOG    ] Run 끝: " << JoinPoint::signature() << std::endl;
         AspectLogger::log(oss.str());
     }
+
+
+
+    
+    advice call("void %::TestBody(...)") : around() {
+        std::ostringstream oss;
+        std::string sig = JoinPoint::signature();
+
+        if (sig.find("anonymous namespace") != std::string::npos) {
+            oss << "[CALL] 익명 네임스페이스 TestBody 시그니처: " << sig;
+        } else {
+            oss << "[CALL] 일반 TestBody 시그니처: " << sig;
+        }
+
+        AspectLogger::log(oss.str());
+        tjp->proceed();  // 반드시 호출
+    }
+
 };

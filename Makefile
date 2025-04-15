@@ -6,7 +6,7 @@ GTEST_LIBS = ./gtest/libgtest.a ./gtest/libgtest_main.a
 TARGET = test
 
 # 소스 파일과 오브젝트 파일 정의
-SRCS = src/sample2.cc src/sample2_unittest.cc
+SRCS =  src/sample3_unittest.cc
 OBJS = $(patsubst %.cc, %.o, $(SRCS))
 
 all: prepare $(TARGET)
