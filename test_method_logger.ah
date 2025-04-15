@@ -5,15 +5,6 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
-void print_current_test_name() {
-    const ::testing::TestInfo* const test_info =
-        ::testing::UnitTest::GetInstance()->current_test_info();
-    if (test_info) {
-        std::cout << "[TEST INFO] "
-                  << test_info->test_case_name() << "." << test_info->name() << std::endl;
-    }
-}
-
 // 출력 가능 여부 판별
 template<typename T, typename = void>
 struct has_insertion : std::false_type {};
@@ -28,8 +19,17 @@ aspect AutoMethodLogger {
     pointcut NonVoidTargetFunctions() = AllTargetFunctions() && !VoidTargetFunctions();
 
     advice AllTargetFunctions() : before() {
-        print_current_test_name ();
+        
         std::ostringstream oss; 
+
+
+        const ::testing::TestInfo* const test_info =
+            ::testing::UnitTest::GetInstance()->current_test_info();
+        if (test_info) {
+            oss << "[TEST INFO] "
+                    << test_info->test_case_name() << "." << test_info->name();
+        }
+
         oss << "[CALL   ] (" << tjp->target() << ") " << tjp->signature() << " (";
  
         constexpr int argc = JoinPoint::ARGS;
