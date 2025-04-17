@@ -33,7 +33,7 @@ aspect AutoMethodLogger {
         if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
             oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
         }
-        oss << AspectLogger::indent() << "[CTOR RETURN] " << tjp->signature();
+        oss << AspectLogger::indent() << "[CTOR RETURN] " << tjp->signature() << " " << tjp->target() ;
         AspectLogger::log(oss.str());
         AspectLogger::depth()--;
     }
