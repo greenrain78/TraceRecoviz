@@ -14,67 +14,56 @@ struct has_insertion<T, std::void_t<decltype(std::declval<std::ostream&>() << st
 
 aspect AutoMethodLogger {
 
-    pointcut AllTargetFunctions() = call("% ...::Factorial(...)") || call("% ...::IsPrime(...)") || call("% ...::CloneCString(...)") || call("% ...::Set(...)") || call("% ...::c_string(...)") || call("% ...::Length(...)") || call("% ...::element(...)") || call("% ...::next(...)") || call("% ...::Clear(...)") || call("% ...::Size(...)") || call("% ...::Head(...)") || call("% ...::Last(...)") || call("% ...::Enqueue(...)") || call("% ...::Dequeue(...)") || call("% ...::Map(...)");
-    pointcut VoidTargetFunctions() = call("void ...::Factorial(...)") || call("void ...::IsPrime(...)") || call("void ...::CloneCString(...)") || call("void ...::Set(...)") || call("void ...::c_string(...)") || call("void ...::Length(...)") || call("void ...::element(...)") || call("void ...::next(...)") || call("void ...::Clear(...)") || call("void ...::Size(...)") || call("void ...::Head(...)") || call("void ...::Last(...)") || call("void ...::Enqueue(...)") || call("void ...::Dequeue(...)") || call("void ...::Map(...)");
+    pointcut AllTargetFunctions() = call("% ...::Factorial(...)") || call("% ...::IsPrime(...)") || call("% ...::CloneCString(...)") || call("% ...::Set(...)") || call("% ...::c_string(...)") || call("% ...::Length(...)") || call("% ...::element(...)") || call("% ...::next(...)") || call("% ...::Clear(...)") || call("% ...::Size(...)") || call("% ...::Head(...)") || call("% ...::Last(...)") || call("% ...::Enqueue(...)") || call("% ...::Dequeue(...)") || call("% ...::Map(...)") || call("% ...::Increment(...)") || call("% ...::Decrement(...)");
+    pointcut VoidTargetFunctions() = call("void ...::Factorial(...)") || call("void ...::IsPrime(...)") || call("void ...::CloneCString(...)") || call("void ...::Set(...)") || call("void ...::c_string(...)") || call("void ...::Length(...)") || call("void ...::element(...)") || call("void ...::next(...)") || call("void ...::Clear(...)") || call("void ...::Size(...)") || call("void ...::Head(...)") || call("void ...::Last(...)") || call("void ...::Enqueue(...)") || call("void ...::Dequeue(...)") || call("void ...::Map(...)") || call("void ...::Increment(...)") || call("void ...::Decrement(...)");
     pointcut NonVoidTargetFunctions() = AllTargetFunctions() && !VoidTargetFunctions();
 
-// 임시로 class 생성자 설정
-   advice construction("MyString") : before() {
+pointcut TrackedConstructors() = construction("MyString") || construction("Counter");
+pointcut TrackedDestructors() = destruction("MyString") || destruction("Counter");
+
+    // 생성자 진입
+    advice TrackedConstructors() : before() {
         AspectLogger::depth()++;
         std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
             oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
         }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[CTOR  1] MyString::" << tjp->signature();
-        AspectLogger::log(oss.str());
-    }
-    
-    advice construction("MyString") : after() {
-        std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
-            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
-        }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[CTOR  2] MyString::" << tjp->signature();
-        AspectLogger::log(oss.str());
-        AspectLogger::depth()--;
-    }
-        
-    advice destruction("MyString") : before() {
-        AspectLogger::depth()++;
-        std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
-            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
-        }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[DTOR  1] MyString::" << tjp->signature();
+        oss << AspectLogger::indent() << "[CTOR Call  ] " << tjp->signature();
         AspectLogger::log(oss.str());
     }
 
-    advice destruction("MyString") : after() {
+    // 생성자 종료
+    advice TrackedConstructors() : after() {
         std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
             oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
         }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[DTOR  2] MyString::" << tjp->signature();
+        oss << AspectLogger::indent() << "[CTOR RETURN] " << tjp->signature();
         AspectLogger::log(oss.str());
         AspectLogger::depth()--;
     }
 
+    // 소멸자 진입
+    advice TrackedDestructors() : before() {
+        AspectLogger::depth()++;
+        std::ostringstream oss;
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
+            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
+        }
+        oss << AspectLogger::indent() << "[DTOR Call  ] " << tjp->signature();
+        AspectLogger::log(oss.str());
+    }
+
+    // 소멸자 종료
+    advice TrackedDestructors() : after() {
+        std::ostringstream oss;
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
+            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
+        }
+        oss << AspectLogger::indent() << "[DTOR RETURN] " << tjp->signature();
+        AspectLogger::log(oss.str());
+        AspectLogger::depth()--;
+    }
 
 
 

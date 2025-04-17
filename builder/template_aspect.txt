@@ -16,63 +16,52 @@ aspect AutoMethodLogger {
 
 {{POINTCUTS}}
 
-// 임시로 class 생성자 설정
-   advice construction("MyString") : before() {
+pointcut TrackedConstructors() = construction("MyString") || construction("Counter");
+pointcut TrackedDestructors() = destruction("MyString") || destruction("Counter");
+
+    // 생성자 진입
+    advice TrackedConstructors() : before() {
         AspectLogger::depth()++;
         std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
             oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
         }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[CTOR  1] MyString::" << tjp->signature();
-        AspectLogger::log(oss.str());
-    }
-    
-    advice construction("MyString") : after() {
-        std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
-            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
-        }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[CTOR  2] MyString::" << tjp->signature();
-        AspectLogger::log(oss.str());
-        AspectLogger::depth()--;
-    }
-        
-    advice destruction("MyString") : before() {
-        AspectLogger::depth()++;
-        std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
-            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
-        }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[DTOR  1] MyString::" << tjp->signature();
+        oss << AspectLogger::indent() << "[CTOR Call  ] " << tjp->signature();
         AspectLogger::log(oss.str());
     }
 
-    advice destruction("MyString") : after() {
+    // 생성자 종료
+    advice TrackedConstructors() : after() {
         std::ostringstream oss;
-        // 테스트 정보 출력
-        const ::testing::TestInfo* const test_info =
-            ::testing::UnitTest::GetInstance()->current_test_info();
-        if (test_info) {
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
             oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
         }
-        oss << AspectLogger::indent(); // depth 출력
-        oss << "[DTOR  2] MyString::" << tjp->signature();
+        oss << AspectLogger::indent() << "[CTOR RETURN] " << tjp->signature();
         AspectLogger::log(oss.str());
         AspectLogger::depth()--;
     }
 
+    // 소멸자 진입
+    advice TrackedDestructors() : before() {
+        AspectLogger::depth()++;
+        std::ostringstream oss;
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
+            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
+        }
+        oss << AspectLogger::indent() << "[DTOR Call  ] " << tjp->signature();
+        AspectLogger::log(oss.str());
+    }
+
+    // 소멸자 종료
+    advice TrackedDestructors() : after() {
+        std::ostringstream oss;
+        if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info()) {
+            oss << "[" << test_info->test_case_name() << "." << test_info->name() << "]";
+        }
+        oss << AspectLogger::indent() << "[DTOR RETURN] " << tjp->signature();
+        AspectLogger::log(oss.str());
+        AspectLogger::depth()--;
+    }
 
 
 

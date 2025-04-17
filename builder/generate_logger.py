@@ -8,6 +8,8 @@ TARGET_FUNCTIONS = [
     "Factorial", "IsPrime", 
     "CloneCString", "Set", "c_string", "Length",
     "element", "next", "Clear", "Size", "Head", "Last", "Enqueue", "Dequeue", "Map",
+    "Increment", "Decrement",
+    
     ]
 
 def generate_pointcut_block(function_names: List[str]) -> str:
