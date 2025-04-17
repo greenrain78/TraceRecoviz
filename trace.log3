@@ -1,0 +1,96 @@
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[QueueTestSmpl3.DefaultConstructor]  [CALL   ] (0x55e6921ed298) void Queue<int>::Enqueue(const int &) (arg0=1)
+[QueueTestSmpl3.DefaultConstructor]  [RETURN2] (0x55e6921ed298) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.DefaultConstructor]  [CALL   ] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) (arg0=2)
+[QueueTestSmpl3.DefaultConstructor]  [RETURN2] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.DefaultConstructor]  [CALL   ] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) (arg0=3)
+[QueueTestSmpl3.DefaultConstructor]  [RETURN2] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.DefaultConstructor]  [CALL   ] (0x55e6921ed280) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.DefaultConstructor]  [RETURN1] (0x55e6921ed280) unsigned long int Queue<int>::Size() const => 0
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed298) void Queue<int>::Enqueue(const int &) (arg0=1)
+[QueueTestSmpl3.Dequeue]  [RETURN2] (0x55e6921ed298) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) (arg0=2)
+[QueueTestSmpl3.Dequeue]  [RETURN2] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) (arg0=3)
+[QueueTestSmpl3.Dequeue]  [RETURN2] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed280) int *Queue<int>::Dequeue() ()
+[QueueTestSmpl3.Dequeue]  [RETURN1] (0x55e6921ed280) int *Queue<int>::Dequeue() => 0
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed298) int *Queue<int>::Dequeue() ()
+[QueueTestSmpl3.Dequeue]  [RETURN1] (0x55e6921ed298) int *Queue<int>::Dequeue() => 0x55e6921efbe0
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed298) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Dequeue]  [RETURN1] (0x55e6921ed298) unsigned long int Queue<int>::Size() const => 0
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed2b0) int *Queue<int>::Dequeue() ()
+[QueueTestSmpl3.Dequeue]  [RETURN1] (0x55e6921ed2b0) int *Queue<int>::Dequeue() => 0x55e6921efbe0
+[QueueTestSmpl3.Dequeue]  [CALL   ] (0x55e6921ed2b0) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Dequeue]  [RETURN1] (0x55e6921ed2b0) unsigned long int Queue<int>::Size() const => 1
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed298) void Queue<int>::Enqueue(const int &) (arg0=1)
+[QueueTestSmpl3.Map]  [RETURN2] (0x55e6921ed298) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) (arg0=2)
+[QueueTestSmpl3.Map]  [RETURN2] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) (arg0=3)
+[QueueTestSmpl3.Map]  [RETURN2] (0x55e6921ed2b0) void Queue<int>::Enqueue(const int &) => void
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed280) Queue<int> *Queue<int>::Map<int (*)(int)>(int (*)(int)) const (arg0=1)
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed280) Queue<int> *Queue<int>::Map<int (*)(int)>(int (*)(int)) const => 0x55e6921efb10
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb10) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb10) unsigned long int Queue<int>::Size() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed280) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed280) unsigned long int Queue<int>::Size() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed280) const QueueNode<int> *Queue<int>::Head() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed280) const QueueNode<int> *Queue<int>::Head() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb10) const QueueNode<int> *Queue<int>::Head() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb10) const QueueNode<int> *Queue<int>::Head() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed298) Queue<int> *Queue<int>::Map<int (*)(int)>(int (*)(int)) const (arg0=1)
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed298) Queue<int> *Queue<int>::Map<int (*)(int)>(int (*)(int)) const => 0x55e6921efb10
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb10) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb10) unsigned long int Queue<int>::Size() const => 1
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed298) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed298) unsigned long int Queue<int>::Size() const => 1
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed298) const QueueNode<int> *Queue<int>::Head() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed298) const QueueNode<int> *Queue<int>::Head() const => 0x55e6921efb30
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb10) const QueueNode<int> *Queue<int>::Head() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb10) const QueueNode<int> *Queue<int>::Head() const => 0x55e6921efc90
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efc90) const int &QueueNode<int>::element() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efc90) const int &QueueNode<int>::element() const => 0x55e6921efc90
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb30) const int &QueueNode<int>::element() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb30) const int &QueueNode<int>::element() const => 0x55e6921efb30
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb30) const QueueNode<int> *QueueNode<int>::next() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb30) const QueueNode<int> *QueueNode<int>::next() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efc90) const QueueNode<int> *QueueNode<int>::next() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efc90) const QueueNode<int> *QueueNode<int>::next() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed2b0) Queue<int> *Queue<int>::Map<int (*)(int)>(int (*)(int)) const (arg0=1)
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed2b0) Queue<int> *Queue<int>::Map<int (*)(int)>(int (*)(int)) const => 0x55e6921efb10
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb10) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb10) unsigned long int Queue<int>::Size() const => 2
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed2b0) unsigned long int Queue<int>::Size() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed2b0) unsigned long int Queue<int>::Size() const => 2
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921ed2b0) const QueueNode<int> *Queue<int>::Head() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921ed2b0) const QueueNode<int> *Queue<int>::Head() const => 0x55e6921efbe0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb10) const QueueNode<int> *Queue<int>::Head() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb10) const QueueNode<int> *Queue<int>::Head() const => 0x55e6921efc90
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efc90) const int &QueueNode<int>::element() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efc90) const int &QueueNode<int>::element() const => 0x55e6921efc90
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efbe0) const int &QueueNode<int>::element() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efbe0) const int &QueueNode<int>::element() const => 0x55e6921efbe0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efbe0) const QueueNode<int> *QueueNode<int>::next() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efbe0) const QueueNode<int> *QueueNode<int>::next() const => 0x55e6921efb50
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efc90) const QueueNode<int> *QueueNode<int>::next() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efc90) const QueueNode<int> *QueueNode<int>::next() const => 0x55e6921efcb0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efcb0) const int &QueueNode<int>::element() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efcb0) const int &QueueNode<int>::element() const => 0x55e6921efcb0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb50) const int &QueueNode<int>::element() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb50) const int &QueueNode<int>::element() const => 0x55e6921efb50
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efb50) const QueueNode<int> *QueueNode<int>::next() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efb50) const QueueNode<int> *QueueNode<int>::next() const => 0
+[QueueTestSmpl3.Map]  [CALL   ] (0x55e6921efcb0) const QueueNode<int> *QueueNode<int>::next() const ()
+[QueueTestSmpl3.Map]  [RETURN1] (0x55e6921efcb0) const QueueNode<int> *QueueNode<int>::next() const => 0
+[LOG    ] Run 끝: void testing::Test::Run()
+

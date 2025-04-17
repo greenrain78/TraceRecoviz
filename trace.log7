@@ -1,0 +1,148 @@
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=-5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=0)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=1)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=4)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=6)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=100)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=-5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=0)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=1)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=4)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=6)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=100)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1]  [DTOR RETURN] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=2)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=3)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=7)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=11)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=131)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=2)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=3)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=7)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=11)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [CALL   ] (0x559c6c035950) bool PrimeTable::IsPrime(int) const (arg0=131)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [RETURN1] (0x559c6c035950) bool PrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1]  [DTOR RETURN] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=0)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 2
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=2)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 3
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=3)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 5
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 7
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=7)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 11
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=128)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [CALL   ] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]    [RETURN1] (0x559c6c035950) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 131
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=0)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 2
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=2)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 3
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=3)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 5
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=5)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 7
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=7)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 11
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [CALL   ] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const (arg0=128)
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [RETURN1] (0x559c6c035950) int PrimeTable::GetNextPrime(int) const => 131
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
+[OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1]  [DTOR RETURN] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
+[LOG    ] Run 끝: void testing::Test::Run()
+

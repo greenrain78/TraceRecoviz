@@ -1,7 +1,0 @@
-#include "aspect_common.ah"
-
-aspect AutoMethodLogger {
-
-{{ADVICE_BLOCKS}}
-
-};

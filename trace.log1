@@ -1,0 +1,62 @@
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[FactorialTest.Negative]  [CALL   ] (0) int Factorial(int) (arg0=-5)
+[FactorialTest.Negative]  [RETURN1] (0) int Factorial(int) => 1
+[FactorialTest.Negative]  [CALL   ] (0) int Factorial(int) (arg0=-1)
+[FactorialTest.Negative]  [RETURN1] (0) int Factorial(int) => 1
+[FactorialTest.Negative]  [CALL   ] (0) int Factorial(int) (arg0=-10)
+[FactorialTest.Negative]  [RETURN1] (0) int Factorial(int) => 1
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[FactorialTest.Zero]  [CALL   ] (0) int Factorial(int) (arg0=0)
+[FactorialTest.Zero]  [RETURN1] (0) int Factorial(int) => 1
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=1)
+[FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 1
+[FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=2)
+[FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 2
+[FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=3)
+[FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 6
+[FactorialTest.Positive]  [CALL   ] (0) int Factorial(int) (arg0=8)
+[FactorialTest.Positive]  [RETURN1] (0) int Factorial(int) => 40320
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[IsPrimeTest.Negative]  [CALL   ] (0) bool IsPrime(int) (arg0=-1)
+[IsPrimeTest.Negative]  [RETURN1] (0) bool IsPrime(int) => 0
+[IsPrimeTest.Negative]  [CALL   ] (0) bool IsPrime(int) (arg0=-2)
+[IsPrimeTest.Negative]  [RETURN1] (0) bool IsPrime(int) => 0
+[IsPrimeTest.Negative]  [CALL   ] (0) bool IsPrime(int) (arg0=-2147483648)
+[IsPrimeTest.Negative]  [RETURN1] (0) bool IsPrime(int) => 0
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[IsPrimeTest.Trivial]  [CALL   ] (0) bool IsPrime(int) (arg0=0)
+[IsPrimeTest.Trivial]  [RETURN1] (0) bool IsPrime(int) => 0
+[IsPrimeTest.Trivial]  [CALL   ] (0) bool IsPrime(int) (arg0=1)
+[IsPrimeTest.Trivial]  [RETURN1] (0) bool IsPrime(int) => 0
+[IsPrimeTest.Trivial]  [CALL   ] (0) bool IsPrime(int) (arg0=2)
+[IsPrimeTest.Trivial]  [RETURN1] (0) bool IsPrime(int) => 1
+[IsPrimeTest.Trivial]  [CALL   ] (0) bool IsPrime(int) (arg0=3)
+[IsPrimeTest.Trivial]  [RETURN1] (0) bool IsPrime(int) => 1
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[IsPrimeTest.Positive]  [CALL   ] (0) bool IsPrime(int) (arg0=4)
+[IsPrimeTest.Positive]  [RETURN1] (0) bool IsPrime(int) => 0
+[IsPrimeTest.Positive]  [CALL   ] (0) bool IsPrime(int) (arg0=5)
+[IsPrimeTest.Positive]  [RETURN1] (0) bool IsPrime(int) => 1
+[IsPrimeTest.Positive]  [CALL   ] (0) bool IsPrime(int) (arg0=6)
+[IsPrimeTest.Positive]  [RETURN1] (0) bool IsPrime(int) => 0
+[IsPrimeTest.Positive]  [CALL   ] (0) bool IsPrime(int) (arg0=23)
+[IsPrimeTest.Positive]  [RETURN1] (0) bool IsPrime(int) => 1
+[LOG    ] Run 끝: void testing::Test::Run()
+

@@ -1,0 +1,78 @@
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[MyString.DefaultConstructor]  [CTOR  1] MyString::MyString::MyString()
+[MyString.DefaultConstructor]  [CTOR  2] MyString::MyString::MyString()
+[MyString.DefaultConstructor]  [CALL   ] (0x7fffe154c998) const char *MyString::c_string() const ()
+[MyString.DefaultConstructor]  [RETURN1] (0x7fffe154c998) const char *MyString::c_string() const => 
+[MyString.DefaultConstructor]  [CALL   ] (0x7fffe154c998) unsigned long int MyString::Length() const ()
+[MyString.DefaultConstructor]  [RETURN1] (0x7fffe154c998) unsigned long int MyString::Length() const => 0
+[MyString.DefaultConstructor]  [DTOR  1] MyString::MyString::~MyString()
+[MyString.DefaultConstructor]  [DTOR  2] MyString::MyString::~MyString()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[MyString.ConstructorFromCString]  [CTOR  1] MyString::MyString::MyString(const char *)
+[MyString.ConstructorFromCString]    [CALL   ] (0x7fffe154c998) void MyString::Set(const char *) (arg0=Hello, world!)
+[MyString.ConstructorFromCString]      [CALL   ] (0) const char *MyString::CloneCString(const char *) (arg0=Hello, world!)
+[MyString.ConstructorFromCString]      [RETURN1] (0) const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.ConstructorFromCString]    [RETURN2] (0x7fffe154c998) void MyString::Set(const char *) => void
+[MyString.ConstructorFromCString]  [CTOR  2] MyString::MyString::MyString(const char *)
+[MyString.ConstructorFromCString]  [CALL   ] (0x7fffe154c998) const char *MyString::c_string() const ()
+[MyString.ConstructorFromCString]  [RETURN1] (0x7fffe154c998) const char *MyString::c_string() const => Hello, world!
+[MyString.ConstructorFromCString]  [CALL   ] (0x7fffe154c998) unsigned long int MyString::Length() const ()
+[MyString.ConstructorFromCString]  [RETURN1] (0x7fffe154c998) unsigned long int MyString::Length() const => 13
+[MyString.ConstructorFromCString]  [DTOR  1] MyString::MyString::~MyString()
+[MyString.ConstructorFromCString]  [DTOR  2] MyString::MyString::~MyString()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[MyString.CopyConstructor]  [CTOR  1] MyString::MyString::MyString(const char *)
+[MyString.CopyConstructor]    [CALL   ] (0x7fffe154c9a0) void MyString::Set(const char *) (arg0=Hello, world!)
+[MyString.CopyConstructor]      [CALL   ] (0) const char *MyString::CloneCString(const char *) (arg0=Hello, world!)
+[MyString.CopyConstructor]      [RETURN1] (0) const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.CopyConstructor]    [RETURN2] (0x7fffe154c9a0) void MyString::Set(const char *) => void
+[MyString.CopyConstructor]  [CTOR  2] MyString::MyString::MyString(const char *)
+[MyString.CopyConstructor]  [CTOR  1] MyString::MyString::MyString(const MyString &)
+[MyString.CopyConstructor]    [CALL   ] (0x7fffe154c9a8) void MyString::Set(const char *) (arg0=Hello, world!)
+[MyString.CopyConstructor]      [CALL   ] (0) const char *MyString::CloneCString(const char *) (arg0=Hello, world!)
+[MyString.CopyConstructor]      [RETURN1] (0) const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.CopyConstructor]    [RETURN2] (0x7fffe154c9a8) void MyString::Set(const char *) => void
+[MyString.CopyConstructor]  [CTOR  2] MyString::MyString::MyString(const MyString &)
+[MyString.CopyConstructor]  [CALL   ] (0x7fffe154c9a8) const char *MyString::c_string() const ()
+[MyString.CopyConstructor]  [RETURN1] (0x7fffe154c9a8) const char *MyString::c_string() const => Hello, world!
+[MyString.CopyConstructor]  [DTOR  1] MyString::MyString::~MyString()
+[MyString.CopyConstructor]  [DTOR  2] MyString::MyString::~MyString()
+[MyString.CopyConstructor]  [DTOR  1] MyString::MyString::~MyString()
+[MyString.CopyConstructor]  [DTOR  2] MyString::MyString::~MyString()
+[LOG    ] Run 끝: void testing::Test::Run()
+
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[MyString.Set]  [CTOR  1] MyString::MyString::MyString()
+[MyString.Set]  [CTOR  2] MyString::MyString::MyString()
+[MyString.Set]  [CALL   ] (0x7fffe154c938) void MyString::Set(const char *) (arg0=Hello, world!)
+[MyString.Set]    [CALL   ] (0) const char *MyString::CloneCString(const char *) (arg0=Hello, world!)
+[MyString.Set]    [RETURN1] (0) const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.Set]  [RETURN2] (0x7fffe154c938) void MyString::Set(const char *) => void
+[MyString.Set]  [CALL   ] (0x7fffe154c938) const char *MyString::c_string() const ()
+[MyString.Set]  [RETURN1] (0x7fffe154c938) const char *MyString::c_string() const => Hello, world!
+[MyString.Set]  [CALL   ] (0x7fffe154c938) const char *MyString::c_string() const ()
+[MyString.Set]  [RETURN1] (0x7fffe154c938) const char *MyString::c_string() const => Hello, world!
+[MyString.Set]  [CALL   ] (0x7fffe154c938) void MyString::Set(const char *) (arg0=Hello, world!)
+[MyString.Set]    [CALL   ] (0) const char *MyString::CloneCString(const char *) (arg0=Hello, world!)
+[MyString.Set]    [RETURN1] (0) const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.Set]  [RETURN2] (0x7fffe154c938) void MyString::Set(const char *) => void
+[MyString.Set]  [CALL   ] (0x7fffe154c938) const char *MyString::c_string() const ()
+[MyString.Set]  [RETURN1] (0x7fffe154c938) const char *MyString::c_string() const => Hello, world!
+[MyString.Set]  [CALL   ] (0x7fffe154c938) void MyString::Set(const char *) (arg0=
+[MyString.Set]    [CALL   ] (0) const char *MyString::CloneCString(const char *) (arg0=
+[MyString.Set]    [RETURN1] (0) const char *MyString::CloneCString(const char *) => 
+[MyString.Set]  [RETURN2] (0x7fffe154c938) void MyString::Set(const char *) => void
+[MyString.Set]  [CALL   ] (0x7fffe154c938) const char *MyString::c_string() const ()
+[MyString.Set]  [RETURN1] (0x7fffe154c938) const char *MyString::c_string() const => 
+[MyString.Set]  [DTOR  1] MyString::MyString::~MyString()
+[MyString.Set]  [DTOR  2] MyString::MyString::~MyString()
+[LOG    ] Run 끝: void testing::Test::Run()
+
