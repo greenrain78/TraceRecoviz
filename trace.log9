@@ -6,3 +6,7 @@
 [LOG    ] Run 시작: void testing::Test::Run()
 [LOG    ] Run 끝: void testing::Test::Run()
 
+
+[LOG    ] Run 시작: void testing::Test::Run()
+[LOG    ] Run 끝: void testing::Test::Run()
+

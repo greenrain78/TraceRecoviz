@@ -16,9 +16,6 @@ aspect AutoMethodLogger {
 
 {{POINTCUTS}}
 
-pointcut TrackedConstructors() = construction("MyString") || construction("Counter");
-pointcut TrackedDestructors() = destruction("MyString") || destruction("Counter");
-
     // 생성자 진입
     advice TrackedConstructors() : before() {
         AspectLogger::depth()++;
