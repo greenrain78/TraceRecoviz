@@ -1,33 +1,33 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5c0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int) 0x558b2382f5a0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]    [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
@@ -37,33 +37,33 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5a0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x55d8e9438580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int) 0x558b2382f580
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x558b2382f580) bool PreCalculatedPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
@@ -73,31 +73,31 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f580
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [LOG    ] Run 끝: void testing::Test::Run()
@@ -105,31 +105,31 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=-5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f580
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=-5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=100)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [LOG    ] Run 끝: void testing::Test::Run()
@@ -137,33 +137,33 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f580
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int) 0x558b2382f5c0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]    [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
@@ -173,33 +173,33 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5c0
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x55d8e94385a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int) 0x558b2382f5a0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x558b2382f5a0) bool PreCalculatedPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]    [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
@@ -209,31 +209,31 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5a0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [LOG    ] Run 끝: void testing::Test::Run()
@@ -241,31 +241,31 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x55d8e94387b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5a0
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [CALL   ] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]    [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [RETURN1] (0x558b2382f7b0) bool <unnamed>::HybridPrimeTable::IsPrime(int) const => 1
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [LOG    ] Run 끝: void testing::Test::Run()
@@ -273,63 +273,63 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5a0
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e9438580) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e9438580) int PreCalculatedPrimeTable::GetNextPrime(int) const => -1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x55d8e94385a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x55d8e94385a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int) 0x558b2382f580
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f580) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f580) int PreCalculatedPrimeTable::GetNextPrime(int) const => -1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [CALL   ] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [CALL   ] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]      [RETURN1] (0x558b2382f5a0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]    [RETURN1] (0x558b2382f5a0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
@@ -339,49 +339,49 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f580
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CTOR Call  ] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e94385c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => -1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e9438580) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e9438580) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x55d8e9438580) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x55d8e9438580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x55d8e9438580) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CTOR RETURN] PreCalculatedPrimeTable::PreCalculatedPrimeTable(int) 0x558b2382f5c0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f5c0) int PreCalculatedPrimeTable::GetNextPrime(int) const => -1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f580) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f580) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [CALL   ] (0x558b2382f580) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [CALL   ] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]      [RETURN1] (0x558b2382f580) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]    [RETURN1] (0x558b2382f580) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1]  [DTOR Call  ] PreCalculatedPrimeTable::~PreCalculatedPrimeTable()
@@ -391,59 +391,59 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5c0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [LOG    ] Run 끝: void testing::Test::Run()
@@ -451,59 +451,59 @@
 
 [LOG    ] Run 시작: void testing::Test::Run()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CTOR Call  ] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable()
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=0)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=2)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=3)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=5)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x55d8e94385c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x55d8e94385c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
-[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x55d8e94387b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CTOR RETURN] OnTheFlyPrimeTable::OnTheFlyPrimeTable() 0x558b2382f5c0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=0)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=1)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 2
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=2)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 3
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=3)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=4)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 5
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=5)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=6)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 7
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=7)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=8)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=9)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=10)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=11)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 11
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [CALL   ] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [CALL   ] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const (arg0=128)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=129)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=130)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 0
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [CALL   ] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const (arg0=131)
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]      [RETURN1] (0x558b2382f5c0) bool OnTheFlyPrimeTable::IsPrime(int) const => 1
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]    [RETURN1] (0x558b2382f5c0) int OnTheFlyPrimeTable::GetNextPrime(int) const => 131
+[MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [RETURN1] (0x558b2382f7b0) int <unnamed>::HybridPrimeTable::GetNextPrime(int) const => 131
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [DTOR Call  ] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3]  [DTOR RETURN] OnTheFlyPrimeTable::~OnTheFlyPrimeTable()
 [LOG    ] Run 끝: void testing::Test::Run()

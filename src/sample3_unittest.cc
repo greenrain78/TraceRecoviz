@@ -127,7 +127,9 @@ TEST_F(QueueTestSmpl3, Dequeue) {
   n = q1_.Dequeue();
   ASSERT_TRUE(n != nullptr);
   EXPECT_EQ(1, *n);
-  EXPECT_EQ(0u, q1_.Size());
+  EXPECT_EQ(
+    0u, q1_.Size()
+  );
   delete n;
 
   n = q2_.Dequeue();
