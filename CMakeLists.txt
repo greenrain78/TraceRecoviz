@@ -17,4 +17,13 @@ target_link_libraries(hello-tool
   clangTooling
   clangBasic
   clangASTMatchers
+  # 필요한 LLVM 컴포넌트 추가
+  LLVMOption
+  LLVMSupport
+  LLVMTarget
+  LLVMCore
+  LLVMMC
+  LLVMAArch64CodeGen
+  LLVMAArch64Desc
+  LLVMAArch64Info
 )
