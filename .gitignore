@@ -1,6 +1,8 @@
 .vscode/
 venv/
 
+build/
+
 *.pyc
 
 test

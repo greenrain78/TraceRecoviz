@@ -14,6 +14,9 @@ sudo apt update
 sudo apt install clang llvm libclang-dev
 
 
+./hello-tool -- -std=c++17 -I../src -I/usr/include/gtest
+
+
 ## (-Xclang 플러그인)
 
 
