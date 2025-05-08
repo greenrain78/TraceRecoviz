@@ -131,12 +131,8 @@ if __name__ == "__main__":
 
     # 로그 파일 처리
     for filename in os.listdir(LOG_DIR):
-        if filename.endswith(".log"):
-            # log.info(f"🔍 처리중 {filename}")
-            # result = parse_log_file(os.path.join(LOG_DIR, filename))
-            # save_log_file(OUTPUT_DIR, filename.replace(".log", ".json"), result)
-            # log.info(f"✅ 변환 완료 {filename}")
+        if filename.endswith(".log") and "_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_0.CanGetNextPrime" in filename:
+            log.info(f"📜 변환중: {filename}")
             result = TraceParser(os.path.join(LOG_DIR, filename)).run()
             save_log_file(OUTPUT_DIR, filename.replace(".log", ".json"), result)
-            break
     log.info("💡 모든 로그 파일이 변환되었습니다.")

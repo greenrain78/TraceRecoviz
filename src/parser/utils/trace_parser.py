@@ -46,27 +46,26 @@ class TraceParser:
         # 노드 추가
         caller = extract_callee(caller_sig)
         callee = extract_callee(callee_sig)
-        print(f"caller: {caller.class_name}, callee: {callee.class_name}")
         self._ensure_node(caller_ptr, caller.class_name)
         self._ensure_node(callee_ptr, callee.class_name)
 
         if action == "CALL":
             self.links.append({
-                "source": caller_ptr,
-                "target": callee_ptr,
+                "from": caller_ptr,
+                "to": callee_ptr,
                 "text": f"{callee.return_type} {callee.func_name}({', '.join([f'{arg[0]} {arg[1]}' for arg in callee.args])})",
                 "time": self.time_count,
             })
         elif action == "RETURN":
             self.links.append({
-                "source": callee_ptr,
-                "target": caller_ptr,
+                "from": callee_ptr,
+                "to": caller_ptr,
                 "text": f"{callee.return_type} {callee.return_value}",
                 "time": self.time_count,
             })
         else:
             raise ValueError(f"Invalid action: {action}")
-        self.time_count += 1
+        self.time_count += 2
 
     def _ensure_node(self, ptr: str, name: str):
         """ 노드가 존재하지 않으면 생성합니다. """
@@ -80,7 +79,7 @@ class TraceParser:
                 "key": ptr,
                 "text": text,
                 "loc": f"{len(self.nodes) * len(name) * 6 + 20} 0",
-                "size": f"{max(100, len(name) * 6)} 60",
+                "size": f"{max(100, len(name) * 60)} 0",
                 "isGroup": True,
                 "duration": 0
             }
