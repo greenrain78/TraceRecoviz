@@ -39,6 +39,8 @@ class TraceParser:
     def _process_line(self, line: str) -> None:
         # log.info(f"Processing line: {line}")
         match = self._LOG_PATTERN.match(line)
+        if "TestBody" in line:
+            pass
         if not match:
             raise ValueError(f"Invalid log line: {line}")
         test_name, action, caller_ptr, caller_sig, callee_ptr, callee_sig = match.groups()

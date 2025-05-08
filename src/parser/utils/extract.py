@@ -28,7 +28,6 @@ def _extract_args(arg_str: str) -> List[Tuple[str, str]]:
 def extract_callee(sig: str) -> ParsedSig:
     """Parse a callee signature string.
     """
-
     # Normalize & strip leading markers
     sig = sig.replace("(anonymous namespace)", "##").removeprefix("virtual ").strip()
 
