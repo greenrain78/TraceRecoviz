@@ -21,6 +21,7 @@
 #include "clang/Frontend/FrontendActions.h"
 #include "clang/Frontend/CompilerInstance.h"
 #include "clang/Tooling/CommonOptionsParser.h"
+//#include "clang/Tooling/FixedCompilationDatabase.h"
 #include "clang/Tooling/Tooling.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/ADT/SmallString.h"
@@ -270,8 +271,64 @@ explicit TraceInjectorVisitor(Rewriter &R, ASTContext &C) : TheRewriter(R), Cont
 
         return true;
     }
-
+    bool VisitStmt(Stmt* stmt) {
+        SourceManager &SM = TheRewriter.getSourceMgr();
+    
+        std::string text = Lexer::getSourceText(
+            CharSourceRange::getTokenRange(stmt->getSourceRange()),
+            SM, TheRewriter.getLangOpts()).str();
+    
+        static const std::vector<std::string> macros = {
+            "EXPECT_EQ", "EXPECT_NE", "EXPECT_TRUE", "EXPECT_FALSE", "EXPECT_NEAR", "EXPECT_STREQ",
+            "ASSERT_EQ", "ASSERT_NE", "ASSERT_TRUE", "ASSERT_FALSE", "ASSERT_NEAR", "ASSERT_STREQ"
+        };
+    
+        for (const auto& macro : macros) {
+            if (text.find(macro) == 0) {
+                // 💥 여기서 직접 trace_ofs 출력 코드로 변경
+                std::string logCode =
+                    "{ if(trace_ofs.is_open()) trace_ofs << \"[\" << current_test_name << \"] [ASSERTION_CALL] " + text + "\" << std::endl; }\n";
+                TheRewriter.InsertText(stmt->getBeginLoc(), logCode, true, true);
+                break;
+            }
+        }
+    
+        return true;
+    }
+    
+    // bool VisitCXXRecordDecl(CXXRecordDecl *record) {
+    //     if (!record->isThisDeclarationADefinition())
+    //         return true;
+    
+    //     std::string className = record->getNameAsString();
+    //     bool hasCtor = false, hasDtor = false;
+    
+    //     for (auto m : record->methods()) {
+    //         if (isa<CXXConstructorDecl>(m)) hasCtor = true;
+    //         if (isa<CXXDestructorDecl>(m)) hasDtor = true;
+    //     }
+    
+    //     SourceManager &SM = TheRewriter.getSourceMgr();
+    //     SourceLocation classEndLoc = record->getSourceRange().getEnd();
+    //     SourceLocation insertLoc = Lexer::getLocForEndOfToken(
+    //         classEndLoc, 0, TheRewriter.getSourceMgr(), TheRewriter.getLangOpts());
+        
+    //     if (!hasCtor) {
+    //         std::string ctorCode = "\n" + className + "() { trace_enter((void*)this, \"" + className + "::" + className + "\"); }\n";
+    //         TheRewriter.InsertText(insertLoc, ctorCode, true, true);
+    //     }
+        
+    //     if (!hasDtor) {
+    //         std::string dtorCode = "\n~" + className + "() { trace_return((void*)this, \"" + className + "::~" + className + "\"); }\n";
+    //         TheRewriter.InsertText(insertLoc, dtorCode, true, true);
+    //     }
+        
+    
+    //     return true;
+    // }
+    
 private:
+
     Rewriter &TheRewriter;
     std::set<std::string> VisitedFunctions;
     ASTContext &Context;
@@ -298,12 +355,43 @@ public:
     TraceInjectorAction() {}
     void EndSourceFileAction() override {
         SourceManager &SM = TheRewriter.getSourceMgr();
-        // trace.h 자동 include (파일 상단에 삽입)
-        SourceLocation start = SM.getLocForStartOfFile(SM.getMainFileID());
-        TheRewriter.InsertText(start, "#include \"trace.h\"\n", true, true);
-        // 변경된 내용을 stdout에 출력
-        TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
+    
+        // trace.h include는 ASTConsumer에서 이미 삽입
+        // 함수 진입/종료 코드도 ASTConsumer에서 이미 삽입됨
+    
+        // Rewriter 버퍼 얻기
+        std::string rewrittenCode;
+        llvm::raw_string_ostream os(rewrittenCode);
+        TheRewriter.getEditBuffer(SM.getMainFileID()).write(os);
+        os.flush();
+    
+        // 추가 텍스트 치환 (EXPECT_, ASSERT_)
+        const std::vector<std::pair<std::string, std::string>> macroRewrites = {
+            {"EXPECT_EQ(",     "EXPECT_EQ_LOG("},
+            {"EXPECT_NE(",     "EXPECT_NE_LOG("},
+            {"EXPECT_TRUE(",   "EXPECT_TRUE_LOG("},
+            {"EXPECT_FALSE(",  "EXPECT_FALSE_LOG("},
+            {"EXPECT_NEAR(",   "EXPECT_NEAR_LOG("},
+            {"EXPECT_STREQ(",  "EXPECT_STREQ_LOG("},
+            {"ASSERT_EQ(",     "ASSERT_EQ_LOG("},
+            {"ASSERT_NE(",     "ASSERT_NE_LOG("},
+            {"ASSERT_TRUE(",   "ASSERT_TRUE_LOG("},
+            {"ASSERT_FALSE(",  "ASSERT_FALSE_LOG("},
+            {"ASSERT_NEAR(",   "ASSERT_NEAR_LOG("},
+            {"ASSERT_STREQ(",  "ASSERT_STREQ_LOG("}
+        };
+        for (const auto& [from, to] : macroRewrites) {
+            size_t pos = 0;
+            while ((pos = rewrittenCode.find(from, pos)) != std::string::npos) {
+                rewrittenCode.replace(pos, from.length(), to);
+                pos += to.length();
+            }
+        }
+    
+        // 최종 출력
+        llvm::outs() << rewrittenCode;
     }
+      
     std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI, StringRef file) override {
         TheRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
         return std::make_unique<TraceInjectorConsumer>(TheRewriter, CI.getASTContext());
@@ -314,13 +402,65 @@ private:
 
 static llvm::cl::OptionCategory ToolCategory("inject-trace-tool options");
 
+// int main(int argc, const char **argv) {
+//     auto ExpectedParser = CommonOptionsParser::create(argc, argv, ToolCategory);
+//     if (!ExpectedParser) {
+//         llvm::errs() << ExpectedParser.takeError();
+//         return 1;
+//     }
+//     ClangTool Tool(ExpectedParser.get().getCompilations(),
+//                    ExpectedParser.get().getSourcePathList());
+//     return Tool.run(newFrontendActionFactory<TraceInjectorAction>().get());
+// }
+
+
+// int main(int argc, const char **argv) {
+//     // include 경로 직접 지정
+//     std::vector<std::string> compilationFlags = {
+//         "-std=c++17",
+//         "-I/usr/include/c++/11",
+//         "-I/usr/include/x86_64-linux-gnu/c++/11",
+//         "-I/usr/include/c++/11/backward",
+//         "-I/usr/lib/llvm-18/lib/clang/18/include",
+//         "-I/usr/local/include",
+//         "-I/usr/include/x86_64-linux-gnu",
+//         "-I/usr/include",
+//         "-I/usr/include/gtest",
+//         "-Itests"
+//     };
+
+//     clang::tooling::FixedCompilationDatabase CompilDB(".", compilationFlags);
+
+//     clang::tooling::ClangTool Tool(CompilDB, llvm::ArrayRef<std::string>(argv + 1, argv + argc));
+    
+//     return Tool.run(clang::tooling::newFrontendActionFactory<YourFrontendAction>().get());
+// }
+
 int main(int argc, const char **argv) {
-    auto ExpectedParser = CommonOptionsParser::create(argc, argv, ToolCategory);
-    if (!ExpectedParser) {
-        llvm::errs() << ExpectedParser.takeError();
-        return 1;
+    std::vector<std::string> compilationFlags = {
+        "-x", "c++",
+        "-std=c++17",
+        "-I/usr/include/c++/11",
+        "-I/usr/include/x86_64-linux-gnu/c++/11",
+        "-I/usr/include/c++/11/backward",
+        "-I/usr/lib/llvm-18/lib/clang/18/include",
+        "-I/usr/local/include",
+        "-I/usr/include/x86_64-linux-gnu",
+        "-I/usr/include",
+        "-I/usr/include/gtest",
+        "-Itests"
+    };
+
+    FixedCompilationDatabase CompilDB(".", compilationFlags);
+
+    std::vector<std::string> sourcePaths;
+    for (int i = 1; i < argc; ++i) {
+        std::string arg(argv[i]);
+        // 옵션이 아닌 파일만 수집
+        if (arg.compare(0, 1, "-") != 0)
+            sourcePaths.push_back(arg);
     }
-    ClangTool Tool(ExpectedParser.get().getCompilations(),
-                   ExpectedParser.get().getSourcePathList());
+
+    ClangTool Tool(CompilDB, sourcePaths);
     return Tool.run(newFrontendActionFactory<TraceInjectorAction>().get());
 }
