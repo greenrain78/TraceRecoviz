@@ -74,7 +74,7 @@ class QuickTest : public testing::Test {
     // Asserts that the test took no more than ~5 seconds.  Did you
     // know that you can use assertions in SetUp() and TearDown() as
     // well?
-    EXPECT_TRUE(end_time - start_time_ <= 5) << "The test took too long.";
+    EXPECT_TRUE(end_time - start_time_ <= 5);
   }
 
   // The UTC time (in seconds) when the test starts

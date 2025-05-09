@@ -14,8 +14,8 @@ LISTENER_HDR = trace_listener.h
 TRACE_HOOKS_SRC = trace_hooks.cpp
 
 # 계측 대상 (테스트 디렉토리)
-TEST_SRCS = $(wildcard tests/*.cpp) $(wildcard tests/*.cc)
-INSTR_DIR = instrumented
+TEST_SRCS = $(wildcard target/*.cpp) $(wildcard target/*.cc)
+INSTR_DIR = build/instrumented
 
 all: all_tests
 
@@ -30,10 +30,10 @@ inject_trace_tool: inject_trace_tool.cpp
 
 # 테스트 코드 계측 (instrumented/*.cpp 생성)
 instrument: inject_trace_tool
-	mkdir -p instrumented
-	for f in $(wildcard tests/*.cc) $(wildcard tests/*.cpp) $(wildcard tests/*.h) $(wildcard tests/*.hpp); do \
+	mkdir -p build/instrumented
+	for f in $(wildcard target/*.cc) $(wildcard target/*.cpp) $(wildcard target/*.h) $(wildcard target/*.hpp); do \
 		base=$$(basename $$f); \
-		./inject_trace_tool $$f > instrumented/$$base; \
+		./inject_trace_tool $$f > build/instrumented/$$base; \
 	done
 
 
@@ -43,7 +43,7 @@ instrument: inject_trace_tool
 # 모든 테스트 컴파일 (계측된 코드와 trace 라이브러리 링크)
 # 테스트 바이너리 빌드 (계측 코드 + trace + GoogleTest)
 all_tests: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
-	$(CXX) $(CXXFLAGS) -Itests -Iinstrumented -include trace_listener.h \
+	$(CXX) $(CXXFLAGS) -Itarget -I$(INSTR_DIR) -include trace_listener.h \
 	$(INSTR_DIR)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 # 테스트 실행 (로그 파일 생성)
@@ -54,10 +54,13 @@ runAll: all_tests
 
 clean:
 	rm -f inject_trace_tool all_tests
+	rm -f $(INSTR_DIR)/*.cc
+	rm -f build/log/*.log
+	rm -f build/json_output/*.json
+
 	rm -rf $(INSTR_DIR)
 	rm -f log/*.log
-
-# fast_tool: inject_trace_tool instrument all_tests runAll # inject_trace_tool.cpp 만 수정했을떄
+ # inject_trace_tool.cpp 만 수정했을떄
 # fast_instrument: instrument all_tests runAll # 테스트 소스/헤더를 수정했을떄
 # fast_trace: all_tests runAll # trace.cpp, trace.h, trace_listener.h 만 수정했을떄
 

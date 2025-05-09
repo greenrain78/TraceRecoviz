@@ -24,3 +24,7 @@ all_tests
 inject_trace_tool
 *.log
 *.json
+
+build/instrumented
+build/json_output
+build/log
