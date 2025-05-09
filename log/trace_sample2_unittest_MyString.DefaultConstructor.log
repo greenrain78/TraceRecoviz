@@ -1,0 +1,13 @@
+[MyString.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody()
+[MyString.DefaultConstructor] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) MyString::MyString()
+[MyString.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) MyString::MyString()
+[MyString.DefaultConstructor] [ASSERTION_CALL] EXPECT_STREQ(nullptr, s.c_string())
+[MyString.DefaultConstructor] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const
+[MyString.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const => 
+[MyString.DefaultConstructor] [ASSERTION_CALL] EXPECT_EQ(0u, s.Length())
+[MyString.DefaultConstructor] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) size_t MyString::Length() const
+[MyString.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) size_t MyString::Length() const => 0
+[MyString.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_DefaultConstructor_Test::TestBody()
+[MyString.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString()
+[MyString.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString() => <destroyed>
+[TRACE] Test END: MyString.DefaultConstructor

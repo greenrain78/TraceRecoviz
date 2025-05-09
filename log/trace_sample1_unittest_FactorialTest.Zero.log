@@ -1,0 +1,6 @@
+[FactorialTest.Zero] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::FactorialTest_Zero_Test::TestBody()
+[FactorialTest.Zero] [ASSERTION_CALL] EXPECT_EQ(1, Factorial(0))
+[FactorialTest.Zero] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::FactorialTest_Zero_Test::TestBody() => callee: (ptr=0) int Factorial(int) (arg0=0 : int0)
+[FactorialTest.Zero] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::FactorialTest_Zero_Test::TestBody() => callee: (ptr=0) int Factorial(int) => 1
+[FactorialTest.Zero] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::FactorialTest_Zero_Test::TestBody()
+[TRACE] Test END: FactorialTest.Zero

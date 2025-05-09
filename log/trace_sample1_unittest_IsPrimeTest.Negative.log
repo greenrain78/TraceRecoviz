@@ -1,0 +1,12 @@
+[IsPrimeTest.Negative] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody()
+[IsPrimeTest.Negative] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(-1))
+[IsPrimeTest.Negative] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=-1 : int-1)
+[IsPrimeTest.Negative] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Negative] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(-2))
+[IsPrimeTest.Negative] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=-2 : int-2)
+[IsPrimeTest.Negative] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Negative] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(INT_MIN))
+[IsPrimeTest.Negative] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=-2147483648 : int-2147483648)
+[IsPrimeTest.Negative] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Negative] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Negative_Test::TestBody()
+[TRACE] Test END: IsPrimeTest.Negative

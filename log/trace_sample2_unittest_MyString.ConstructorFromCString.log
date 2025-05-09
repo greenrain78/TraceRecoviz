@@ -1,0 +1,15 @@
+[MyString.ConstructorFromCString] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody()
+[MyString.ConstructorFromCString] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.ConstructorFromCString] [CALL] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.ConstructorFromCString] [RETURN] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.ConstructorFromCString] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *)
+[MyString.ConstructorFromCString] [ASSERTION_CALL] EXPECT_EQ(0, strcmp(s.c_string(), kHelloString))
+[MyString.ConstructorFromCString] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const
+[MyString.ConstructorFromCString] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const => Hello, world!
+[MyString.ConstructorFromCString] [ASSERTION_CALL] EXPECT_EQ(sizeof(kHelloString) / sizeof(kHelloString[0]) - 1, s.Length())
+[MyString.ConstructorFromCString] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) size_t MyString::Length() const
+[MyString.ConstructorFromCString] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) size_t MyString::Length() const => 13
+[MyString.ConstructorFromCString] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_ConstructorFromCString_Test::TestBody()
+[MyString.ConstructorFromCString] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString()
+[MyString.ConstructorFromCString] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString() => <destroyed>
+[TRACE] Test END: MyString.ConstructorFromCString

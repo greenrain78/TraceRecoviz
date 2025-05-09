@@ -1,0 +1,41 @@
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::QuickTest::SetUp()
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::QuickTest::SetUp()
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody()
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(-1))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=-1 : int-1)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(-2))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=-2 : int-2)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(INT_MIN))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=-2147483648 : int-2147483648)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(0))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=0 : int0)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(1))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=1 : int1)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(2))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=2 : int2)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(3))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=3 : int3)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(4))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=4 : int4)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(5))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=5 : int5)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(6))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=6 : int6)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(23))
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=23 : int23)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::IntegerFunctionTest_IsPrime_Test::TestBody()
+[IntegerFunctionTest.IsPrime] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::QuickTest::TearDown()
+[IntegerFunctionTest.IsPrime] [ASSERTION_CALL] EXPECT_TRUE(end_time - start_time_ <= 5)
+[IntegerFunctionTest.IsPrime] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::QuickTest::TearDown()
+[TRACE] Test END: IntegerFunctionTest.IsPrime

@@ -1,0 +1,57 @@
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc440) Queue<int>::Queue() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc440) Queue<int>::Queue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc458) Queue<int>::Queue() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc458) Queue<int>::Queue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc470) Queue<int>::Queue() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc470) Queue<int>::Queue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp()
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp() => callee: (ptr=0x55915b7dc458) void Queue<int>::Enqueue(const int &)  (arg0=1 : int1)
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc458) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5150) QueueNode<int>::QueueNode(const int &)  (arg0=1 : int1)
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc458) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5150) QueueNode<int>::QueueNode(const int &) 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp() => callee: (ptr=0x55915b7dc458) void Queue<int>::Enqueue(const int &) 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp() => callee: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &)  (arg0=2 : int2)
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5ba0) QueueNode<int>::QueueNode(const int &)  (arg0=2 : int2)
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5ba0) QueueNode<int>::QueueNode(const int &) 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp() => callee: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &) 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp() => callee: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &)  (arg0=3 : int3)
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5bc0) QueueNode<int>::QueueNode(const int &)  (arg0=3 : int3)
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5bc0) QueueNode<int>::QueueNode(const int &) 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp() => callee: (ptr=0x55915b7dc470) void Queue<int>::Enqueue(const int &) 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3::SetUp()
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody()
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc440) int *Queue<int>::Dequeue() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc440) int *Queue<int>::Dequeue()  => 0x7fffd4fc8898
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] EXPECT_TRUE(n == nullptr)
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc458) int *Queue<int>::Dequeue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc458) int *Queue<int>::Dequeue()  => callee: (ptr=0x55915b7e5150) const int &QueueNode<int>::element() const 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc458) int *Queue<int>::Dequeue()  => callee: (ptr=0x55915b7e5150) const int &QueueNode<int>::element() const  => 1
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc458) int *Queue<int>::Dequeue()  => 0x55915b7e5990
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] ASSERT_TRUE(n != nullptr)
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] EXPECT_EQ(1, *n)
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] EXPECT_EQ(0u, q1_.Size())
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc458) size_t Queue<int>::Size() const 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc458) size_t Queue<int>::Size() const  => 0
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc470) int *Queue<int>::Dequeue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc470) int *Queue<int>::Dequeue()  => callee: (ptr=0x55915b7e5ba0) const int &QueueNode<int>::element() const 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc470) int *Queue<int>::Dequeue()  => callee: (ptr=0x55915b7e5ba0) const int &QueueNode<int>::element() const  => 2
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc470) int *Queue<int>::Dequeue()  => 0x55915b7e5990
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] ASSERT_TRUE(n != nullptr)
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] EXPECT_EQ(2, *n)
+[QueueTestSmpl3.Dequeue] [ASSERTION_CALL] EXPECT_EQ(1u, q2_.Size())
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc470) size_t Queue<int>::Size() const 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc470) size_t Queue<int>::Size() const  => 1
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc470) Queue<int>::~Queue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc470) Queue<int>::~Queue()  => callee: (ptr=0x55915b7dc470) void Queue<int>::Clear() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc470) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e5bc0) QueueNode<int> *QueueNode<int>::next() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc470) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e5bc0) QueueNode<int> *QueueNode<int>::next()  => 0
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc470) Queue<int>::~Queue()  => callee: (ptr=0x55915b7dc470) void Queue<int>::Clear() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc470) Queue<int>::~Queue()  => <destroyed>
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc458) Queue<int>::~Queue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc458) Queue<int>::~Queue()  => callee: (ptr=0x55915b7dc458) void Queue<int>::Clear() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc458) Queue<int>::~Queue()  => callee: (ptr=0x55915b7dc458) void Queue<int>::Clear() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc458) Queue<int>::~Queue()  => <destroyed>
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc440) Queue<int>::~Queue() 
+[QueueTestSmpl3.Dequeue] [CALL] caller: (ptr=0x55915b7dc440) Queue<int>::~Queue()  => callee: (ptr=0x55915b7dc440) void Queue<int>::Clear() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc440) Queue<int>::~Queue()  => callee: (ptr=0x55915b7dc440) void Queue<int>::Clear() 
+[QueueTestSmpl3.Dequeue] [RETURN] caller: (ptr=0x55915b7dc430) virtual void (anonymous namespace)::QueueTestSmpl3_Dequeue_Test::TestBody() => callee: (ptr=0x55915b7dc440) Queue<int>::~Queue()  => <destroyed>
+[TRACE] Test END: QueueTestSmpl3.Dequeue

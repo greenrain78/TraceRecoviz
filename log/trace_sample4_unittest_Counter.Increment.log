@@ -1,0 +1,20 @@
+[Counter.Increment] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody()
+[Counter.Increment] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) Counter::Counter()
+[Counter.Increment] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) Counter::Counter()
+[Counter.Increment] [ASSERTION_CALL] EXPECT_EQ(0, c.Decrement())
+[Counter.Increment] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Decrement()
+[Counter.Increment] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Decrement() => 0
+[Counter.Increment] [ASSERTION_CALL] EXPECT_EQ(0, c.Increment())
+[Counter.Increment] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Increment()
+[Counter.Increment] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Increment() => 0
+[Counter.Increment] [ASSERTION_CALL] EXPECT_EQ(1, c.Increment())
+[Counter.Increment] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Increment()
+[Counter.Increment] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Increment() => 1
+[Counter.Increment] [ASSERTION_CALL] EXPECT_EQ(2, c.Increment())
+[Counter.Increment] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Increment()
+[Counter.Increment] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Increment() => 2
+[Counter.Increment] [ASSERTION_CALL] EXPECT_EQ(3, c.Decrement())
+[Counter.Increment] [CALL] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Decrement()
+[Counter.Increment] [RETURN] caller: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody() => callee: (ptr=0x7fffd4fc8b14) int Counter::Decrement() => 3
+[Counter.Increment] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e5ce0) virtual void (anonymous namespace)::Counter_Increment_Test::TestBody()
+[TRACE] Test END: Counter.Increment

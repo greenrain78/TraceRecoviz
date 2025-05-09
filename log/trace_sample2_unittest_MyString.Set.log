@@ -1,0 +1,34 @@
+[MyString.Set] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody()
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) MyString::MyString()
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) MyString::MyString()
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.Set] [CALL] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.Set] [RETURN] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *)
+[MyString.Set] [ASSERTION_CALL] EXPECT_EQ(0, strcmp(s.c_string(), kHelloString))
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const => Hello, world!
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8ad0) MyString::MyString()
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8ad0) MyString::MyString()
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const => Hello, world!
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8ad0) void MyString::Set(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.Set] [CALL] caller: (ptr=0x7fffd4fc8ad0) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.Set] [RETURN] caller: (ptr=0x7fffd4fc8ad0) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8ad0) void MyString::Set(const char *)
+[MyString.Set] [ASSERTION_CALL] EXPECT_EQ(0, strcmp(s.c_string(), kHelloString))
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const => Hello, world!
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) (arg0=)
+[MyString.Set] [CALL] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) (arg0=)
+[MyString.Set] [RETURN] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) => 0x7fffd4fc8918
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *)
+[MyString.Set] [ASSERTION_CALL] EXPECT_STREQ(nullptr, s.c_string())
+[MyString.Set] [CALL] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const
+[MyString.Set] [RETURN] caller: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) const char *MyString::c_string() const => 
+[MyString.Set] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e4a90) virtual void (anonymous namespace)::MyString_Set_Test::TestBody()
+[MyString.Set] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8ad0) MyString::~MyString()
+[MyString.Set] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8ad0) MyString::~MyString() => <destroyed>
+[MyString.Set] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString()
+[MyString.Set] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString() => <destroyed>
+[TRACE] Test END: MyString.Set

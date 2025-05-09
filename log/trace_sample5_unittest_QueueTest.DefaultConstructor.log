@@ -1,0 +1,49 @@
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0278) Queue<int>::Queue() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0278) Queue<int>::Queue() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0290) Queue<int>::Queue() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0290) Queue<int>::Queue() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e02a8) Queue<int>::Queue() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e02a8) Queue<int>::Queue() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp()
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QuickTest::SetUp()
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QuickTest::SetUp()
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e0290) void Queue<int>::Enqueue(const int &)  (arg0=1 : int1)
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0290) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5ce0) QueueNode<int>::QueueNode(const int &)  (arg0=1 : int1)
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0290) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e5ce0) QueueNode<int>::QueueNode(const int &) 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e0290) void Queue<int>::Enqueue(const int &) 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &)  (arg0=2 : int2)
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e6870) QueueNode<int>::QueueNode(const int &)  (arg0=2 : int2)
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e6870) QueueNode<int>::QueueNode(const int &) 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &) 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &)  (arg0=3 : int3)
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e72b0) QueueNode<int>::QueueNode(const int &)  (arg0=3 : int3)
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &)  => callee: (ptr=0x55915b7e72b0) QueueNode<int>::QueueNode(const int &) 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp() => callee: (ptr=0x55915b7e02a8) void Queue<int>::Enqueue(const int &) 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest::SetUp()
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest_DefaultConstructor_Test::TestBody()
+[QueueTest.DefaultConstructor] [ASSERTION_CALL] EXPECT_EQ(0u, q0_.Size())
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest_DefaultConstructor_Test::TestBody() => callee: (ptr=0x55915b7e0278) size_t Queue<int>::Size() const 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest_DefaultConstructor_Test::TestBody() => callee: (ptr=0x55915b7e0278) size_t Queue<int>::Size() const  => 0
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QueueTest_DefaultConstructor_Test::TestBody()
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QuickTest::TearDown()
+[QueueTest.DefaultConstructor] [ASSERTION_CALL] EXPECT_TRUE(end_time - start_time_ <= 5)
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0260) virtual void (anonymous namespace)::QuickTest::TearDown()
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e02a8) Queue<int>::~Queue() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e02a8) Queue<int>::~Queue()  => callee: (ptr=0x55915b7e02a8) void Queue<int>::Clear() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e02a8) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e6870) QueueNode<int> *QueueNode<int>::next() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e02a8) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e6870) QueueNode<int> *QueueNode<int>::next()  => 0x55915b7e72b0
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e02a8) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e72b0) QueueNode<int> *QueueNode<int>::next() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e02a8) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e72b0) QueueNode<int> *QueueNode<int>::next()  => 0
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e02a8) Queue<int>::~Queue()  => callee: (ptr=0x55915b7e02a8) void Queue<int>::Clear() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e02a8) Queue<int>::~Queue()  => <destroyed>
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0290) Queue<int>::~Queue() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0290) Queue<int>::~Queue()  => callee: (ptr=0x55915b7e0290) void Queue<int>::Clear() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0290) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e5ce0) QueueNode<int> *QueueNode<int>::next() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0290) void Queue<int>::Clear()  => callee: (ptr=0x55915b7e5ce0) QueueNode<int> *QueueNode<int>::next()  => 0
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0290) Queue<int>::~Queue()  => callee: (ptr=0x55915b7e0290) void Queue<int>::Clear() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0290) Queue<int>::~Queue()  => <destroyed>
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0278) Queue<int>::~Queue() 
+[QueueTest.DefaultConstructor] [CALL] caller: (ptr=0x55915b7e0278) Queue<int>::~Queue()  => callee: (ptr=0x55915b7e0278) void Queue<int>::Clear() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x55915b7e0278) Queue<int>::~Queue()  => callee: (ptr=0x55915b7e0278) void Queue<int>::Clear() 
+[QueueTest.DefaultConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7e0278) Queue<int>::~Queue()  => <destroyed>
+[TRACE] Test END: QueueTest.DefaultConstructor

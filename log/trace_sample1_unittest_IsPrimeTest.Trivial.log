@@ -1,0 +1,15 @@
+[IsPrimeTest.Trivial] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody()
+[IsPrimeTest.Trivial] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(0))
+[IsPrimeTest.Trivial] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=0 : int0)
+[IsPrimeTest.Trivial] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Trivial] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(1))
+[IsPrimeTest.Trivial] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=1 : int1)
+[IsPrimeTest.Trivial] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Trivial] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(2))
+[IsPrimeTest.Trivial] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=2 : int2)
+[IsPrimeTest.Trivial] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IsPrimeTest.Trivial] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(3))
+[IsPrimeTest.Trivial] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=3 : int3)
+[IsPrimeTest.Trivial] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IsPrimeTest.Trivial] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Trivial_Test::TestBody()
+[TRACE] Test END: IsPrimeTest.Trivial

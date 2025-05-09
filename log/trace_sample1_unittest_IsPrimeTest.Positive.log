@@ -1,0 +1,15 @@
+[IsPrimeTest.Positive] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody()
+[IsPrimeTest.Positive] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(4))
+[IsPrimeTest.Positive] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=4 : int4)
+[IsPrimeTest.Positive] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Positive] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(5))
+[IsPrimeTest.Positive] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=5 : int5)
+[IsPrimeTest.Positive] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IsPrimeTest.Positive] [ASSERTION_CALL] EXPECT_FALSE(IsPrime(6))
+[IsPrimeTest.Positive] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=6 : int6)
+[IsPrimeTest.Positive] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 0
+[IsPrimeTest.Positive] [ASSERTION_CALL] EXPECT_TRUE(IsPrime(23))
+[IsPrimeTest.Positive] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) (arg0=23 : int23)
+[IsPrimeTest.Positive] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody() => callee: (ptr=0) bool IsPrime(int) => 1
+[IsPrimeTest.Positive] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::IsPrimeTest_Positive_Test::TestBody()
+[TRACE] Test END: IsPrimeTest.Positive

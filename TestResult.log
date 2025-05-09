@@ -1,0 +1,141 @@
+Running main() from /tmp/googletest/googletest/src/gtest_main.cc
+[==========] Running 48 tests from 13 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from FactorialTest
+[ RUN      ] FactorialTest.Negative
+[       OK ] FactorialTest.Negative (12 ms)
+[ RUN      ] FactorialTest.Zero
+[       OK ] FactorialTest.Zero (21 ms)
+[ RUN      ] FactorialTest.Positive
+[       OK ] FactorialTest.Positive (32 ms)
+[----------] 3 tests from FactorialTest (627 ms total)
+
+[----------] 3 tests from IsPrimeTest
+[ RUN      ] IsPrimeTest.Negative
+[       OK ] IsPrimeTest.Negative (8 ms)
+[ RUN      ] IsPrimeTest.Trivial
+[       OK ] IsPrimeTest.Trivial (22 ms)
+[ RUN      ] IsPrimeTest.Positive
+[       OK ] IsPrimeTest.Positive (24 ms)
+[----------] 3 tests from IsPrimeTest (377 ms total)
+
+[----------] 4 tests from MyString
+[ RUN      ] MyString.DefaultConstructor
+[       OK ] MyString.DefaultConstructor (33 ms)
+[ RUN      ] MyString.ConstructorFromCString
+[       OK ] MyString.ConstructorFromCString (21 ms)
+[ RUN      ] MyString.CopyConstructor
+[       OK ] MyString.CopyConstructor (13 ms)
+[ RUN      ] MyString.Set
+[       OK ] MyString.Set (43 ms)
+[----------] 4 tests from MyString (605 ms total)
+
+[----------] 3 tests from QueueTestSmpl3
+[ RUN      ] QueueTestSmpl3.DefaultConstructor
+[       OK ] QueueTestSmpl3.DefaultConstructor (87 ms)
+[ RUN      ] QueueTestSmpl3.Dequeue
+[       OK ] QueueTestSmpl3.Dequeue (102 ms)
+[ RUN      ] QueueTestSmpl3.Map
+[       OK ] QueueTestSmpl3.Map (365 ms)
+[----------] 3 tests from QueueTestSmpl3 (1046 ms total)
+
+[----------] 1 test from Counter
+[ RUN      ] Counter.Increment
+[       OK ] Counter.Increment (12 ms)
+[----------] 1 test from Counter (139 ms total)
+
+[----------] 2 tests from IntegerFunctionTest
+[ RUN      ] IntegerFunctionTest.Factorial
+[       OK ] IntegerFunctionTest.Factorial (16 ms)
+[ RUN      ] IntegerFunctionTest.IsPrime
+[       OK ] IntegerFunctionTest.IsPrime (19 ms)
+[----------] 2 tests from IntegerFunctionTest (209 ms total)
+
+[----------] 2 tests from QueueTest
+[ RUN      ] QueueTest.DefaultConstructor
+[       OK ] QueueTest.DefaultConstructor (87 ms)
+[ RUN      ] QueueTest.Dequeue
+[       OK ] QueueTest.Dequeue (122 ms)
+[----------] 2 tests from QueueTest (365 ms total)
+
+[----------] 3 tests from PrimeTableTest/0, where TypeParam = OnTheFlyPrimeTable
+[ RUN      ] PrimeTableTest/0.ReturnsFalseForNonPrimes
+[       OK ] PrimeTableTest/0.ReturnsFalseForNonPrimes (79 ms)
+[ RUN      ] PrimeTableTest/0.ReturnsTrueForPrimes
+[       OK ] PrimeTableTest/0.ReturnsTrueForPrimes (98 ms)
+[ RUN      ] PrimeTableTest/0.CanGetNextPrime
+[       OK ] PrimeTableTest/0.CanGetNextPrime (163 ms)
+[----------] 3 tests from PrimeTableTest/0 (672 ms total)
+
+[----------] 3 tests from PrimeTableTest/1, where TypeParam = PreCalculatedPrimeTable
+[ RUN      ] PrimeTableTest/1.ReturnsFalseForNonPrimes
+[       OK ] PrimeTableTest/1.ReturnsFalseForNonPrimes (246 ms)
+[ RUN      ] PrimeTableTest/1.ReturnsTrueForPrimes
+[       OK ] PrimeTableTest/1.ReturnsTrueForPrimes (149 ms)
+[ RUN      ] PrimeTableTest/1.CanGetNextPrime
+[       OK ] PrimeTableTest/1.CanGetNextPrime (83 ms)
+[----------] 3 tests from PrimeTableTest/1 (878 ms total)
+
+[----------] 3 tests from OnTheFlyAndPreCalculated/PrimeTableTest2/0, where TypeParam = OnTheFlyPrimeTable
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTest2/0.ReturnsFalseForNonPrimes
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTest2/0.ReturnsFalseForNonPrimes (103 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTest2/0.ReturnsTrueForPrimes
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTest2/0.ReturnsTrueForPrimes (150 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTest2/0.CanGetNextPrime
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTest2/0.CanGetNextPrime (223 ms)
+[----------] 3 tests from OnTheFlyAndPreCalculated/PrimeTableTest2/0 (848 ms total)
+
+[----------] 3 tests from OnTheFlyAndPreCalculated/PrimeTableTest2/1, where TypeParam = PreCalculatedPrimeTable
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTest2/1.ReturnsFalseForNonPrimes
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTest2/1.ReturnsFalseForNonPrimes (153 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTest2/1.ReturnsTrueForPrimes
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTest2/1.ReturnsTrueForPrimes (192 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTest2/1.CanGetNextPrime
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTest2/1.CanGetNextPrime (83 ms)
+[----------] 3 tests from OnTheFlyAndPreCalculated/PrimeTableTest2/1 (923 ms total)
+
+[----------] 6 tests from OnTheFlyAndPreCalculated/PrimeTableTestSmpl7
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/0 (44 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsFalseForNonPrimes/1 (59 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/0 (43 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.ReturnsTrueForPrimes/1 (56 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/0 (75 ms)
+[ RUN      ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1
+[       OK ] OnTheFlyAndPreCalculated/PrimeTableTestSmpl7.CanGetNextPrime/1 (45 ms)
+[----------] 6 tests from OnTheFlyAndPreCalculated/PrimeTableTestSmpl7 (1298 ms total)
+
+[----------] 12 tests from MeaningfulTestParameters/PrimeTableTest
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/0 (47 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/1 (51 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/2 (34 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsFalseForNonPrimes/3 (44 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/0 (34 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/1 (51 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/2 (26 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3
+[       OK ] MeaningfulTestParameters/PrimeTableTest.ReturnsTrueForPrimes/3 (39 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0
+[       OK ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/0 (62 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1
+[       OK ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/1 (57 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2
+[       OK ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/2 (76 ms)
+[ RUN      ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3
+[       OK ] MeaningfulTestParameters/PrimeTableTest.CanGetNextPrime/3 (70 ms)
+[----------] 12 tests from MeaningfulTestParameters/PrimeTableTest (1884 ms total)
+
+[----------] Global test environment tear-down
+[==========] 48 tests from 13 test suites ran. (9894 ms total)
+[  PASSED  ] 48 tests.

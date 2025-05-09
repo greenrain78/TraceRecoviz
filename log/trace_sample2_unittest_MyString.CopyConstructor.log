@@ -1,0 +1,18 @@
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody()
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b10) void MyString::Set(const char *)
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b08) void MyString::Set(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x7fffd4fc8b08) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) (arg0=Hello, world! : char const*Hello, world!)
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x7fffd4fc8b08) void MyString::Set(const char *) => callee: (ptr=0) static const char *MyString::CloneCString(const char *) => Hello, world!
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b08) void MyString::Set(const char *)
+[MyString.CopyConstructor] [ASSERTION_CALL] EXPECT_EQ(0, strcmp(s2.c_string(), kHelloString))
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b08) const char *MyString::c_string() const
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody() => callee: (ptr=0x7fffd4fc8b08) const char *MyString::c_string() const => Hello, world!
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x55915b7dd550) virtual void (anonymous namespace)::MyString_CopyConstructor_Test::TestBody()
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b08) MyString::~MyString()
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b08) MyString::~MyString() => <destroyed>
+[MyString.CopyConstructor] [CALL] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString()
+[MyString.CopyConstructor] [RETURN] caller: (ptr=0x1005) GoogleTest::OnTestStart => callee: (ptr=0x7fffd4fc8b10) MyString::~MyString() => <destroyed>
+[TRACE] Test END: MyString.CopyConstructor
