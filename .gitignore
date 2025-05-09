@@ -1,0 +1,26 @@
+.vscode/
+venv/
+.idea
+
+*.pyc
+
+test
+test_exec
+libgtest.a 
+libgtest_main.a
+*.o
+
+googletest
+# 로그파일도 샘플로 일단 git에 올리자
+# *.log
+
+# auto-generated files - 샘플로 일단 git에 올리자
+# auto_*_logger.ah
+
+
+# 111
+all_tests
+*.zip
+inject_trace_tool
+*.log
+*.json

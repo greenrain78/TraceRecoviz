@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Trace File List</title>
+</head>
+<body>
+  <h1>Trace JSON 목록</h1>
+  <ul id="fileList"></ul>
+
+  <script>
+    // 미리 정의된 파일 목록 (자동화할 경우 서버에서 가져오는 방식 필요)
+    const files = [
+      "trace_sample1_unittest_FactorialTest.Negative.json",
+      "trace_sample1_unittest_FactorialTest.Positive.json",
+      "trace_sample1_unittest_FactorialTest.Zero.json",
+      "trace_sample1_unittest_IsPrimeTest.Negative.json",
+      "trace_sample1_unittest_IsPrimeTest.Positive.json",
+      "trace_sample1_unittest_IsPrimeTest.Trivial.json",
+      "trace_sample2_unittest_MyString.ConstructorFromCString.json",
+      "trace_sample2_unittest_MyString.CopyConstructor.json",
+      "trace_sample2_unittest_MyString.DefaultConstructor.json",
+      "trace_sample2_unittest_MyString.Set.json",
+      "trace_sample3_unittest_QueueTestSmpl3.DefaultConstructor.json",
+      "trace_sample3_unittest_QueueTestSmpl3.Dequeue.json",
+      "trace_sample3_unittest_QueueTestSmpl3.Map.json",
+      "trace_sample4_unittest_Counter.Increment.json",
+      "trace_sample5_unittest_IntegerFunctionTest.Factorial.json",
+      "trace_sample5_unittest_IntegerFunctionTest.IsPrime.json",
+      "trace_sample5_unittest_QueueTest.DefaultConstructor.json",
+      "trace_sample5_unittest_QueueTest.Dequeue.json",
+      "trace_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_0.CanGetNextPrime.json",
+      "trace_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_0.ReturnsFalseForNonPrimes.json",
+      "trace_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_0.ReturnsTrueForPrimes.json",
+      "trace_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_1.CanGetNextPrime.json",
+      "trace_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_1.ReturnsFalseForNonPrimes.json",
+      "trace_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_1.ReturnsTrueForPrimes.json",
+      "trace_sample6_unittest_PrimeTableTest_0.CanGetNextPrime.json",
+      "trace_sample6_unittest_PrimeTableTest_0.ReturnsFalseForNonPrimes.json",
+      "trace_sample6_unittest_PrimeTableTest_0.ReturnsTrueForPrimes.json",
+      "trace_sample6_unittest_PrimeTableTest_1.CanGetNextPrime.json",
+      "trace_sample6_unittest_PrimeTableTest_1.ReturnsFalseForNonPrimes.json",
+      "trace_sample6_unittest_PrimeTableTest_1.ReturnsTrueForPrimes.json",
+      "trace_sample7_unittest_OnTheFlyAndPreCalculated_PrimeTableTestSmpl7.CanGetNextPrime_0.json",
+      "trace_sample7_unittest_OnTheFlyAndPreCalculated_PrimeTableTestSmpl7.CanGetNextPrime_1.json",
+      "trace_sample7_unittest_OnTheFlyAndPreCalculated_PrimeTableTestSmpl7.ReturnsFalseForNonPrimes_0.json",
+      "trace_sample7_unittest_OnTheFlyAndPreCalculated_PrimeTableTestSmpl7.ReturnsFalseForNonPrimes_1.json",
+      "trace_sample7_unittest_OnTheFlyAndPreCalculated_PrimeTableTestSmpl7.ReturnsTrueForPrimes_0.json",
+      "trace_sample7_unittest_OnTheFlyAndPreCalculated_PrimeTableTestSmpl7.ReturnsTrueForPrimes_1.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.CanGetNextPrime_0.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.CanGetNextPrime_1.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.CanGetNextPrime_2.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.CanGetNextPrime_3.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsFalseForNonPrimes_0.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsFalseForNonPrimes_1.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsFalseForNonPrimes_2.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsFalseForNonPrimes_3.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsTrueForPrimes_0.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsTrueForPrimes_1.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsTrueForPrimes_2.json",
+      "trace_sample8_unittest_MeaningfulTestParameters_PrimeTableTest.ReturnsTrueForPrimes_3.json"
+    ];
+    const list = document.getElementById("fileList");
+    files.forEach(file => {
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `viewer.html?file=build/json_output/${file}`;
+      link.textContent = file;
+      li.appendChild(link);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>

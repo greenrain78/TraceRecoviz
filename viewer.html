@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Sequence Diagram Viewer</title>
+  <!-- GoJS (latest) -->
+  <script src="https://unpkg.com/gojs/release/go.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"/>
+  <style>
+    html,body{margin:0;height:100%;}
+    #myDiagramDiv{width:100%;height:100%;border:1px solid #444;box-sizing:border-box;}
+  </style>
+</head>
+<body>
+  <div id="myDiagramDiv"></div>
+
+  <script>
+    /* =========================================================
+       GLOBAL CONSTANTS & HELPERS
+    ========================================================= */
+    const LinePrefix = 20, LineSuffix = 30, MessageSpacing = 20,
+          ActivityWidth = 10, ActivityStart = 5, ActivityEnd = 5;
+
+    const yOfTime  = t => t * MessageSpacing + LinePrefix;
+    const timeOfY = y => (y - LinePrefix) / MessageSpacing;
+    const lifelineH = d => LinePrefix + d * MessageSpacing + LineSuffix;
+
+    /* =========================================================
+       GOJS INITIALISATION
+    ========================================================= */
+    function init () {
+      const $ = go.GraphObject.make;
+
+      window.myDiagram = $(go.Diagram, "myDiagramDiv", {
+        allowCopy:false,
+        linkingTool: new MessagingTool(),
+        draggingTool: new MessageDraggingTool(),
+        "resizingTool.isGridSnapEnabled":true,
+        "draggingTool.gridSnapCellSize": new go.Size(1, MessageSpacing/4),
+        "draggingTool.isGridSnapEnabled":true,
+        SelectionMoved: ensureLifelineHeights,
+        PartResized: ensureLifelineHeights,
+        "undoManager.isEnabled":true
+      });
+
+      /* ---------------- LIFELINE GROUP TEMPLATE ---------------- */
+      myDiagram.groupTemplate = $(go.Group, "Vertical",
+        {
+          locationSpot: go.Spot.Bottom,
+          locationObjectName: "HEADER",
+          minLocation: new go.Point(0,0),
+          maxLocation: new go.Point(9999,0),
+          selectionObjectName: "HEADER"
+        },
+        new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+        $(go.Panel, "Auto", {name:"HEADER"},
+          $(go.Shape, "Rectangle", {stroke:null, fill: $(go.Brush, "Linear", {0:'#bbdefb',1:go.Brush.darkenBy('#bbdefb',0.1)})}),
+          $(go.TextBlock, {margin:5, font:"400 10pt Source Sans Pro"}, new go.Binding("text"))
+        ),
+        $(go.Shape, {
+            figure:"LineV", stroke:"gray", strokeDashArray:[3,3], width:1,
+            alignment:go.Spot.Center, portId:"", cursor:"pointer",
+            fromLinkable:true, toLinkable:true,
+            fromLinkableDuplicates:true, toLinkableDuplicates:true
+          },
+          new go.Binding("height", "duration", lifelineH)
+        )
+      );
+
+      /* ---------------- ACTIVITY NODE TEMPLATE ---------------- */
+      myDiagram.nodeTemplate = $(go.Node,
+        {
+          locationSpot: go.Spot.Top,
+          locationObjectName:"SHAPE",
+          minLocation:new go.Point(NaN, LinePrefix-ActivityStart),
+          maxLocation:new go.Point(NaN, 19999),
+          selectionObjectName:"SHAPE",
+          resizable:true,
+          resizeObjectName:"SHAPE",
+          resizeAdornmentTemplate:
+            $(go.Adornment, "Spot",
+              $(go.Placeholder),
+              $(go.Shape, {alignment:go.Spot.Bottom, cursor:"col-resize", desiredSize:new go.Size(6,6), fill:"yellow"})
+            )
+        },
+        new go.Binding("location", "", actLoc, backActLoc).makeTwoWay(),
+        $(go.Shape, "Rectangle", {
+            name:"SHAPE", fill:"white", stroke:"black", width:ActivityWidth,
+            minSize:new go.Size(ActivityWidth, actH(0.25))
+          },
+          new go.Binding("height", "duration", actH, backActH).makeTwoWay()
+        )
+      );
+
+      /* ---------------- MESSAGE LINK TEMPLATE ---------------- */
+      myDiagram.linkTemplate = $(MessageLink,
+        {selectionAdorned:true, curviness:0},
+        $(go.Shape, "Rectangle", {stroke:"black"}),
+        $(go.Shape, {toArrow:"OpenTriangle", stroke:"black"}),
+        $(go.TextBlock, {
+            font:"400 9pt Source Sans Pro",
+            segmentIndex:0,
+            segmentOffset:new go.Point(NaN,NaN),
+            isMultiline:false,
+            editable:true
+          },
+          new go.Binding("text").makeTwoWay()
+        )
+      );
+
+      // finally load data
+      loadData();
+    }
+
+    /* =========================================================
+       UTILITY FUNCTIONS
+    ========================================================= */
+    function ensureLifelineHeights(){
+      const arr = myDiagram.model.nodeDataArray;
+      let max = -1;
+      arr.forEach(n => { if(!n.isGroup) max = Math.max(max, n.start + n.duration); });
+      if(max > 0){ arr.forEach(g => { if(g.isGroup && max > g.duration) myDiagram.model.setDataProperty(g, "duration", max); }); }
+    }
+
+    const actLoc = act => {
+      const grp = myDiagram.model.findNodeDataForKey(act.group);
+      if(!grp) return new go.Point();
+      const p = go.Point.parse(grp.loc);
+      return new go.Point(p.x, yOfTime(act.start) - ActivityStart);
+    };
+    const backActLoc = (loc, act) => myDiagram.model.setDataProperty(act, "start", timeOfY(loc.y + ActivityStart));
+    const actH = d => ActivityStart + d * MessageSpacing + ActivityEnd;
+    const backActH = h => (h - ActivityStart - ActivityEnd) / MessageSpacing;
+
+    /* =========================================================
+       CUSTOM LINK & TOOLS
+    ========================================================= */
+    class MessageLink extends go.Link {
+      constructor(){ super(); this.time = 0; }
+      _aw(node,time){
+        let w = ActivityWidth;
+        if(node instanceof go.Group){
+          if(!node.memberParts.any(m=>{const d=m.data; return d && d.start<=time && time<=d.start+d.duration;})) w=0;
+        }
+        return w;
+      }
+      getLinkPoint(node,port,spot,from,ortho,othernode,otherport){
+        const p = port.getDocumentPoint(go.Spot.Center);
+        const op = otherport.getDocumentPoint(go.Spot.Center);
+        const time = this.data ? this.data.time : this.time;
+        const aw = this._aw(node,time);
+        const x = op.x > p.x ? p.x + aw/2 : p.x - aw/2;
+        return new go.Point(x, yOfTime(time));
+      }
+      getLinkDirection(node,port,lp,spot,from,ortho,othernode,otherport){
+        return otherport.getDocumentPoint(go.Spot.Center).x > port.getDocumentPoint(go.Spot.Center).x ? 0 : 180;
+      }
+      computePoints(){
+        if(this.fromNode === this.toNode){
+          const time = this.data ? this.data.time : this.time;
+          const p = this.fromNode.port.getDocumentPoint(go.Spot.Center);
+          const aw = this._aw(this.fromNode,time);
+          const x = p.x + aw/2;
+          const y = yOfTime(time);
+          this.clearPoints();
+          this.addPoint(new go.Point(x,y));
+          this.addPoint(new go.Point(x+50,y));
+          this.addPoint(new go.Point(x+50,y+5));
+          this.addPoint(new go.Point(x,y+5));
+          return true;
+        }
+        return super.computePoints();
+      }
+    }
+
+    class MessagingTool extends go.LinkingTool {
+      constructor(){
+        super();
+        this.temporaryLink = new MessageLink();
+        this.temporaryLink.add(go.GraphObject.make(go.Shape,"Rectangle",{stroke:"magenta",strokeWidth:2}),
+                               go.GraphObject.make(go.Shape,{toArrow:"OpenTriangle",stroke:"magenta"}));
+      }
+      doActivate(){ super.doActivate(); this.temporaryLink.time = Math.ceil(timeOfY(this.diagram.firstInput.documentPoint.y)); }
+      insertLink(f,fp,t,tp){
+        const l = super.insertLink(f,fp,t,tp);
+        if(l){ const s = this.temporaryLink.time; l.data.time = s;
+          this.diagram.model.setDataProperty(l.data,"text","msg");
+          this.diagram.model.addNodeData({group:l.data.to,start:s,duration:1});
+          ensureLifelineHeights();
+        }
+        return l;
+      }
+    }
+
+    class MessageDraggingTool extends go.DraggingTool {
+      computeEffectiveCollection(parts,options){
+        const res = super.computeEffectiveCollection(parts,options);
+        res.add(new go.Node(), new go.DraggingInfo(new go.Point()));
+        parts.each(p=>{ if(p instanceof go.Link) res.add(p,new go.DraggingInfo(p.getPoint(0).copy())); });
+        return res;
+      }
+      mayMove(){ return !this.diagram.isReadOnly && this.diagram.allowMove; }
+      moveParts(parts,off,check){
+        super.moveParts(parts,off,check);
+        parts.iterator.each(kv=>{
+          const link = kv.key;
+          if(link instanceof go.Link){
+            let y = kv.value.point.y + off.y;
+            const snap = this.gridSnapCellSize.height;
+            y = Math.round(y/snap)*snap;
+            const t = Math.max(0, timeOfY(y));
+            link.diagram.model.set(link.data,"time", t);
+            link.invalidateRoute();
+          }
+        });
+      }
+    }
+
+    /* =========================================================
+       LOAD JSON AND AUTO-ADJUST HORIZONTAL GAP
+    ========================================================= */
+    function loadData () {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get("file");
+      if(!file){
+        myDiagram.model = go.Model.fromJson({"class":"go.GraphLinksModel","nodeDataArray":[],"linkDataArray":[]});
+        return;
+      }
+
+      fetch(file)
+        .then(resp => resp.json())
+        .then(json => {
+          // === Recompute Lifeline X positions ===
+          const GAP = 200; // px, 원하는 간격
+          let idx = 0;
+          json.nodeDataArray.forEach(n => {
+            if(n.isGroup){
+              const y = parseFloat((n.loc||"0 0").split(" ")[1]) || 0;
+              n.loc = (idx * GAP) + " " + y;
+              idx++;
+            }
+          });
+
+          myDiagram.model = go.Model.fromJson(json);
+          ensureLifelineHeights();
+        })
+        .catch(err => {
+          console.error("JSON load error:", err);
+          alert("JSON 로드 실패: " + err);
+        });
+    }
+
+    /* =========================================================
+       STARTUP
+    ========================================================= */
+    window.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>
