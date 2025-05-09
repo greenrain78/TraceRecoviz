@@ -1,11 +1,42 @@
 // trace.cpp
 #include "trace.h"
 #include <iostream>
+#include <regex>
+#include <unordered_map>
+#include <vector>
+#include <filesystem>
+#include <string>
 
 std::string current_test_name;
 std::ofstream trace_ofs;
-#include <regex>
-#include <unordered_map>
+// trace.cpp에 추가
+static std::vector<std::string> pending_listener_logs;
+static std::vector<std::string> all_listener_logs;
+
+// void trace_listener_log(const std::string& msg) {
+//     all_listener_logs.push_back(msg);  // 전체 로그에도 추가
+
+//     if (trace_ofs.is_open()) {
+//         trace_ofs << msg << std::endl;
+//     } else {
+//         pending_listener_logs.push_back(msg);
+//     }
+// }
+
+// void trace_flush_all_logs() {
+//     for (const auto& line : all_listener_logs) {
+//         trace_ofs << line << std::endl;
+//     }
+// }
+
+
+
+// void trace_flush_pending_logs() {
+//     for (const auto& line : pending_listener_logs) {
+//         trace_ofs << line << std::endl;
+//     }
+//     pending_listener_logs.clear();
+// }
 
 std::string replaceTemplateParams(const std::string& prettyFunc) {
     std::string result = prettyFunc;

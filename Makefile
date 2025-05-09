@@ -37,9 +37,6 @@ instrument: inject_trace_tool
 	done
 
 
-
-
-
 # 모든 테스트 컴파일 (계측된 코드와 trace 라이브러리 링크)
 # 테스트 바이너리 빌드 (계측 코드 + trace + GoogleTest)
 all_tests: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
@@ -49,13 +46,14 @@ all_tests: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 # 테스트 실행 (로그 파일 생성)
 runAll: all_tests
 	mkdir -p log
-	./all_tests > trace_hooks_output.log
+	./all_tests > TestResult.log
 
 
 clean:
 	rm -f inject_trace_tool all_tests
 	rm -rf $(INSTR_DIR)
 	rm -f log/*.log
+	rm -f json_output/*.json
 
 # fast_tool: inject_trace_tool instrument all_tests runAll # inject_trace_tool.cpp 만 수정했을떄
 # fast_instrument: instrument all_tests runAll # 테스트 소스/헤더를 수정했을떄
