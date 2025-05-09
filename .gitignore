@@ -1,5 +1,6 @@
 .vscode/
 venv/
+.idea
 
 *.pyc
 
@@ -22,3 +23,4 @@ all_tests
 *.zip
 inject_trace_tool
 *.log
+*.json
