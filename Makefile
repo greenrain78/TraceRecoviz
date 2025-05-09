@@ -57,9 +57,6 @@ clean:
 	rm -f $(INSTR_DIR)/*.cc
 	rm -f build/log/*.log
 	rm -f build/json_output/*.json
-
-	rm -rf $(INSTR_DIR)
-	rm -f log/*.log
  # inject_trace_tool.cpp 만 수정했을떄
 # fast_instrument: instrument all_tests runAll # 테스트 소스/헤더를 수정했을떄
 # fast_trace: all_tests runAll # trace.cpp, trace.h, trace_listener.h 만 수정했을떄
