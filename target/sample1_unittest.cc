@@ -40,7 +40,7 @@
 // Don't forget gtest.h, which declares the testing framework.
 
 #include "sample1.h"
-#include "../trace.h"
+
 #include <limits.h>
 
 #include "gtest/gtest.h"
@@ -146,65 +146,3 @@ TEST(IsPrimeTest, Positive) {
 // Did you notice that we didn't register the tests?  The
 // RUN_ALL_TESTS() macro magically knows about all the tests we
 // defined.  Isn't this convenient?
-// class TraceListener : public testing::TestEventListener {
-//   public:
-//       // 테스트 시작 전
-//       void OnTestProgramStart(const testing::UnitTest& /*unit_test*/) override {}
-  
-//       // 테스트 종료 후
-//       void OnTestProgramEnd(const testing::UnitTest& /*unit_test*/) override {}
-  
-//       // 테스트 반복 시작 (기본적으로 1회)
-//       void OnTestIterationStart(const testing::UnitTest& unit_test, int iteration) override {}
-  
-//       // 테스트 반복 종료
-//       void OnTestIterationEnd(const testing::UnitTest& unit_test, int iteration) override {}
-  
-//       // 전역 환경 설정 시작/종료
-//       void OnEnvironmentsSetUpStart(const testing::UnitTest& unit_test) override {}
-//       void OnEnvironmentsSetUpEnd(const testing::UnitTest& unit_test) override {}
-  
-//       void OnEnvironmentsTearDownStart(const testing::UnitTest& unit_test) override {}
-//       void OnEnvironmentsTearDownEnd(const testing::UnitTest& unit_test) override {}
-  
-//       // 테스트 스위트(테스트 그룹) 시작/종료
-//       void OnTestSuiteStart(const testing::TestSuite& suite) override {
-//           std::cout << "=== START SUITE: " << suite.name() << " ===" << std::endl;
-//       }
-  
-//       void OnTestSuiteEnd(const testing::TestSuite& suite) override {
-//           std::cout << "=== END SUITE: " << suite.name() << " ===" << std::endl;
-//       }
-  
-//       // 테스트 케이스 시작/종료
-//       void OnTestStart(const testing::TestInfo& test_info) override {
-//           std::cout << "[TRACE] Test Started: " << test_info.test_suite_name()
-//                     << "." << test_info.name() << std::endl;
-//       }
-  
-//       void OnTestEnd(const testing::TestInfo& test_info) override {
-//           std::cout << "[TRACE] Test Ended: " << test_info.test_suite_name()
-//                     << "." << test_info.name() << std::endl;
-//       }
-  
-//       // 단일 assertion 결과
-//       void OnTestPartResult(const testing::TestPartResult& result) override {
-//           if (result.failed()) {
-//               std::cout << "[FAIL] " << result.summary() << std::endl;
-//           }
-//       }
-//   };
-  
-
-// int main(int argc, char** argv) {
-//   set_allow_trace(true);  // 트레이스 허용
-//   ::testing::InitGoogleTest(&argc, argv);
-
-//   // 리스너 교체
-//   testing::TestEventListeners& listeners = testing::UnitTest::GetInstance()->listeners();
-//   delete listeners.Release(listeners.default_result_printer());
-//   listeners.Append(new TraceListener());
-
-//   return RUN_ALL_TESTS();
-// }
-

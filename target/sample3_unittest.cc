@@ -62,7 +62,6 @@
 
 #include "sample3-inl.h"
 #include "gtest/gtest.h"
-#include "../trace.h"
 namespace {
 // To use a test fixture, derive a class from testing::Test.
 class QueueTestSmpl3 : public testing::Test {
@@ -145,11 +144,3 @@ TEST_F(QueueTestSmpl3, Map) {
   MapTester(&q2_);
 }
 }  // namespace
-
-// int main(int argc, char** argv) {
-//   ::testing::InitGoogleTest(&argc, argv);
-//   int result = RUN_ALL_TESTS();
-//   //flushTrace();  // 테스트 끝나고 바로 JSON 저장
-//   return result;
-// }
-

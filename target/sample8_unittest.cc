@@ -69,6 +69,7 @@ class HybridPrimeTable : public PrimeTable {
     int next_prime = -1;
     if (precalc_impl_ != nullptr && p < max_precalculated_)
       next_prime = precalc_impl_->GetNextPrime(p);
+
     return next_prime != -1 ? next_prime : on_the_fly_impl_->GetNextPrime(p);
   }
 

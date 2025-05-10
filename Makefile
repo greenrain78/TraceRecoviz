@@ -42,7 +42,7 @@ instrument: inject_trace_tool
 # 테스트 바이너리 빌드 (계측 코드 + trace + GoogleTest)
 all_tests: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -Itarget -I$(INSTR_DIR) -include trace_listener.h \
-	$(INSTR_DIR)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
+	$(INSTR_DIR)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB) && rm -f target/trace.h
 
 # 테스트 실행 (로그 파일 생성)
 runAll: all_tests

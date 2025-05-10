@@ -94,10 +94,10 @@ TEST(MyString, Set) {
 
   s.Set(kHelloString);
   EXPECT_EQ(0, strcmp(s.c_string(), kHelloString));
-  MyString s2;
+
   // Set should work when the input pointer is the same as the one
   // already in the MyString object.
-  s2.Set(s.c_string());
+  s.Set(s.c_string());
   EXPECT_EQ(0, strcmp(s.c_string(), kHelloString));
 
   // Can we set the MyString to NULL?

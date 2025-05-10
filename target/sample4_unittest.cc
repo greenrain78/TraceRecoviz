@@ -28,7 +28,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "sample4.h"
-#include "../trace.h"
+
 #include "gtest/gtest.h"
 
 namespace {
@@ -51,11 +51,3 @@ TEST(Counter, Increment) {
 }
 
 }  // namespace
-
-// int main(int argc, char** argv) {
-//   ::testing::InitGoogleTest(&argc, argv);
-//   int result = RUN_ALL_TESTS();
-//   flushTrace();  // 테스트 끝나고 바로 JSON 저장
-//   return result;
-// }
-
