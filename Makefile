@@ -11,7 +11,6 @@ INJECT_TOOL_SRC = src/generator/inject_trace_tool.cpp
 TRACE_SRC = trace.cpp
 TRACE_HDR = trace.h
 LISTENER_HDR = trace_listener.h
-TRACE_HOOKS_SRC = trace_hooks.cpp
 
 # 계측 대상 (테스트 디렉토리)
 TEST_SRCS = $(wildcard target/*.cpp) $(wildcard target/*.cc)
@@ -56,6 +55,7 @@ clean:
 	rm -f $(INSTR_DIR)/*.cc
 	rm -f build/log/*.log
 	rm -f build/json_output/*.json
+	rm -f trace_hooks_output.log
  # inject_trace_tool.cpp 만 수정했을떄
 # fast_instrument: instrument all_tests runAll # 테스트 소스/헤더를 수정했을떄
 # fast_trace: all_tests runAll # trace.cpp, trace.h, trace_listener.h 만 수정했을떄
