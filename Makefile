@@ -8,7 +8,7 @@ GTEST_LIB = /usr/lib/libgtest.a /usr/lib/libgtest_main.a
 
 # 소스/헤더 파일
 INJECT_TOOL_SRC = src/generator/inject_trace_tool.cpp
-TRACE_SRC = trace.cpp
+TRACE_SRC = src/generator/trace.cpp
 TRACE_HDR = trace.h
 LISTENER_HDR = trace_listener.h
 
