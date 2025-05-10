@@ -7,7 +7,7 @@ GTEST_LIB = /usr/lib/libgtest.a /usr/lib/libgtest_main.a
 # GoogleTest 경로는 환경에 맞게 지정하세요 (예: /usr/include, /usr/lib 등)
 
 # 소스/헤더 파일
-INJECT_TOOL_SRC = inject_trace_tool.cpp
+INJECT_TOOL_SRC = src/generator/inject_trace_tool.cpp
 TRACE_SRC = trace.cpp
 TRACE_HDR = trace.h
 LISTENER_HDR = trace_listener.h
@@ -20,9 +20,8 @@ INSTR_DIR = build/instrumented
 all: all_tests
 
 # Clang LibTooling 도구 빌드
-# Clang LibTooling 도구 빌드
-inject_trace_tool: inject_trace_tool.cpp
-	clang++-18 -std=c++17 inject_trace_tool.cpp -o inject_trace_tool \
+inject_trace_tool: $(INJECT_TOOL_SRC)
+	clang++-18 -std=c++17 $(INJECT_TOOL_SRC) -o inject_trace_tool \
     `llvm-config-18 --cxxflags --ldflags --system-libs --libs all` \
     -lclang-cpp
 
