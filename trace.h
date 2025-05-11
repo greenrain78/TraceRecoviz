@@ -125,7 +125,7 @@ void trace_enter(const void* obj, const char* signature, Args&&... args) {
             trace_ofs << (idx == 0 ? " |ARGS|(" : ", ");
             std::ostringstream oss;
             using T = std::decay_t<Args>;
-            oss << demangle(typeid(T).name()) << " : " << args;  // 💡 demangled name 출력
+            oss << demangle(typeid(T).name()) << " : ";  // 💡 demangled name 출력
             if constexpr(std::is_arithmetic_v<T> || std::is_pointer_v<T>) {
                 oss << args;
             } else {
