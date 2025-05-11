@@ -278,27 +278,11 @@ explicit TraceInjectorVisitor(Rewriter &R, ASTContext &C) : TheRewriter(R), Cont
             CharSourceRange::getTokenRange(stmt->getSourceRange()),
             SM, TheRewriter.getLangOpts()).str();
     
-        const std::vector<std::pair<std::string, std::string>> macroRewrites = {
-            {"EXPECT_EQ(",     "EXPECT_EQ_LOG("},
-            {"EXPECT_NE(",     "EXPECT_NE_LOG("},
-            {"EXPECT_LT(",     "EXPECT_LT_LOG("},
-            {"EXPECT_LE(",     "EXPECT_LE_LOG("},
-            {"EXPECT_GT(",     "EXPECT_GT_LOG("},
-            {"EXPECT_GE(",     "EXPECT_GE_LOG("},
-            {"EXPECT_TRUE(",   "EXPECT_TRUE_LOG("},
-            {"EXPECT_FALSE(",  "EXPECT_FALSE_LOG("},
-            {"EXPECT_NEAR(",   "EXPECT_NEAR_LOG("},
-            {"EXPECT_STREQ(",  "EXPECT_STREQ_LOG("},
-            {"ASSERT_EQ(",     "ASSERT_EQ_LOG("},
-            {"ASSERT_NE(",     "ASSERT_NE_LOG("},
-            {"ASSERT_LT(",     "ASSERT_LT_LOG("},
-            {"ASSERT_LE(",     "ASSERT_LE_LOG("},
-            {"ASSERT_GT(",     "ASSERT_GT_LOG("},
-            {"ASSERT_GE(",     "ASSERT_GE_LOG("},
-            {"ASSERT_TRUE(",   "ASSERT_TRUE_LOG("},
-            {"ASSERT_FALSE(",  "ASSERT_FALSE_LOG("},
-            {"ASSERT_NEAR(",   "ASSERT_NEAR_LOG("},
-            {"ASSERT_STREQ(",  "ASSERT_STREQ_LOG("}
+        static const std::vector<std::string> macros = {
+            "EXPECT_EQ", "EXPECT_NE", "EXPECT_LT", "EXPECT_LE", "EXPECT_GT", "EXPECT_GE",
+            "EXPECT_TRUE", "EXPECT_FALSE", "EXPECT_NEAR", "EXPECT_STREQ",
+            "ASSERT_EQ", "ASSERT_NE", "ASSERT_LT", "ASSERT_LE", "ASSERT_GT", "ASSERT_GE",
+            "ASSERT_TRUE", "ASSERT_FALSE", "ASSERT_NEAR", "ASSERT_STREQ"
         };
 
     
