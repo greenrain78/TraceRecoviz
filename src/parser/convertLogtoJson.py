@@ -2,7 +2,6 @@ import logging
 import os
 import re
 
-from src.parser.utils.trace_parser import TraceParser
 
 # 로거 설정
 logging.basicConfig(
@@ -15,6 +14,7 @@ log = logging.getLogger(__name__)
 from config import LOG_DIR, OUTPUT_DIR
 from utils.files import delete_files, save_log_file
 
+from utils.trace_parser import TraceParser
 
 if __name__ == "__main__":
     if not os.path.exists(LOG_DIR):
