@@ -3,7 +3,7 @@ from logging import getLogger
 from pathlib import Path
 from typing import Tuple
 
-from src.parser.utils.extract import parse_caller_sig, parse_callee_sig
+from utils.extract import parse_caller_sig, parse_callee_sig
 
 log = getLogger(__name__)
 
@@ -60,7 +60,7 @@ class TraceParser:
         })
         self.time_count += 2
 
-    def _parse_line(self, line: str) -> dict[str, str] | None:
+    def _parse_line(self, line: str):
         match = self._LOG_PATTERN.match(line)
         if not match:
             return None

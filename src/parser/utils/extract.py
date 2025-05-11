@@ -1,11 +1,10 @@
 from logging import getLogger
-from typing import Tuple
 
 
 log = getLogger(__name__)
 
 
-def paere_funct(sig: str) -> tuple[str, str]:
+def paere_funct(sig: str):
     splited_sig = sig.split("::")
     if len(splited_sig) == 1:
         return "", splited_sig[0]
@@ -15,7 +14,7 @@ def paere_funct(sig: str) -> tuple[str, str]:
         log.error(f"❌ 잘못된 함수 시그니처 형식: {sig} - 길이: {len(splited_sig)}")
         return "", ""
 
-def parse_caller_sig(sig: str) -> tuple[str, str, str]:
+def parse_caller_sig(sig: str):
     try:
         sig = (
             sig.replace("const", "")
@@ -41,7 +40,7 @@ def parse_caller_sig(sig: str) -> tuple[str, str, str]:
         log.error(f"❌ caller_sig 파싱 중 오류 발생: {sig} - 오류: {e}")
         raise e
 
-def parse_callee_sig(sig: str) -> tuple[str, str, str, str]:
+def parse_callee_sig(sig: str):
     if "|ARGS|" not in sig:
         return parse_caller_sig(sig) + ("",)
     sig, args = sig.split("|ARGS|", maxsplit=1)
