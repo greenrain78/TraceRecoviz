@@ -115,23 +115,23 @@ void trace_enter(const void* obj, const char* signature, Args&&... args) {
     std::string caller_sig = call_stack.empty() ? "GlobalInstance" : replaceTemplateParams(call_stack.top().signature);
 
     trace_ofs << "[" << current_test_name << "] [CALL] ";
-    trace_ofs << "caller: (ptr=" << caller_ptr << ") " << caller_sig << " => ";
-    trace_ofs << "callee: (ptr=" << obj << ") " << replaceTemplateParams(signature);
+    trace_ofs << "|caller=" << caller_ptr << "| " << caller_sig << " >> ";
+    trace_ofs << "|callee=" << obj << "| " << replaceTemplateParams(signature);
 
 
     int idx = 0;
     (void)std::initializer_list<int>{(
         [&](){
-            trace_ofs << (idx == 0 ? " (" : ", ");
+            trace_ofs << (idx == 0 ? " |ARGS|(" : ", ");
             std::ostringstream oss;
             using T = std::decay_t<Args>;
-            oss << args << " : " << demangle(typeid(T).name());  // 💡 demangled name 출력
+            oss << demangle(typeid(T).name()) << " : ";  // 💡 demangled name 출력
             if constexpr(std::is_arithmetic_v<T> || std::is_pointer_v<T>) {
                 oss << args;
             } else {
                 oss << "<non-arithmetic addr=" << std::hex << (void*)&args << ">";
             }
-            trace_ofs << "arg" << idx << "=" << oss.str();
+            trace_ofs << oss.str();
             ++idx;
         }(), 0)...};
     if (idx > 0) trace_ofs << ")";
@@ -154,8 +154,8 @@ void trace_return(const void* obj, const char* signature, Ret retVal) {
     std::string caller_sig = call_stack.empty() ? "<UNKNOWN>" : replaceTemplateParams(call_stack.top().signature);
 
     trace_ofs << "[" << current_test_name << "] [RETURN] ";
-    trace_ofs << "caller: (ptr=" << caller_ptr << ") " << caller_sig << " => ";
-    trace_ofs << "callee: (ptr=" << obj << ") " << replaceTemplateParams(signature);
+    trace_ofs << "|caller=" << caller_ptr << "| " << caller_sig << " >> ";
+    trace_ofs << "|callee=" << obj << "| " << replaceTemplateParams(signature);
 
 
     if (is_ctor) {
@@ -187,8 +187,8 @@ inline void trace_return(const void* obj, const char* signature) {
     std::string caller_sig = call_stack.empty() ? "<UNKNOWN>" : replaceTemplateParams(call_stack.top().signature);
 
     trace_ofs << "[" << current_test_name << "] [RETURN] ";
-    trace_ofs << "caller: (ptr=" << caller_ptr << ") " << caller_sig << " => ";
-    trace_ofs << "callee: (ptr=" << obj << ") " << replaceTemplateParams(signature);
+    trace_ofs << "|caller=" << caller_ptr << "| " << caller_sig << " >> ";
+    trace_ofs << "|callee=" << obj << "| " << replaceTemplateParams(signature);
 
 
     if (is_ctor) {
