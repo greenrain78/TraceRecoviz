@@ -1,10 +1,11 @@
 import re
 from logging import getLogger
 from pathlib import Path
+from typing import Tuple
+
+from src.parser.utils.extract import parse_caller_sig, parse_callee_sig
 
 log = getLogger(__name__)
-
-from src.parser.utils.extract import extract_callee
 
 
 class TraceParser:
@@ -12,16 +13,23 @@ class TraceParser:
     로그 파일을 파싱하여 시퀀스 다이어그램을 생성하는 클래스입니다.
     """
 
-    _LOG_PATTERN = re.compile(r"\[(.*?)] \[(CALL|RETURN)] caller: \(ptr=(.*?)\) (.*?) => callee: \(ptr=(.*?)\) (.*)")
+    _LOG_PATTERN = re.compile(
+        r'^\[(?P<testname>.+?)\]\s+\[(?P<action>CALL|RETURN|ASSERTION_CALL)\]\s*'
+        r'\|caller=(?P<caller_ptr>[^|]+)\|\s*(?P<caller_sig>.+?)\s*>>\s*'
+        r'(?:\|callee=(?P<callee_ptr>[^|]+)\|\s*(?P<callee_sig>.+?))?'
+        r'(?:\s*=>\s*(?P<return_val>.+))?$'
+    )
+
     def __init__(self, file_path):
         self.file_path = file_path
         self.nodes = {}
         self.links = []
         self.time_count = 0
+        self.test_name = ""
 
     def run(self):
         for raw in Path(self.file_path).read_text(encoding="utf-8").splitlines():
-            if raw.startswith("[TRACE]"):
+            if raw.startswith("[TRACE]") and "[ASSERTION_CALL]" in raw:
                 continue
             self._process_line(raw.strip())
 
@@ -36,38 +44,61 @@ class TraceParser:
             "linkDataArray": self.links
         }
 
+
+    def _parse_line(self, line: str) -> dict[str, str] | None:
+        match = self._LOG_PATTERN.match(line)
+        if not match:
+            return None
+        if self.test_name == "":
+            self.test_name = match.group("testname")
+
+        caller_sig = match.group("caller_sig").strip()
+        caller_ret_type, caller_class, caller_func = parse_caller_sig(caller_sig)
+
+        callee_sig = match.group("callee_sig").strip()
+        callee_ret_type, callee_class, callee_func, callee_args = parse_callee_sig(callee_sig)
+        print(f"rtype: {callee_ret_type}, class: {callee_class}, func: {callee_func}, args: {callee_args}")
+        return {
+            "caller_sig" : caller_sig,
+            "callee_sig": callee_sig,
+
+            # "action": match.group("action"),
+            # "caller_ptr": match.group("caller_ptr"),
+            # "caller_ret_type": caller_ret_type,
+            # "caller_func": caller_func,
+            # "caller_class": caller_class,
+            # "callee_ptr": match.group("callee_ptr") or "",
+            # "callee_ret_type": callee_ret_type,
+            # "callee_func": callee_func,
+            # "callee_class": callee_class,
+            # "return_val": match.group("return_val").strip() if match.group("return_val") else "",
+        }
+
     def _process_line(self, line: str) -> None:
         # log.info(f"Processing line: {line}")
-        match = self._LOG_PATTERN.match(line)
-        if "TestBody" in line:
-            pass
-        if not match:
-            raise ValueError(f"Invalid log line: {line}")
-        test_name, action, caller_ptr, caller_sig, callee_ptr, callee_sig = match.groups()
 
-        # 노드 추가
-        caller = extract_callee(caller_sig)
-        callee = extract_callee(callee_sig)
-        self._ensure_node(caller_ptr, caller.class_name)
-        self._ensure_node(callee_ptr, callee.class_name)
-
-        if action == "CALL":
-            self.links.append({
-                "from": caller_ptr,
-                "to": callee_ptr,
-                "text": f"{callee.return_type} {callee.func_name}({', '.join([f'{arg[0]} {arg[1]}' for arg in callee.args])})",
-                "time": self.time_count,
-            })
-        elif action == "RETURN":
-            self.links.append({
-                "from": callee_ptr,
-                "to": caller_ptr,
-                "text": f"{callee.return_type} {callee.return_value}",
-                "time": self.time_count,
-            })
-        else:
-            raise ValueError(f"Invalid action: {action}")
-        self.time_count += 2
+        data = self._parse_line(line)
+        log.info(f"data: {data}")
+        # self._ensure_node(data.get("caller_ptr", "없음"), data.get("caller_sig", ""))
+        # self._ensure_node(data.get("callee_ptr", "없음"), data.get("callee_sig", ""))
+        # #
+        # if data['action'] == "CALL":
+        #     self.links.append({
+        #         "from": data['caller_ptr'],
+        #         "to": data['callee_ptr'],
+        #         "text": f"{callee.return_type} {callee.func_name}({', '.join([f'{arg[0]} {arg[1]}' for arg in callee.args])})",
+        #         "time": self.time_count,
+        #     })
+        # elif action == "RETURN":
+        #     self.links.append({
+        #         "from": callee_ptr,
+        #         "to": caller_ptr,
+        #         "text": f"{callee.return_type} {callee.return_value}",
+        #         "time": self.time_count,
+        #     })
+        # else:
+        #     raise ValueError(f"Invalid action: {action}")
+        # self.time_count += 2
 
     def _ensure_node(self, ptr: str, name: str):
         """ 노드가 존재하지 않으면 생성합니다. """

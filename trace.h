@@ -122,16 +122,16 @@ void trace_enter(const void* obj, const char* signature, Args&&... args) {
     int idx = 0;
     (void)std::initializer_list<int>{(
         [&](){
-            trace_ofs << (idx == 0 ? " (" : ", ");
+            trace_ofs << (idx == 0 ? " |ARGS|(" : ", ");
             std::ostringstream oss;
             using T = std::decay_t<Args>;
-            oss << args << " : " << demangle(typeid(T).name());  // 💡 demangled name 출력
+            oss << demangle(typeid(T).name()) << " : " << args;  // 💡 demangled name 출력
             if constexpr(std::is_arithmetic_v<T> || std::is_pointer_v<T>) {
                 oss << args;
             } else {
                 oss << "<non-arithmetic addr=" << std::hex << (void*)&args << ">";
             }
-            trace_ofs << "arg" << idx << "=" << oss.str();
+            trace_ofs << oss.str();
             ++idx;
         }(), 0)...};
     if (idx > 0) trace_ofs << ")";
