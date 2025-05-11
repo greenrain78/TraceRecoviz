@@ -54,7 +54,9 @@
         },
         new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
         $(go.Panel, "Auto", {name:"HEADER"},
-          $(go.Shape, "Rectangle", {stroke:null, fill: $(go.Brush, "Linear", {0:'#bbdefb',1:go.Brush.darkenBy('#bbdefb',0.1)})}),
+          $(go.Shape, "Rectangle", {stroke:null, fill: $(go.Brush, "Linear", {0:'#bbdefb',1:go.Brush.darkenBy('#bbdefb',0.1)})},
+            new go.Binding("fill", "color", function(c) { return c || $(go.Brush, "Linear", {0: "#bbdefb", 1: go.Brush.darkenBy("#bbdefb", 0.1)});})
+          ),
           $(go.TextBlock, {margin:5, font:"400 10pt Source Sans Pro"}, new go.Binding("text"))
         ),
         $(go.Shape, {
