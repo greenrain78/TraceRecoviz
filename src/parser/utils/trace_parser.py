@@ -26,12 +26,16 @@ class TraceParser:
         self.links = []
         self.time_count = 0
         self.test_name = ""
+        self.root_node = ""
 
     def run(self):
         for raw in Path(self.file_path).read_text(encoding="utf-8").splitlines():
-            if raw.startswith("[TRACE]") or "[ASSERTION_CALL]" in raw:
+            if raw.startswith("[TRACE]"):
                 continue
-            self._process_line(raw.strip())
+            if "[ASSERTION_CALL]" in raw:
+                self._process_assertion(raw.strip())
+            else:
+                self._process_line(raw.strip())
 
         # 노드 가공
         for i, node in enumerate(self.nodes.values()):
@@ -44,6 +48,17 @@ class TraceParser:
             "linkDataArray": self.links
         }
 
+    def _process_assertion(self, line: str) -> None:
+        text = line.split("[ASSERTION_CALL]")[1]
+        if self.test_name == "":
+            raise ValueError("테스트 시작전 ASSERT 문이 먼저 실행되어 있습니다.")
+        self.links.append({
+            "from": self.root_node,
+            "to": self.root_node,
+            "text": text,
+            "time": self.time_count,
+        })
+        self.time_count += 2
 
     def _parse_line(self, line: str) -> dict[str, str] | None:
         match = self._LOG_PATTERN.match(line)
@@ -73,8 +88,8 @@ class TraceParser:
 
     def _process_line(self, line: str) -> None:
         data = self._parse_line(line)
-        self._ensure_node(data.get("caller_ptr", "없음"), data.get("caller_sig", ""))
-        self._ensure_node(data.get("callee_ptr", "없음"), data.get("callee_sig", ""))
+        self._ensure_node(data.get("caller_ptr", "없음"), data.get("caller_class", ""))
+        self._ensure_node(data.get("callee_ptr", "없음"), data.get("callee_class", ""))
         #
         if data['action'] == "CALL":
             self.links.append({
@@ -97,6 +112,8 @@ class TraceParser:
     def _ensure_node(self, ptr: str, name: str):
         """ 노드가 존재하지 않으면 생성합니다. """
         if ptr not in self.nodes:
+            if self.root_node == "" and name == "GoogleTest":
+                self.root_node = ptr
             if ptr == '0':
                 text = f"전역함수"
             else:
