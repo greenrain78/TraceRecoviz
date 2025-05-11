@@ -42,8 +42,8 @@ all_tests: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 
 # 테스트 실행 (로그 파일 생성)
 runAll: all_tests
-	mkdir -p log
 	./all_tests > trace_hooks_output.log
+	python3 src/parser/convertLogtoJson.py
 
 # 이전 파일 삭제
 clean:
