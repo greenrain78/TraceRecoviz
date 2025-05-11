@@ -97,8 +97,8 @@
       /* ---------------- MESSAGE LINK TEMPLATE ---------------- */
       myDiagram.linkTemplate = $(MessageLink,
         {selectionAdorned:true, curviness:0},
-        $(go.Shape, "Rectangle", {stroke:"black"}),
-        $(go.Shape, {toArrow:"OpenTriangle", stroke:"black"}),
+        $(go.Shape, "Rectangle", new go.Binding("stroke", "color")),
+        $(go.Shape, {toArrow:"OpenTriangle"}, new go.Binding("stroke", "color")),
         $(go.TextBlock, {
             font:"400 9pt Source Sans Pro",
             segmentIndex:0,
@@ -106,7 +106,8 @@
             isMultiline:false,
             editable:true
           },
-          new go.Binding("text").makeTwoWay()
+          new go.Binding("text").makeTwoWay(),
+          new go.Binding("background", "textColor") // 🟡 텍스트 배경색
         )
       );
 
