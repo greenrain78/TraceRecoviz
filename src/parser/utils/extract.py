@@ -7,9 +7,9 @@ log = getLogger(__name__)
 def paere_funct(sig: str):
     splited_sig = sig.split("::")
     if len(splited_sig) == 1:
-        return "", splited_sig[0]
+        return "", splited_sig[-1]
     elif len(splited_sig) >= 2:
-        return splited_sig[0], splited_sig[1]
+        return splited_sig[-2], splited_sig[-1]
     else:
         log.error(f"❌ 잘못된 함수 시그니처 형식: {sig} - 길이: {len(splited_sig)}")
         return "", ""
