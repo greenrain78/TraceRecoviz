@@ -37,8 +37,8 @@ def diff_charline(old: str, new: str) -> List[str]:
     return out
 
 if __name__ == "__main__":
-    old_dir = Path("build/log")
-    new_dir = Path("build/after")
+    old_dir = Path("build/old")
+    new_dir = Path("build/new")
     result_dir = Path("build/result")
     result_dir.mkdir(parents=True, exist_ok=True)
 
