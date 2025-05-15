@@ -2,6 +2,8 @@ import difflib
 from pathlib import Path
 from typing import List
 
+from src.diff.config import OLD_DIR, NEW_DIR, RESULT_DIR
+
 
 def _char_level_diff(old: str, new: str) -> List[str]:
     """a, b 한 줄의 내용을 비교하여 전체 줄 기준으로 교체 포맷 적용"""
@@ -37,14 +39,14 @@ def diff_charline(old: str, new: str) -> List[str]:
     return out
 
 if __name__ == "__main__":
-    old_dir = Path("build/old")
-    new_dir = Path("build/new")
-    result_dir = Path("build/result")
-    result_dir.mkdir(parents=True, exist_ok=True)
+    # result 폴더내 로그 파일 비우기
+    for f in Path(RESULT_DIR).glob("*.log"):
+        f.unlink()
+    print("result 폴더내 로그 파일 비우기 완료")
 
-    for old_file in old_dir.glob("*.log"):
-        new_file = new_dir / old_file.name
-        result_file = result_dir / old_file.name
+    for old_file in Path(OLD_DIR).glob("*.log"):
+        new_file = Path(NEW_DIR) / old_file.name
+        result_file = Path(RESULT_DIR)  / old_file.name
 
         if not new_file.exists():
             print(f"[경고] 새 로그 파일 없음: {new_file}")
