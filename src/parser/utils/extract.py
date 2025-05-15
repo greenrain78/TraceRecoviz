@@ -42,7 +42,7 @@ def parse_caller_sig(sig: str):
 
 def parse_callee_sig(sig: str):
     if "|ARGS|" not in sig:
-        return parse_caller_sig(sig) + ("",)
+        return parse_caller_sig(sig) + ("()",)
     sig, args = sig.split("|ARGS|", maxsplit=1)
     ret_type, class_name, func_name = parse_caller_sig(sig)
     return ret_type, class_name, func_name, args

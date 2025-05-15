@@ -1,3 +1,3 @@
 
-LOG_DIR = "./build/log"
-OUTPUT_DIR = "./build/json_output"
+LOG_DIR = "./build/result"
+OUTPUT_DIR = "./build/sequence_diagram"

@@ -26,5 +26,8 @@ inject_trace_tool
 *.json
 
 build/instrumented
-build/json_output
 build/log
+build/new
+build/old
+build/result
+build/sequence_diagram
