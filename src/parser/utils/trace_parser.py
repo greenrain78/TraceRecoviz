@@ -64,7 +64,7 @@ class TraceParser:
         elif first_two == "  ":
             change_color = "white"
         else:
-            change_color = "blue"
+            change_color = None
             rest = line
         return change_color, rest
 
@@ -78,6 +78,7 @@ class TraceParser:
             "to": self.root_node,
             "text": text,
             "time": self.time_count,
+            **({"color": change_color} if change_color is not None else {}),
         })
         self.time_count += 2
 
@@ -120,6 +121,7 @@ class TraceParser:
                 "to": data['callee_ptr'],
                 "text": f"{data['callee_ret_type']} {data['callee_func']}{data['callee_args']}",
                 "time": self.time_count,
+                **({"color": change_color} if change_color is not None else {}),
             })
         elif data['action'] == "RETURN":
             self.links.append({
@@ -127,6 +129,7 @@ class TraceParser:
                 "to": data['caller_ptr'],
                 "text": f"{data['callee_ret_type']} {data['return_val']}",
                 "time": self.time_count,
+                **({"color": change_color} if change_color is not None else {}),
             })
         else:
             raise ValueError(f"Invalid action: {data['action']}")
