@@ -30,7 +30,7 @@ class TraceParser:
 
     def run(self):
         for raw in Path(self.file_path).read_text(encoding="utf-8").splitlines():
-            if raw.startswith("[TRACE]") or raw.startswith("  [TRACE]"):
+            if "[TRACE]" in raw:
                 continue
             if "[ASSERTION_CALL]" in raw:
                 self._process_assertion(raw.strip())
