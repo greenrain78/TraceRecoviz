@@ -2,7 +2,7 @@ import difflib
 from pathlib import Path
 from typing import List
 
-from src.diff.config import OLD_DIR, NEW_DIR, RESULT_DIR
+from config import OLD_DIR, NEW_DIR, RESULT_DIR
 
 
 def _char_level_diff(old: str, new: str) -> List[str]:
