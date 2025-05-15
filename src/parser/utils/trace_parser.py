@@ -30,7 +30,7 @@ class TraceParser:
 
     def run(self):
         for raw in Path(self.file_path).read_text(encoding="utf-8").splitlines():
-            if raw.startswith("[TRACE]"):
+            if raw.startswith("[TRACE]") or raw.startswith("  [TRACE]"):
                 continue
             if "[ASSERTION_CALL]" in raw:
                 self._process_assertion(raw.strip())
@@ -48,7 +48,28 @@ class TraceParser:
             "linkDataArray": self.links
         }
 
+    @staticmethod
+    def _is_changed(line: str):
+        # 맨 앞 2글자와 나머지 분리
+        first_two = line[:2]
+        rest = line[2:]
+        if first_two == "+ ":
+            change_color = "green"
+        elif first_two == "- ":
+            change_color = "red"
+        elif first_two == "= ":
+            change_color = "yellow"
+        elif first_two == "! ":
+            change_color = "orange"
+        elif first_two == "  ":
+            change_color = "white"
+        else:
+            change_color = "blue"
+            rest = line
+        return change_color, rest
+
     def _process_assertion(self, line: str) -> None:
+        change_color, text = self._is_changed(line)
         text = line.split("[ASSERTION_CALL]")[1]
         if self.test_name == "":
             raise ValueError("테스트 시작전 ASSERT 문이 먼저 실행되어 있습니다.")
@@ -87,7 +108,9 @@ class TraceParser:
         }
 
     def _process_line(self, line: str) -> None:
-        data = self._parse_line(line)
+        change_color, text = self._is_changed(line)
+        log.info(f"변경된 줄: {change_color} {text}")
+        data = self._parse_line(text)
         self._ensure_node(data.get("caller_ptr", "없음"), data.get("caller_class", ""))
         self._ensure_node(data.get("callee_ptr", "없음"), data.get("callee_class", ""))
         #

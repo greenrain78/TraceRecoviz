@@ -1,4 +1,5 @@
 import difflib
+from pathlib import Path
 from typing import List
 
 
@@ -36,15 +37,26 @@ def diff_charline(old: str, new: str) -> List[str]:
     return out
 
 if __name__ == "__main__":
+    old_dir = Path("build/log")
+    new_dir = Path("build/after")
+    result_dir = Path("build/result")
+    result_dir.mkdir(parents=True, exist_ok=True)
 
-    with open(f"../../11.log", encoding="utf-8") as f:
-        old_text = f.read()
-    with open(f"../../22.log", encoding="utf-8") as f:
-        new_text = f.read()
+    for old_file in old_dir.glob("*.log"):
+        new_file = new_dir / old_file.name
+        result_file = result_dir / old_file.name
 
-    for l in diff_charline(old_text, new_text):
-        print(l)
+        if not new_file.exists():
+            print(f"[경고] 새 로그 파일 없음: {new_file}")
+            continue
 
+        with old_file.open(encoding="utf-8") as f:
+            old_text = f.read()
+        with new_file.open(encoding="utf-8") as f:
+            new_text = f.read()
 
+        with result_file.open("w", encoding="utf-8") as f:
+            for line in diff_charline(old_text, new_text):
+                f.write(line + "\n")
 
 
