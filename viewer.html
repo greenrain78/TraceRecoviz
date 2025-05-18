@@ -238,18 +238,72 @@
        LOAD JSON AND AUTO-ADJUST HORIZONTAL GAP
     ========================================================= */
 let currentBaseName = "";
-let fileVariants = [];
-let currentFileIndex = 0;
+let fileVariants = [];        // 실제 존재하는 파일 목록
+let currentFileIndex = 0;     // 현재 인덱스
 
 const labelMap = {
-  0: "원본",
-  1: "NEW 버전",
-  2: "OLD 버전"
+  "_new": "NEW 버전",
+  "_old": "OLD 버전",
+  "": "원본"
 };
 
-function updateFileLabel(index) {
+function updateFileLabel(fileName) {
   const labelDiv = document.getElementById("fileLabel");
-  labelDiv.textContent = labelMap[index] || "";
+  const suffix = fileName.includes("_new.json") ? "_new"
+                : fileName.includes("_old.json") ? "_old"
+                : "";
+  labelDiv.textContent = labelMap[suffix] || "";
+}
+
+async function checkFileExists(fileName) {
+  try {
+    const res = await fetch(fileName, { method: "HEAD" });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function loadData() {
+  const params = new URLSearchParams(window.location.search);
+  const file = params.get("file");
+  if (!file) {
+    myDiagram.model = go.Model.fromJson({ "class": "go.GraphLinksModel", "nodeDataArray": [], "linkDataArray": [] });
+    updateFileLabel("");
+    return;
+  }
+
+  const match = file.match(/^(.+?)(?:_new|_old)?\.json$/);
+  if (!match) {
+    alert("파일명 형식 오류: xxxx.json, xxxx_new.json, xxxx_old.json 형식 필요");
+    updateFileLabel("");
+    return;
+  }
+
+  currentBaseName = match[1];
+  const candidates = [
+    `${currentBaseName}.json`,
+    `${currentBaseName}_new.json`,
+    `${currentBaseName}_old.json`
+  ];
+
+  fileVariants = [];
+  for (const f of candidates) {
+    if (await checkFileExists(f)) {
+      fileVariants.push(f);
+    }
+  }
+
+  if (fileVariants.length === 0) {
+    alert("사용 가능한 JSON 파일이 없습니다.");
+    return;
+  }
+
+  // 초기 파일이 있으면 그 인덱스로 시작
+  const initialIndex = fileVariants.findIndex(f => f === file);
+  currentFileIndex = initialIndex >= 0 ? initialIndex : 0;
+
+  loadDataFromFile(fileVariants[currentFileIndex]);
 }
 
 function loadDataFromFile(fileName) {
@@ -268,40 +322,12 @@ function loadDataFromFile(fileName) {
 
       myDiagram.model = go.Model.fromJson(json);
       ensureLifelineHeights();
-
-      updateFileLabel(currentFileIndex);
+      updateFileLabel(fileName);
     })
     .catch(err => {
       console.error("JSON load error:", err);
       alert("JSON 로드 실패: " + err);
     });
-}
-
-function loadData() {
-  const params = new URLSearchParams(window.location.search);
-  const file = params.get("file");
-  if (!file) {
-    myDiagram.model = go.Model.fromJson({ "class": "go.GraphLinksModel", "nodeDataArray": [], "linkDataArray": [] });
-    updateFileLabel(-1);
-    return;
-  }
-
-  const match = file.match(/^(.+?)(?:_new|_old)?\.json$/);
-  if (!match) {
-    alert("파일명 형식 오류: xxxx.json, xxxx_new.json, xxxx_old.json 형식 필요");
-    updateFileLabel(-1);
-    return;
-  }
-
-  currentBaseName = match[1];
-  fileVariants = [
-    `${currentBaseName}.json`,
-    `${currentBaseName}_new.json`,
-    `${currentBaseName}_old.json`
-  ];
-  currentFileIndex = 0;
-
-  loadDataFromFile(fileVariants[currentFileIndex]);
 }
 
 window.addEventListener("keydown", (e) => {
@@ -315,8 +341,6 @@ window.addEventListener("keydown", (e) => {
     loadDataFromFile(fileVariants[currentFileIndex]);
   }
 });
-
-window.addEventListener("DOMContentLoaded", init);
 
     /* =========================================================
        STARTUP
