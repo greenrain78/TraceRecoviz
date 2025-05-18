@@ -1,42 +1,42 @@
 import difflib
+import re
 from pathlib import Path
 from typing import List
 
 from config import OLD_DIR, NEW_DIR, RESULT_DIR
 
+HEX_PTR = re.compile(r"0x[0-9a-fA-F]+")
 
-def _char_level_diff(old: str, new: str) -> List[str]:
-    """a, b 한 줄의 내용을 비교하여 전체 줄 기준으로 교체 포맷 적용"""
-    if old != new:
-        return [f"= {new}"]
-    else:
-        return [f"! {old} -> {new}"]
-
-
+def _normalize(line: str) -> str:
+    """포인터 주소 등 런타임 변동 값을 고정 토큰으로 치환"""
+    # 1) 포인터 주소 제거
+    line = HEX_PTR.sub("@ADDR", line)
+    # 2) 공백 정리
+    return " ".join(line.split())
 
 def diff_charline(old: str, new: str) -> List[str]:
-    """old, new ⇒ 줄+문자 단위 diff 결과(스트링 리스트)"""
-    old_lines, new_lines = old.splitlines(), new.splitlines()
-    sm = difflib.SequenceMatcher(None, old_lines, new_lines)
-    out: List[str] = []
+    """정규화 후 줄 단위 diff 결과 반환 (+ / - /  )"""
+    old_raw = old.splitlines()
+    new_raw = new.splitlines()
+    old_norm = [_normalize(l) for l in old_raw]
+    new_norm = [_normalize(l) for l in new_raw]
+
+    sm = difflib.SequenceMatcher(None, old_norm, new_norm)
+    result: List[str] = []
 
     for tag, i1, i2, j1, j2 in sm.get_opcodes():
         if tag == "equal":
-            out.extend(f"  {line}" for line in old_lines[i1:i2])
+            result.extend(f"  {old_raw[i]}" for i in range(i1, i2))
         elif tag == "delete":
-            out.extend(f"- {line}" for line in old_lines[i1:i2])
+            result.extend(f"- {old_raw[i]}" for i in range(i1, i2))
         elif tag == "insert":
-            out.extend(f"+ {line}" for line in old_lines[i1:i2])
+            result.extend(f"+ {new_raw[j]}" for j in range(j1, j2))
         elif tag == "replace":
-            # 같은 위치의 줄 쌍을 문자 단위로 다시 비교
-            for a, b in zip(old_lines[i1:i2], new_lines[j1:j2]):
-                out.extend(_char_level_diff(a, b))
-            # 길이가 다르면 남은 줄도 처리
-            for line in old_lines[i1 + (j2 - j1) : i2]:
-                out.append("- " + line)
-            for line in new_lines[j1 + (i2 - i1) : j2]:
-                out.append("+ " + line)
-    return out
+            # ‘삭제 + 추가’로 분해
+            result.extend(f"- {old_raw[i]}" for i in range(i1, i2))
+            result.extend(f"+ {new_raw[j]}" for j in range(j1, j2))
+    return result
+
 
 if __name__ == "__main__":
     # result 폴더내 로그 파일 비우기

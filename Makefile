@@ -50,7 +50,6 @@ clean:
 	rm -f inject_trace_tool all_tests
 	rm -f $(INSTR_DIR)/*.cc
 	rm -f build/log/*.log
-	rm -f build/sequence_diagram/*.json
 	rm -f trace_hooks_output.log
 
 re: clean runAll
