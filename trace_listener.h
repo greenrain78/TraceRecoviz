@@ -61,7 +61,7 @@ public:
         std::filesystem::path filePath(test_info.file());
         std::string fileName = filePath.stem().string();
 
-        std::string filename = "trace_" + fileName + "_" + safe_suite + "." + safe_test + ".log";
+        std::string filename = fileName + "_" + safe_suite + "." + safe_test + ".log";
         trace_set_current_test(suite, test);
         trace_open_file(filename);
 

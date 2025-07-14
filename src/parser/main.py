@@ -25,11 +25,22 @@ if __name__ == "__main__":
     delete_files(OUTPUT_DIR, "*.json")
     log.info("🗑️ 이전 데이터 삭제")
 
+    INPUT_DIRS = ["result", "new", "old"]
     # 로그 파일 처리
-    for filename in os.listdir(LOG_DIR):
-        # if filename.endswith(".log") and "_sample6_unittest_OnTheFlyAndPreCalculated_PrimeTableTest2_0.CanGetNextPrime" in filename:
-        if filename.endswith(".log"):
-            log.info(f"📜 변환중: {filename}")
-            result = TraceParser(os.path.join(LOG_DIR, filename)).run()
-            save_log_file(OUTPUT_DIR, filename.replace(".log", ".json"), result)
+    for input_subdir in INPUT_DIRS:
+        input_dir = os.path.join("./build/", input_subdir)
+        suffix = "" if input_subdir == "result" else f"_{input_subdir}"
+
+        for filename in os.listdir(input_dir):
+            if filename.endswith(".log"):
+                try:
+                    log.info(f"📜 변환중: {filename} ({input_subdir})")
+                    result = TraceParser(os.path.join(input_dir, filename)).run()
+                    output_filename = filename.replace(".log", f"{suffix}.json")
+                    save_log_file(OUTPUT_DIR, output_filename, result)
+                except Exception as e:
+                    log.error(f"❌ 변환 실패: {filename} ({input_subdir})")
+                    log.error(e)
+                    continue
+
     log.info("💡 모든 로그 파일이 변환되었습니다.")
