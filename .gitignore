@@ -20,6 +20,8 @@ googletest
 
 # 111
 all_tests
+all_tests_new
+all_tests_old
 *.zip
 inject_trace_tool
 *.log
@@ -31,3 +33,6 @@ build/new
 build/old
 build/result
 build/sequence_diagram
+
+target_new/
+target_old/
