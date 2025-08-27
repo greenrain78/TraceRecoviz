@@ -49,13 +49,6 @@ all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 # 메타 타겟: 두 바이너리 모두 빌드
 all_tests: all_tests_new all_tests_old
 
-# 테스트 실행 (각각 로그 후 합치기)
-runAll: all_tests
-	./all_tests_new > trace_hooks_output.new.log
-	./all_tests_old > trace_hooks_output.old.log
-	cat trace_hooks_output.new.log trace_hooks_output.old.log > trace_hooks_output.log
-	python3 src/parser/convertLogtoJson.py
-
 # 정리
 clean:
 	rm -f inject_trace_tool all_tests_new all_tests_old
