@@ -3,7 +3,6 @@ CXXFLAGS = -std=c++17 -I. -I$(GTEST_INCLUDE)
 LDFLAGS = -lgtest -lgtest_main -lpthread -ldl
 GTEST_INCLUDE = /usr/include/gtest
 GTEST_LIB = /usr/lib/libgtest.a /usr/lib/libgtest_main.a
-# GoogleTest 경로
 
 # 소스/헤더 파일
 INJECT_TOOL_SRC = src/generator/inject_trace_tool.cpp
@@ -11,9 +10,13 @@ TRACE_SRC = src/generator/trace.cpp
 TRACE_HDR = trace.h
 LISTENER_HDR = trace_listener.h
 
-# 계측 대상 (테스트 디렉토리)
-TEST_SRCS = $(wildcard target/*.cpp) $(wildcard target/*.cc)
+# 계측 대상 디렉토리
+TARGET_DIRS = target_new target_old
 INSTR_DIR = build/instrumented
+
+# 편의 변수
+INSTR_NEW = $(INSTR_DIR)/target_new
+INSTR_OLD = $(INSTR_DIR)/target_old
 
 all: all_tests
 
@@ -23,33 +26,41 @@ inject_trace_tool: $(INJECT_TOOL_SRC)
     `llvm-config-18 --cxxflags --ldflags --system-libs --libs all` \
     -lclang-cpp
 
-
-
-# 테스트 코드 계측 (instrumented/*.cpp 생성)
+# 테스트 코드 계측 (build/instrumented/<dir>/*.{cc,cpp,h,hpp} 생성)
 instrument: inject_trace_tool
-	mkdir -p build/instrumented
-	for f in $(wildcard target/*.cc) $(wildcard target/*.cpp) $(wildcard target/*.h) $(wildcard target/*.hpp); do \
-		base=$$(basename $$f); \
-		./inject_trace_tool $$f > build/instrumented/$$base; \
+	mkdir -p $(INSTR_DIR)
+	for d in $(TARGET_DIRS); do \
+		mkdir -p $(INSTR_DIR)/$$d; \
+		for f in $$(find $$d -maxdepth 1 -type f \( -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \)); do \
+			base=$$(basename $$f); \
+			./inject_trace_tool $$f > $(INSTR_DIR)/$$d/$$base; \
+		done; \
 	done
 
+# 디렉토리별로 별도 테스트 바이너리 생성
+all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
+	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -I$(INSTR_NEW) -include $(LISTENER_HDR) \
+	$(INSTR_NEW)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
-# 모든 테스트 컴파일 (계측된 코드와 trace 라이브러리 링크)
-# 테스트 바이너리 빌드 (계측 코드 + trace + GoogleTest)
-all_tests: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
-	$(CXX) $(CXXFLAGS) -Itarget -I$(INSTR_DIR) -include trace_listener.h \
-	$(INSTR_DIR)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
+all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
+	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"old\" -Itarget_old -I$(INSTR_OLD) -include $(LISTENER_HDR) \
+	$(INSTR_OLD)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
-# 테스트 실행 (로그 파일 생성)
+# 메타 타겟: 두 바이너리 모두 빌드
+all_tests: all_tests_new all_tests_old
+
+# 테스트 실행 (각각 로그 후 합치기)
 runAll: all_tests
-	./all_tests > trace_hooks_output.log
+	./all_tests_new > trace_hooks_output.new.log
+	./all_tests_old > trace_hooks_output.old.log
+	cat trace_hooks_output.new.log trace_hooks_output.old.log > trace_hooks_output.log
 	python3 src/parser/convertLogtoJson.py
 
-# 이전 파일 삭제
+# 정리
 clean:
-	rm -f inject_trace_tool all_tests
-	rm -f $(INSTR_DIR)/*.cc
+	rm -f inject_trace_tool all_tests_new all_tests_old
+	rm -rf $(INSTR_DIR)
 	rm -f build/log/*.log
-	rm -f trace_hooks_output.log
+	rm -f trace_hooks_output.log trace_hooks_output.new.log trace_hooks_output.old.log
 
 re: clean runAll

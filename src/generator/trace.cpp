@@ -7,6 +7,12 @@ std::ofstream trace_ofs;
 #include <regex>
 #include <unordered_map>
 
+
+#ifndef TRACE_VARIANT
+#define TRACE_VARIANT "log"  // 기본값: build/log/
+#endif
+
+
 std::string replaceTemplateParams(const std::string& prettyFunc) {
     std::string result = prettyFunc;
     std::unordered_map<std::string, std::string> replacements;
@@ -50,7 +56,8 @@ void trace_open_file(const std::string& filename) {
     if (trace_ofs.is_open()) trace_ofs.close();
     
     // log/ 디렉토리 안에 넣도록 경로 추가
-    std::string log_path = "build/log/" + filename;
+    const std::string log_path = std::string("build/") + TRACE_VARIANT + "/"+ filename; 
+    trace_ofs.open(log_path);
     //std::cout << "[DEBUG] Opening log file: " << log_path << std::endl;
 
     trace_ofs.open(log_path);
