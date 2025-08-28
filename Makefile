@@ -54,6 +54,8 @@ clean:
 	rm -f inject_trace_tool all_tests_new all_tests_old
 	rm -rf $(INSTR_DIR)
 	rm -f build/log/*.log
+	rm -f build/new/*.log
+	rm -f build/old/*.log
 	rm -f trace_hooks_output.log trace_hooks_output.new.log trace_hooks_output.old.log
 
 re: clean runAll

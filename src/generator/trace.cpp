@@ -58,11 +58,8 @@ void trace_open_file(const std::string& filename) {
     // log/ 디렉토리 안에 넣도록 경로 추가
     const std::string log_path = std::string("build/") + TRACE_VARIANT + "/"+ filename; 
     trace_ofs.open(log_path);
-    //std::cout << "[DEBUG] Opening log file: " << log_path << std::endl;
-
-    trace_ofs.open(log_path);
+    //std::cout << "[DEBUG] Opening log file: " << log_path << std::endl;}
 }
-
 
 void trace_close_file() {
     if (trace_ofs.is_open()) {
