@@ -44,7 +44,13 @@ all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 
 all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"old\" -Itarget_old -I$(INSTR_OLD) -include $(LISTENER_HDR) \
-	$(INSTR_OLD)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
+	$(wildcard $(INSTR_OLD)/*.cc $(INSTR_OLD)/*.cpp) \
+	target_old/app/external/card.cpp \
+	target_old/app/domain/certificationcode.cpp \
+	target_old/app/domain/item.cpp \
+	target_old/app/domain/location.cpp \
+	target_old/app/domain/prepayment.cpp \
+	$(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 # 메타 타겟: 두 바이너리 모두 빌드
 all_tests: all_tests_new all_tests_old
