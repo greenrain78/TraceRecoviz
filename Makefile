@@ -40,7 +40,13 @@ instrument: inject_trace_tool
 # 디렉토리별로 별도 테스트 바이너리 생성
 all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -I$(INSTR_NEW) -include $(LISTENER_HDR) \
-	$(INSTR_NEW)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
+	$(wildcard $(INSTR_NEW)/*.cc $(INSTR_NEW)/*.cpp) \
+	target_new/app/external/card.cpp \
+	target_new/app/domain/certificationcode.cpp \
+	target_new/app/domain/item.cpp \
+	target_new/app/domain/location.cpp \
+	target_new/app/domain/prepayment.cpp \
+	$(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"old\" -Itarget_old -I$(INSTR_OLD) -include $(LISTENER_HDR) \

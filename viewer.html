@@ -307,7 +307,8 @@ async function loadData() {
 }
 
 function loadDataFromFile(fileName) {
-  fetch(fileName)
+  // FastAPI API 경로로 fetch
+  fetch(`/build/sequence_diagram/${fileName.split('/').pop()}`)
     .then(resp => resp.json())
     .then(json => {
       const GAP = 200;
