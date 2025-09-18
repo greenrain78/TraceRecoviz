@@ -22,8 +22,22 @@ VIEWER_HTML_PATH = os.path.join(os.path.dirname(__file__), "viewer.html")
 @app.get("/api/sequence-diagrams")
 def get_sequence_diagrams():
     try:
-        files = [f for f in os.listdir(SEQUENCE_DIAGRAM_DIR) if os.path.isfile(os.path.join(SEQUENCE_DIAGRAM_DIR, f))]
-        return JSONResponse(content={"files": files})
+        all_files = [f for f in os.listdir(SEQUENCE_DIAGRAM_DIR) if os.path.isfile(os.path.join(SEQUENCE_DIAGRAM_DIR, f))]
+        # .json 파일만 필터링
+        json_files = [f for f in all_files if f.endswith('.json')]
+        # _new.json, _old.json 제외
+        base_files = set()
+        for f in json_files:
+            if f.endswith('_new.json') or f.endswith('_old.json'):
+                continue
+            base_name = f[:-5]  # .json 제거
+            # 해당 base에 _new.json 또는 _old.json이 있으면 base만 추가
+            has_new = f"{base_name}_new.json" in json_files
+            has_old = f"{base_name}_old.json" in json_files
+            if has_new or has_old:
+                base_files.add(f)
+        # base_files만 반환
+        return JSONResponse(content={"files": sorted(list(base_files))})
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
 

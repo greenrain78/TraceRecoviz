@@ -257,7 +257,7 @@ function updateFileLabel(fileName) {
 
 async function checkFileExists(fileName) {
   try {
-    const res = await fetch(fileName, { method: "HEAD" });
+    const res = await fetch(fileName, { method: "GET" });
     return res.ok;
   } catch {
     return false;

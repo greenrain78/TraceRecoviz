@@ -41,22 +41,30 @@ instrument: inject_trace_tool
 all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -I$(INSTR_NEW) -include $(LISTENER_HDR) \
 	$(wildcard $(INSTR_NEW)/*.cc $(INSTR_NEW)/*.cpp) \
-	target_new/app/external/card.cpp \
+	target_new/app/application/dvm.cpp \
+	target_new/app/application/otherdvm.cpp \
+	target_new/app/application/sale.cpp \
 	target_new/app/domain/certificationcode.cpp \
 	target_new/app/domain/item.cpp \
 	target_new/app/domain/location.cpp \
 	target_new/app/domain/prepayment.cpp \
-	$(TRACE_SRC) -o $@ $(GTEST_LIB)
+	target_new/app/external/card.cpp \
+	target_new/app/presentation/controller.cpp \
+	$(TRACE_SRC) -o $@ $(GTEST_LIB) /usr/lib/libgmock.a /usr/lib/libgmock_main.a
 
 all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"old\" -Itarget_old -I$(INSTR_OLD) -include $(LISTENER_HDR) \
 	$(wildcard $(INSTR_OLD)/*.cc $(INSTR_OLD)/*.cpp) \
-	target_old/app/external/card.cpp \
+	target_old/app/application/dvm.cpp \
+	target_old/app/application/otherdvm.cpp \
+	target_old/app/application/sale.cpp \
 	target_old/app/domain/certificationcode.cpp \
 	target_old/app/domain/item.cpp \
 	target_old/app/domain/location.cpp \
 	target_old/app/domain/prepayment.cpp \
-	$(TRACE_SRC) -o $@ $(GTEST_LIB)
+	target_old/app/external/card.cpp \
+	target_old/app/presentation/controller.cpp \
+	$(TRACE_SRC) -o $@ $(GTEST_LIB) /usr/lib/libgmock.a /usr/lib/libgmock_main.a
 
 # 메타 타겟: 두 바이너리 모두 빌드
 all_tests: all_tests_new all_tests_old
