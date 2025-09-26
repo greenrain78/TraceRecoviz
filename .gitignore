@@ -1,5 +1,8 @@
 .vscode/
 venv/
+build/
+dist/
+SimpleMakeBuilder.spec
 .idea
 
 *.pyc

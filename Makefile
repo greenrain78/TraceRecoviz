@@ -1,4 +1,4 @@
-CXX = clang++-18
+CXX = x86_64-w64-mingw32-g++
 CXXFLAGS = -std=c++17 -I. -I$(GTEST_INCLUDE)
 LDFLAGS = -lgtest -lgtest_main -lpthread -ldl
 GTEST_INCLUDE = /usr/include/gtest
@@ -39,17 +39,22 @@ instrument: inject_trace_tool
 
 # 디렉토리별로 별도 테스트 바이너리 생성
 all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
-	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -I$(INSTR_NEW) -include $(LISTENER_HDR) \
+	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -Itarget_new/include -I$(INSTR_NEW) -include $(LISTENER_HDR) \
 	$(wildcard $(INSTR_NEW)/*.cc $(INSTR_NEW)/*.cpp) \
-	target_new/app/application/dvm.cpp \
-	target_new/app/application/otherdvm.cpp \
-	target_new/app/application/sale.cpp \
-	target_new/app/domain/certificationcode.cpp \
-	target_new/app/domain/item.cpp \
-	target_new/app/domain/location.cpp \
-	target_new/app/domain/prepayment.cpp \
-	target_new/app/external/card.cpp \
-	target_new/app/presentation/controller.cpp \
+	target_new/src/AltDVM.cpp \
+	target_new/src/AltDVMManager.cpp \
+	target_new/src/AuthCode.cpp \
+	target_new/src/AuthCodeManager.cpp \
+	target_new/src/Bank.cpp \
+	target_new/src/DVM.cpp \
+	target_new/src/Item.cpp \
+	target_new/src/ItemManager.cpp \
+	target_new/src/main.cpp \
+	target_new/src/MsgManager.cpp \
+	target_new/src/P2PClient.cpp \
+	target_new/src/P2PServer.cpp \
+	target_new/src/PaymentManager.cpp \
+	target_new/test/testCode.cpp \
 	$(TRACE_SRC) -o $@ $(GTEST_LIB) /usr/lib/libgmock.a /usr/lib/libgmock_main.a
 
 all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)

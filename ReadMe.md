@@ -56,3 +56,4 @@ make          # 또는 make runAll
 bear -- make
 
 
+pyinstaller --onefile --windowed --name SimpleMakeBuilder main.py
