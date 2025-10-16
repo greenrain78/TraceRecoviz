@@ -2,7 +2,8 @@ import os
 import shutil
 import sys
 import threading
-from pathlib import Path
+import pathlib
+# from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -369,7 +370,7 @@ class PreviewPanel(QWidget):
             self.info_label.setText(self._format_info(path, True))
             self.stack.setCurrentIndex(2); return
 
-        p = Path(path)
+        p = pathlib.Path(path)
         suffix = p.suffix.lower()
         name = p.name.lower()
 
@@ -451,7 +452,7 @@ class PreviewPanel(QWidget):
         try:
             size = os.path.getsize(path)
             n = min(size, self.MAX_TEXT_BYTES)
-            data = Path(path).read_bytes()[:n]
+            data = pathlib.Path(path).read_bytes()[:n]
             for enc in ("utf-8","cp949","latin-1"):
                 try:
                     return data.decode(enc, errors="replace")
@@ -467,7 +468,7 @@ class PreviewPanel(QWidget):
         - 이름 / 종류 / 경로 / 크기
         - 디렉터리는 rglob로 합산(큰 트리에서는 시간이 걸릴 수 있으므로 주의)
         """
-        p = Path(path)
+        p = pathlib.Path(path)
         try:
             size = sum(f.stat().st_size for f in p.rglob("*")) if is_dir else p.stat().st_size
         except Exception:
@@ -476,6 +477,90 @@ class PreviewPanel(QWidget):
         kind = "폴더" if is_dir else f"파일 ({p.suffix.lower() or '확장자 없음'})"
         return f"이름: {p.name}\n종류: {kind}\n경로: {str(p)}\n크기: {size_kb}"
 # -----------------------------------------------------------------------------
+class MakefileEditorDialog(QDialog):
+    """
+    간단한 Makefile 편집기:
+    - 경로 표시, 본문 편집, 저장/다른이름저장/닫기
+    - 인코딩: utf-8 → cp949 → latin-1 순으로 읽기, 저장은 원 인코딩 유지(없으면 utf-8)
+    """
+    def __init__(self, path: pathlib.Path, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Makefile 편집")
+        self.setMinimumSize(900, 600)
+
+        self.path = path
+        self.encoding = "utf-8"  # 기본 저장 인코딩
+
+        v = QVBoxLayout(self)
+        self.lbl_path = QLabel(str(self.path))
+        self.lbl_path.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        v.addWidget(self.lbl_path)
+
+        self.edit = QPlainTextEdit(self)
+        self.edit.setPlaceholderText("여기에 Makefile 내용을 입력하세요…")
+        v.addWidget(self.edit, 1)
+
+        self.buttons = QDialogButtonBox(self)
+        self.btn_save = self.buttons.addButton("저장", QDialogButtonBox.AcceptRole)
+        self.btn_save_as = self.buttons.addButton("다른 이름으로 저장", QDialogButtonBox.ActionRole)
+        self.btn_close = self.buttons.addButton("닫기", QDialogButtonBox.RejectRole)
+        v.addWidget(self.buttons)
+
+        self.btn_save.clicked.connect(self._save)
+        self.btn_save_as.clicked.connect(self._save_as)
+        self.buttons.rejected.connect(self.reject)
+
+        # 파일 읽기(없으면 빈 문서로 시작)
+        self._load_if_exists()
+
+    # --- helpers ---
+    def _detect_text(self, data: bytes) -> str:
+        for enc in ("utf-8", "cp949", "latin-1"):
+            try:
+                txt = data.decode(enc)  # strict
+                self.encoding = enc
+                return txt
+            except UnicodeDecodeError:
+                continue
+        # 마지막 폴백
+        self.encoding = "utf-8"
+        return data.decode("utf-8", errors="replace")
+
+    def _load_if_exists(self):
+        if self.path.exists():
+            try:
+                data = self.path.read_bytes()
+                text = self._detect_text(data)
+                self.edit.setPlainText(text)
+            except Exception as e:
+                QMessageBox.warning(self, "열기 실패", f"파일을 불러오지 못했습니다:\n{e}")
+        else:
+            # 새 파일로 시작
+            self.encoding = "utf-8"
+
+    def _save(self):
+        try:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            text = self.edit.toPlainText()
+            self.path.write_text(text, encoding=self.encoding)
+            QMessageBox.information(self, "저장 완료", f"저장되었습니다:\n{self.path}\n(인코딩: {self.encoding})")
+        except Exception as e:
+            QMessageBox.critical(self, "저장 실패", f"파일 저장 중 오류:\n{e}")
+
+    def _save_as(self):
+        new_path_str, _ = QFileDialog.getSaveFileName(self, "다른 이름으로 저장", str(self.path), "All Files (*);;Makefile (Makefile)")
+        if not new_path_str:
+            return
+        new_path = pathlib.Path(new_path_str)
+        try:
+            new_path.parent.mkdir(parents=True, exist_ok=True)
+            text = self.edit.toPlainText()
+            new_path.write_text(text, encoding=self.encoding)
+            self.path = new_path
+            self.lbl_path.setText(str(self.path))
+            QMessageBox.information(self, "저장 완료", f"다른 이름으로 저장되었습니다:\n{self.path}\n(인코딩: {self.encoding})")
+        except Exception as e:
+            QMessageBox.critical(self, "저장 실패", f"파일 저장 중 오류:\n{e}")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 로그 팝업: 최소 구현 (중지/닫기 + 실시간 append)
@@ -569,9 +654,17 @@ class ControlPanel(QWidget):
         a.addWidget(self.btn_build)
         a.addWidget(self.btn_web)
 
+        gb_actions2 = QGroupBox("작업")
+        ha = QHBoxLayout(gb_actions2)
+        self.btn_edit_mk = QPushButton("Makefile 편집")
+        self.btn_edit_mk.clicked.connect(self._on_edit_makefile_clicked)
+        ha.addWidget(self.btn_edit_mk)
+
+
         # ----- 루트 레이아웃에 섹션 배치 -----
         root.addWidget(gb_proj1)
         root.addWidget(gb_actions)
+        root.addWidget(gb_actions2)
         root.addStretch(1)
 
         # 마지막 프로젝트 경로 복원(QSettings)
@@ -580,6 +673,18 @@ class ControlPanel(QWidget):
 
         last_project_new = self.settings.value("project_dir_new", "")
         if last_project_new: self.edit_proj_new.setText(last_project_new)
+
+    def _on_edit_makefile_clicked(self):
+        """
+        우선순위로 Makefile 경로를 정한다:
+        1) Path.cwd()/Makefile 존재 시 → 사용
+        3) 둘 다 없으면 Path.cwd()/Makefile 로 새 파일로 편집 시작(저장 시 생성)
+        """
+        # 1) CWD
+        cwd = self._dest_dir()
+        mk_path = cwd / "Makefile"
+        dlg = MakefileEditorDialog(mk_path, self)
+        dlg.exec()
 
     def _on_web_toggled(self, checked: bool):
         if checked:
@@ -693,12 +798,12 @@ class ControlPanel(QWidget):
         - 파일 대화상자로 디렉터리 선택
         - 선택 시 QSettings('project_dir') 저장 및 상위 콜백(on_pick_folder) 호출
         """
-        cur = edit.text().strip() or str(Path.home())
+        cur = edit.text().strip() or str(pathlib.Path.home())
         src_str = QFileDialog.getExistingDirectory(self, "프로젝트 폴더 선택", cur, QFileDialog.ShowDirsOnly)
         if not src_str:
             return  # 취소
 
-        src = Path(src_str)
+        src = pathlib.Path(src_str)
         if not src.exists() or not src.is_dir():
             QMessageBox.warning(self, "잘못된 폴더", "선택한 경로가 유효한 폴더가 아닙니다.")
             return
@@ -745,14 +850,14 @@ class ControlPanel(QWidget):
         """
         QMessageBox.information(self, name, f"현재는 UI 스켈레톤입니다.\n‘{name}’ 기능은 추후 구현 예정입니다.")
 
-    def _dest_dir(self) -> Path:
+    def _dest_dir(self) -> pathlib.Path:
         """
         프로그램(실행 파일) 기준의 target_new 절대 경로를 반환.
         - PyInstaller로 배포 시 applicationDirPath()는 실행파일이 위치한 폴더입니다. (권한 문제로 쓰기 불가한 환경이라면 AppData 등으로 바꾸세요.)
         """
-        return Path(getattr(sys, '_MEIPASS', Path(__file__).resolve().parent))
+        return pathlib.Path(getattr(sys, '_MEIPASS', pathlib.Path(__file__).resolve().parent))
 
-    def _ensure_empty_dir(self, path: Path) -> None:
+    def _ensure_empty_dir(self, path: pathlib.Path) -> None:
         """
         path가 존재하면 통째로 삭제 후 깨끗한 디렉터리로 재생성.
         """
@@ -763,7 +868,7 @@ class ControlPanel(QWidget):
         except Exception as e:
             raise RuntimeError(f"대상 폴더 초기화 실패: {path}\n{e}")
 
-    def _copy_entire_folder_to(self, src: Path, dst: Path) -> None:
+    def _copy_entire_folder_to(self, src: pathlib.Path, dst: pathlib.Path) -> None:
         """
         src 폴더 전체를 dst(target_new)에 복사.
         - dst는 미리 비워진(또는 새로 만든) 폴더라고 가정.
@@ -939,7 +1044,7 @@ class MainWindow(QMainWindow):
     #         self.settings.setValue("project_dir", path)
     #         self.set_root(Path(path))
 
-    def set_root(self, path: Path):
+    def set_root(self, path: pathlib.Path):
         """
         탐색기의 루트 디렉터리를 변경:
         - 트리/테이블의 모델 루트 인덱스 갱신
@@ -951,7 +1056,7 @@ class MainWindow(QMainWindow):
         dir_index = self.dir_model.index(path_str)
         if not dir_index.isValid():
             # 경로가 유효하지 않으면 홈 디렉터리로 폴백
-            path_str = str(Path.home())
+            path_str = str(pathlib.Path.home())
             dir_index = self.dir_model.index(path_str)
         self.dir_view.setRootIndex(dir_index)
 
@@ -969,7 +1074,7 @@ class MainWindow(QMainWindow):
         """현재 트리의 루트 인덱스 경로 반환(없으면 홈 경로)."""
         idx = self.dir_view.rootIndex()
         if idx.isValid(): return self.dir_model.filePath(idx)
-        return str(Path.home())
+        return str(pathlib.Path.home())
 
     def on_dir_changed(self, current, _previous):
         """
@@ -1026,11 +1131,11 @@ class MainWindow(QMainWindow):
         - 기본 경로: 홈 디렉터리의 trace_log.txt
         - 인코딩: UTF-8
         """
-        path, _ = QFileDialog.getSaveFileName(self, "로그 저장", str(Path.home() / "trace_log.txt"), "Text Files (*.txt);;All Files (*.*)")
+        path, _ = QFileDialog.getSaveFileName(self, "로그 저장", str(pathlib.Path.home() / "trace_log.txt"), "Text Files (*.txt);;All Files (*.*)")
         if not path:
             return
         try:
-            Path(path).write_text(self.log_edit.toPlainText(), encoding="utf-8")
+            pathlib.Path(path).write_text(self.log_edit.toPlainText(), encoding="utf-8")
             self._append_log(f"💾 로그 저장 완료: {path}")
         except Exception as e:
             QMessageBox.critical(self, "저장 실패", f"로그 저장 중 오류: {e}")
