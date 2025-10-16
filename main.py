@@ -1,10 +1,16 @@
 import os
 import shutil
 import sys
+import threading
 from pathlib import Path
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, FileResponse
+import os
+
 from PySide6.QtCore import (
-    QDir, Qt, QSortFilterProxyModel, QSettings, QRegularExpression, QSize, QModelIndex
+    QDir, Qt, QSortFilterProxyModel, QSettings, QRegularExpression, QSize, QModelIndex, QProcess
 )
 from PySide6.QtGui import QAction, QIcon, QPixmap, QImageReader, QGuiApplication
 from PySide6.QtWidgets import (
@@ -12,11 +18,124 @@ from PySide6.QtWidgets import (
     QTreeView, QTableView, QLineEdit, QLabel, QHeaderView, QFileSystemModel,
     QSplitter, QStyleFactory, QToolBar, QStyle, QSizePolicy,
     QWidget, QVBoxLayout, QHBoxLayout, QPlainTextEdit, QStackedWidget,
-    QGroupBox, QPushButton, QCheckBox, QComboBox, QFormLayout, QMessageBox
+    QGroupBox, QPushButton, QCheckBox, QComboBox, QFormLayout, QMessageBox, QDialogButtonBox, QDialog
 )
 
 APP_ORG = "ExampleCo"
 APP_NAME = "TraceRecoViz"  # 앱/설정 저장용 애플리케이션 이름
+
+
+
+backend_app = FastAPI()
+
+# CORS 설정 (Live Server와 연동 위해)
+backend_app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+SEQUENCE_DIAGRAM_DIR = os.path.join(os.path.dirname(__file__), "build", "sequence_diagram")
+
+INDEX_HTML_PATH = os.path.join(os.path.dirname(__file__), "index.html")
+VIEWER_HTML_PATH = os.path.join(os.path.dirname(__file__), "viewer.html")
+
+@backend_app.get("/api/sequence-diagrams")
+def get_sequence_diagrams():
+    try:
+        all_files = [f for f in os.listdir(SEQUENCE_DIAGRAM_DIR) if os.path.isfile(os.path.join(SEQUENCE_DIAGRAM_DIR, f))]
+        # .json 파일만 필터링
+        json_files = [f for f in all_files if f.endswith('.json')]
+        # _new.json, _old.json 제외
+        base_files = set()
+        for f in json_files:
+            if f.endswith('_new.json') or f.endswith('_old.json'):
+                continue
+            base_name = f[:-5]  # .json 제거
+            # 해당 base에 _new.json 또는 _old.json이 있으면 base만 추가
+            has_new = f"{base_name}_new.json" in json_files
+            has_old = f"{base_name}_old.json" in json_files
+            if has_new or has_old:
+                base_files.add(f)
+        # base_files만 반환
+        return JSONResponse(content={"files": sorted(list(base_files))})
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+# 루트에서 index.html 반환
+@backend_app.get("/")
+def serve_index():
+    return FileResponse(INDEX_HTML_PATH, media_type="text/html")
+
+# /viewer.html에서 viewer.html 반환
+@backend_app.get("/viewer.html")
+def serve_viewer():
+    return FileResponse(VIEWER_HTML_PATH, media_type="text/html")
+
+# /build/sequence_diagram/{filename}에서 JSON 파일 반환
+from fastapi import Path
+
+@backend_app.get("/build/sequence_diagram/{file_path:path}")
+def serve_sequence_json(file_path: str = Path(...)):
+    abs_path = os.path.join(SEQUENCE_DIAGRAM_DIR, file_path)
+    print(f"Requested file path: {file_path}, Absolute path: {abs_path}")
+    print(f"File exists: {os.path.isfile(abs_path)}")
+    if not os.path.isfile(abs_path):
+        return JSONResponse(content={"error": "File not found"}, status_code=404)
+    return FileResponse(abs_path, media_type="application/json")
+
+
+
+import uvicorn
+
+class UvicornRunner:
+    """
+    FastAPI/ASGI 앱을 uvicorn.Server로 백그라운드 스레드에서 실행/중지.
+    - start(): 이미 실행 중이면 무시
+    - stop(): 정상 종료 신호 후 join
+    """
+    def __init__(self, app, host="127.0.0.1", port=8000, log_level="info"):
+        self.app = app
+        self.host = host
+        self.port = port
+        self.log_level = log_level
+
+        self._server: uvicorn.Server | None = None
+        self._thread: threading.Thread | None = None
+
+    def _target(self):
+        # workers=1, reload=False, 백그라운드 스레드에서 신호 핸들러 비설치
+        config = uvicorn.Config(
+            self.app,
+            host=self.host,
+            port=self.port,
+            log_level=self.log_level,
+            workers=1,
+        )
+        self._server = uvicorn.Server(config)
+        # run()은 블로킹. 스레드에서 실행됨.
+        self._server.run()
+
+    def start(self):
+        if self.is_running():
+            return
+        self._thread = threading.Thread(target=self._target, daemon=True)
+        self._thread.start()
+
+    def stop(self, timeout: float = 5.0):
+        if not self.is_running():
+            return
+        assert self._server is not None
+        self._server.should_exit = True
+        self._server.force_exit = True
+        if self._thread:
+            self._thread.join(timeout)
+
+    def is_running(self) -> bool:
+        return self._thread is not None and self._thread.is_alive()
 
 
 # ------------------------------- 스타일/아이콘 -------------------------------
@@ -358,6 +477,33 @@ class PreviewPanel(QWidget):
         return f"이름: {p.name}\n종류: {kind}\n경로: {str(p)}\n크기: {size_kb}"
 # -----------------------------------------------------------------------------
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 로그 팝업: 최소 구현 (중지/닫기 + 실시간 append)
+# ─────────────────────────────────────────────────────────────────────────────
+class BuildLogDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("빌드 로그")
+        self.setMinimumSize(800, 480)
+
+        v = QVBoxLayout(self)
+        self.log = QPlainTextEdit(self)
+        self.log.setReadOnly(True)
+        v.addWidget(self.log)
+
+        self.buttons = QDialogButtonBox(self)
+        self.btn_stop = self.buttons.addButton("중지", QDialogButtonBox.DestructiveRole)
+        self.btn_close = self.buttons.addButton("닫기", QDialogButtonBox.RejectRole)
+        self.btn_close.setEnabled(False)  # 실행 중에는 닫기 비활성화
+        v.addWidget(self.buttons)
+
+    def append(self, text: str):
+        if text:
+            self.log.appendPlainText(text)
+
+    def set_running(self, running: bool):
+        self.btn_close.setEnabled(running)
+        self.btn_close.setEnabled(not running)
 
 # ------------------------------ 좌측 컨트롤 패널 ------------------------------
 class ControlPanel(QWidget):
@@ -370,6 +516,9 @@ class ControlPanel(QWidget):
         super().__init__()
         self.settings = settings
         self.on_pick_folder = on_pick_folder
+
+        self._uvicorn = UvicornRunner(backend_app, host="127.0.0.1", port=8000, log_level="info")
+
 
         # 컨테이너 레이아웃(세로)
         root = QVBoxLayout(self)
@@ -406,12 +555,19 @@ class ControlPanel(QWidget):
         gb_actions = QGroupBox("작업")
         a = QHBoxLayout(gb_actions)
         self.btn_build = QPushButton("계측 코드 삽입 및 시퀀스 다이어그램 생성")
-        self.btn_run = QPushButton("웹 서버 실행")
+        # self.btn_run = QPushButton("웹 서버 실행")
         # 현재는 메시지 박스만 띄우는 스텁 동작
-        self.btn_build.clicked.connect(lambda: self._stub("빌드 시작"))
-        self.btn_run.clicked.connect(lambda: self._stub("빌드 시작"))
+        self.btn_build.clicked.connect(self._on_build_clicked)
+        # self.btn_run.clicked.connect(lambda: self._stub("빌드 시작"))
+
+        self.btn_web = QPushButton("웹서버 OFF")
+        self.btn_web.setCheckable(True)
+        self.btn_web.toggled.connect(self._on_web_toggled)
+        tip = QLabel("http://127.0.0.1:8000")
+        tip.setToolTip("서버 ON일 때 접속 URL")
+
         a.addWidget(self.btn_build)
-        a.addWidget(self.btn_run)
+        a.addWidget(self.btn_web)
 
         # ----- 루트 레이아웃에 섹션 배치 -----
         root.addWidget(gb_proj1)
@@ -425,6 +581,112 @@ class ControlPanel(QWidget):
         last_project_new = self.settings.value("project_dir_new", "")
         if last_project_new: self.edit_proj_new.setText(last_project_new)
 
+    def _on_web_toggled(self, checked: bool):
+        if checked:
+            # 시작
+            try:
+                self._uvicorn.start()
+            except Exception as e:
+                self.btn_web.blockSignals(True)
+                self.btn_web.setChecked(False)
+                self.btn_web.blockSignals(False)
+                QMessageBox.critical(self, "웹서버 시작 실패", f"{e}")
+                return
+            self.btn_web.setText("웹서버 ON")
+            QMessageBox.information(self, "웹서버 시작",
+                                    "FastAPI 서버를 시작했습니다.\n\n"
+                                    "URL: http://127.0.0.1:8000\n"
+                                    "헬스체크: /health")
+        else:
+            # 종료
+            try:
+                self._uvicorn.stop()
+            except Exception as e:
+                QMessageBox.warning(self, "웹서버 종료 오류", f"{e}")
+            self.btn_web.setText("웹서버 OFF")
+
+
+    def _on_build_clicked(self):
+        # 현재 작업 디렉터리 고정
+        work_dir = self._dest_dir()
+
+        # 실행할 커맨드 시퀀스 구성
+        self._cmds = []
+        self._cmds.append(("make", ["clean"]))
+        self._cmds.append(("make", []))
+        self._cmd_index = 0
+
+        # 팝업 준비
+        self._dlg = BuildLogDialog(self)
+        self._dlg.append(f"작업 디렉터리: {work_dir}")
+        self._dlg.append("실행할 명령:")
+        for prog, args in self._cmds:
+            self._dlg.append("  - " + " ".join([prog] + args))
+        self._dlg.set_running(True)
+
+        # 프로세스 준비
+        self._proc = QProcess(self)
+        self._proc.setWorkingDirectory(str(work_dir))
+        self._proc.setProcessChannelMode(QProcess.MergedChannels)
+        self._proc.readyReadStandardOutput.connect(self._on_proc_output)
+        self._proc.readyReadStandardError.connect(self._on_proc_output)
+        self._proc.finished.connect(self._on_proc_finished)
+        self._proc.errorOccurred.connect(self._on_proc_error)
+
+        # 팝업 버튼
+        self._dlg.btn_stop.clicked.connect(self._on_stop_clicked)
+        self._dlg.buttons.rejected.connect(self._on_close_clicked)
+
+        # 실행
+        self._start_next()
+        self._dlg.exec()
+
+    def _start_next(self):
+        if self._proc is None or self._dlg is None:
+            return
+        if self._cmd_index >= len(self._cmds):
+            self._dlg.append("✅ 전체 빌드 완료")
+            self._dlg.set_running(False)
+            return
+        prog, args = self._cmds[self._cmd_index]
+        self._dlg.append("\n▶ 실행: " + " ".join([prog] + args))
+        self._proc.start(prog, args)
+        if not self._proc.waitForStarted(5000):
+            self._dlg.append("❌ 프로세스 시작 실패")
+            self._dlg.set_running(False)
+
+    def _on_proc_output(self):
+        if not (self._proc and self._dlg):
+            return
+        data = self._proc.readAll().data().decode(errors="replace")
+        self._dlg.append(data.rstrip("\n"))
+
+    def _on_proc_finished(self, exitCode, exitStatus):
+        if not self._dlg:
+            return
+        if exitStatus == QProcess.NormalExit and exitCode == 0:
+            self._dlg.append("✅ 단계 완료")
+            self._cmd_index += 1
+            self._start_next()
+        else:
+            self._dlg.append(f"❌ 실패 (exit={exitCode}, status={int(exitStatus)})")
+            self._dlg.set_running(False)
+
+    def _on_proc_error(self, err):
+        if self._dlg:
+            self._dlg.append(f"⚠️ 프로세스 오류: {err}")
+            self._dlg.set_running(False)
+
+    def _on_stop_clicked(self):
+        if self._proc and self._proc.state() != QProcess.NotRunning:
+            self._dlg.append("⛔ 중지 요청…")
+            self._proc.kill()
+
+    def _on_close_clicked(self):
+        # 실행 중이면 닫기 불가, 종료 후만 닫기 허용
+        if self._proc and self._proc.state() != QProcess.NotRunning:
+            return
+        self._dlg.reject()
     def _browse(self, type, edit: QLineEdit):
         """
         '폴더 선택' 버튼 콜백:
@@ -442,7 +704,7 @@ class ControlPanel(QWidget):
             return
 
         # 1) 대상 경로 계산: 프로그램 내부의 target_new
-        dst =self._dest_dir() / f"target_{type}"
+        dst = self._dest_dir() / f"target_{type}"
 
         # 2) 대상 비우기(있으면 전부 삭제) 후 빈 폴더 준비
         try:
@@ -635,11 +897,11 @@ class MainWindow(QMainWindow):
         # self.action_log_save.triggered.connect(self._save_log)          # 로그 저장
 
         # ----- 설정 복원 -----
-        start_dir = self.settings.value("last_dir", str(Path.home()))
+        # start_dir = self.settings.value("last_dir", str(Path.home()))
         theme = self.settings.value("theme", "dark")
         self.action_dark.setChecked(theme == "dark")
         self.apply_theme(theme)
-        self.set_root(Path(start_dir))
+        # self.set_root(Path(start_dir))
 
         # 초기 안내 메시지(로그 창)
         self._append_log("ℹ️ UI 스켈레톤 준비 완료. 미리보기는 Makefile 계열까지 텍스트로 표시됩니다.")
