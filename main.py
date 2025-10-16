@@ -425,9 +425,6 @@ class ControlPanel(QWidget):
         last_project_new = self.settings.value("project_dir_new", "")
         if last_project_new: self.edit_proj_new.setText(last_project_new)
 
-    def _init_gb_project(self):
-        pass
-
     def _browse(self, type, edit: QLineEdit):
         """
         '폴더 선택' 버튼 콜백:
@@ -469,11 +466,9 @@ class ControlPanel(QWidget):
         # 4) UI/설정 갱신
         edit.setText(str(src))
         self.settings.setValue(f"project_dir_{type}", str(src))
-        print(f"프로젝트 폴더 복사 완료: project_dir_{type}")
         # 5) 메인으로 콜백: 우측 탐색기를 target_new로 바로 열어 보여줌
         if self.on_pick_folder:
             self.on_pick_folder(dst)
-
             # 6) 사용자 안내
             QMessageBox.information(
                 self,

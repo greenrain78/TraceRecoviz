@@ -1,4 +1,4 @@
-CXX = x86_64-w64-mingw32-g++
+CXX = clang++-18
 CXXFLAGS = -std=c++17 -I. -I$(GTEST_INCLUDE)
 LDFLAGS = -lgtest -lgtest_main -lpthread -ldl
 GTEST_INCLUDE = /usr/include/gtest
@@ -39,37 +39,12 @@ instrument: inject_trace_tool
 
 # 디렉토리별로 별도 테스트 바이너리 생성
 all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
-	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -Itarget_new/include -I$(INSTR_NEW) -include $(LISTENER_HDR) \
-	$(wildcard $(INSTR_NEW)/*.cc $(INSTR_NEW)/*.cpp) \
-	target_new/src/AltDVM.cpp \
-	target_new/src/AltDVMManager.cpp \
-	target_new/src/AuthCode.cpp \
-	target_new/src/AuthCodeManager.cpp \
-	target_new/src/Bank.cpp \
-	target_new/src/DVM.cpp \
-	target_new/src/Item.cpp \
-	target_new/src/ItemManager.cpp \
-	target_new/src/main.cpp \
-	target_new/src/MsgManager.cpp \
-	target_new/src/P2PClient.cpp \
-	target_new/src/P2PServer.cpp \
-	target_new/src/PaymentManager.cpp \
-	target_new/test/testCode.cpp \
-	$(TRACE_SRC) -o $@ $(GTEST_LIB) /usr/lib/libgmock.a /usr/lib/libgmock_main.a
+	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -I$(INSTR_NEW) -include $(LISTENER_HDR) \
+	$(INSTR_NEW)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"old\" -Itarget_old -I$(INSTR_OLD) -include $(LISTENER_HDR) \
-	$(wildcard $(INSTR_OLD)/*.cc $(INSTR_OLD)/*.cpp) \
-	target_old/app/application/dvm.cpp \
-	target_old/app/application/otherdvm.cpp \
-	target_old/app/application/sale.cpp \
-	target_old/app/domain/certificationcode.cpp \
-	target_old/app/domain/item.cpp \
-	target_old/app/domain/location.cpp \
-	target_old/app/domain/prepayment.cpp \
-	target_old/app/external/card.cpp \
-	target_old/app/presentation/controller.cpp \
-	$(TRACE_SRC) -o $@ $(GTEST_LIB) /usr/lib/libgmock.a /usr/lib/libgmock_main.a
+	$(INSTR_OLD)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 # 메타 타겟: 두 바이너리 모두 빌드
 all_tests: all_tests_new all_tests_old
@@ -79,8 +54,6 @@ clean:
 	rm -f inject_trace_tool all_tests_new all_tests_old
 	rm -rf $(INSTR_DIR)
 	rm -f build/log/*.log
-	rm -f build/new/*.log
-	rm -f build/old/*.log
 	rm -f trace_hooks_output.log trace_hooks_output.new.log trace_hooks_output.old.log
 
 re: clean runAll

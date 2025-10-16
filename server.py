@@ -63,3 +63,8 @@ def serve_sequence_json(file_path: str = Path(...)):
     if not os.path.isfile(abs_path):
         return JSONResponse(content={"error": "File not found"}, status_code=404)
     return FileResponse(abs_path, media_type="application/json")
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

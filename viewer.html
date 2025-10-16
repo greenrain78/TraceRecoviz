@@ -2,64 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Sequence Diagram Viewer</title>
-  <!-- GoJS (latest) -->
+  <title>Sequence Diagram Viewer (3-way)</title>
+  <!-- GoJS -->
   <script src="https://unpkg.com/gojs/release/go.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"/>
-  <style>
-    html,body{margin:0;height:100%;}
-    #myDiagramDiv{width:100%;height:100%;border:1px solid #444;box-sizing:border-box;}
-  </style>
 
   <style>
-    #fileLabel {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 6px 10px;
-      background: #f0f0f0;
-      border: 1px solid #aaa;
-      font-family: sans-serif;
-      font-size: 12px;
-      border-radius: 4px;
+    html, body { margin:0; height:100%; }
+    body { display:flex; flex-direction:column; }
+
+    /* 상단 안내 바 */
+    #topBar {
+      display:flex; align-items:center; gap:12px;
+      padding:8px 12px; border-bottom:1px solid #ddd; font-family:sans-serif; font-size:12px;
+      background:#fafafa;
+    }
+    #baseInfo { color:#444; }
+    #legend { margin-left:auto; display:flex; gap:10px; align-items:center; }
+    .pill {
+      display:inline-flex; align-items:center; gap:6px; padding:4px 8px;
+      border:1px solid #aaa; border-radius:999px; background:#f5f5f5;
+    }
+    .dot { width:8px; height:8px; border-radius:50%; background:#bbb; display:inline-block; }
+    .dot.old { background:#ffcdd2; }   /* OLD */
+    .dot.orig { background:#c8e6c9; }  /* 원본 */
+    .dot.new { background:#bbdefb; }   /* NEW */
+
+    /* 본문: 3열 그리드(가용 패널 수에 따라 자동) */
+    #grid {
+      flex:1 1 auto;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap:8px; padding:8px; box-sizing:border-box;
+      background:#fff;
+    }
+
+    .panel {
+      position:relative; display:flex; flex-direction:column; overflow:hidden;
+      border:1px solid #444; border-radius:6px; box-sizing:border-box;
+      min-height:260px;
+    }
+    .panelHeader {
+      display:flex; justify-content:space-between; align-items:center;
+      font-family:sans-serif; font-size:12px; padding:6px 8px; background:#f7f7f7; border-bottom:1px solid #ddd;
+    }
+    .panelHeader .badge {
+      font-weight:700; padding:2px 6px; border-radius:4px; border:1px solid #aaa; background:#fff;
+    }
+    .badge.old  { background:#ffeaea; }
+    .badge.orig { background:#eafaea; }
+    .badge.new  { background:#eaf2ff; }
+
+    .diagramWrap { flex:1 1 auto; min-height:200px; }
+    .diagram { width:100%; height:100%; }
+
+    /* 우상단 고정 파일명 라벨(각 패널 내부) */
+    .fileLabel {
+      position:absolute; top:34px; right:8px;
+      padding:4px 6px; font-family:sans-serif; font-size:11px;
+      background:#f0f0f0; border:1px solid #aaa; border-radius:4px;
     }
   </style>
 </head>
 <body>
-  <div id="myDiagramDiv"></div>
-  <div id="fileLabel">loading...</div>
+  <div id="topBar">
+    <div id="baseInfo">loading…</div>
+    <div id="legend" title="표시 순서: OLD | NEW | 원본">
+      <span class="pill"><span class="dot old"></span>객체 주소 수정</span>
+      <span class="pill"><span class="dot orig"></span>설정</span>
+    </div>
+  </div>
+
+  <div id="grid"><!-- 패널 동적 생성 --></div>
 
   <script>
     /* =========================================================
-       GLOBAL CONSTANTS & HELPERS
+       GLOBAL CONSTANTS & HELPERS (공유)
     ========================================================= */
     const LinePrefix = 20, LineSuffix = 30, MessageSpacing = 20,
           ActivityWidth = 10, ActivityStart = 5, ActivityEnd = 5;
-
     const yOfTime  = t => t * MessageSpacing + LinePrefix;
     const timeOfY = y => (y - LinePrefix) / MessageSpacing;
     const lifelineH = d => LinePrefix + d * MessageSpacing + LineSuffix;
 
+    const labelMap = { "_new": "NEW 버전", "_old": "OLD 버전", "": "원본" };
+    const order    = ["_old", "_new", ""];        // ✅ OLD → NEW → 원본
+    const colorMap = { "_old": "#ffcdd2", "": "#c8e6c9", "_new": "#bbdefb" };
+
+    const apiFor = (fileName) => `/build/sequence_diagram/${fileName.split('/').pop()}`;
+
     /* =========================================================
-       GOJS INITIALISATION
+       DIAGRAM FACTORY (공유 템플릿/툴 포함)
     ========================================================= */
-    function init () {
+    function makeDiagram(targetDivId) {
       const $ = go.GraphObject.make;
 
-      window.myDiagram = $(go.Diagram, "myDiagramDiv", {
+      class MessageLink extends go.Link {
+        constructor(){ super(); this.time = 0; }
+        _aw(node,time){
+          let w = ActivityWidth;
+          if(node instanceof go.Group){
+            if(!node.memberParts.any(m=>{const d=m.data; return d && d.start<=time && time<=d.start+d.duration;})) w=0;
+          }
+          return w;
+        }
+        getLinkPoint(node,port,spot,from,ortho,othernode,otherport){
+          const p = port.getDocumentPoint(go.Spot.Center);
+          const op = otherport.getDocumentPoint(go.Spot.Center);
+          const time = this.data ? this.data.time : this.time;
+          const aw = this._aw(node,time);
+          const x = op.x > p.x ? p.x + aw/2 : p.x - aw/2;
+          return new go.Point(x, yOfTime(time));
+        }
+        getLinkDirection(node,port,lp,spot,from,ortho,othernode,otherport){
+          return otherport.getDocumentPoint(go.Spot.Center).x > port.getDocumentPoint(go.Spot.Center).x ? 0 : 180;
+        }
+        computePoints(){
+          if(this.fromNode === this.toNode){
+            const time = this.data ? this.data.time : this.time;
+            const p = this.fromNode.port.getDocumentPoint(go.Spot.Center);
+            const aw = this._aw(this.fromNode,time);
+            const x = p.x + aw/2;
+            const y = yOfTime(time);
+            this.clearPoints();
+            this.addPoint(new go.Point(x,y));
+            this.addPoint(new go.Point(x+50,y));
+            this.addPoint(new go.Point(x+50,y+5));
+            this.addPoint(new go.Point(x,y+5));
+            return true;
+          }
+          return super.computePoints();
+        }
+      }
+
+      class MessagingTool extends go.LinkingTool {
+        constructor(){
+          super();
+          this.temporaryLink = new MessageLink();
+          this.temporaryLink.add(
+            go.GraphObject.make(go.Shape,"Rectangle",{stroke:"magenta",strokeWidth:2}),
+            go.GraphObject.make(go.Shape,{toArrow:"OpenTriangle",stroke:"magenta"})
+          );
+        }
+        doActivate(){ super.doActivate(); this.temporaryLink.time = Math.ceil(timeOfY(this.diagram.firstInput.documentPoint.y)); }
+        insertLink(f,fp,t,tp){
+          const l = super.insertLink(f,fp,t,tp);
+          if(l){ const s = this.temporaryLink.time; l.data.time = s;
+            this.diagram.model.setDataProperty(l.data,"text","msg");
+            this.diagram.model.addNodeData({group:l.data.to,start:s,duration:1});
+            ensureLifelineHeights(this.diagram);
+          }
+          return l;
+        }
+      }
+
+      class MessageDraggingTool extends go.DraggingTool {
+        computeEffectiveCollection(parts,options){
+          const res = super.computeEffectiveCollection(parts,options);
+          res.add(new go.Node(), new go.DraggingInfo(new go.Point()));
+          parts.each(p=>{ if(p instanceof go.Link) res.add(p,new go.DraggingInfo(p.getPoint(0).copy())); });
+          return res;
+        }
+        mayMove(){ return !this.diagram.isReadOnly && this.diagram.allowMove; }
+        moveParts(parts,off,check){
+          super.moveParts(parts,off,check);
+          parts.iterator.each(kv=>{
+            const link = kv.key;
+            if(link instanceof go.Link){
+              let y = kv.value.point.y + off.y;
+              const snap = this.gridSnapCellSize.height;
+              y = Math.round(y/snap)*snap;
+              const t = Math.max(0, timeOfY(y));
+              link.diagram.model.set(link.data,"time", t);
+              link.invalidateRoute();
+            }
+          });
+        }
+      }
+
+      const diagram = $(go.Diagram, targetDivId, {
         allowCopy:false,
         linkingTool: new MessagingTool(),
         draggingTool: new MessageDraggingTool(),
         "resizingTool.isGridSnapEnabled":true,
         "draggingTool.gridSnapCellSize": new go.Size(1, MessageSpacing/4),
         "draggingTool.isGridSnapEnabled":true,
-        SelectionMoved: ensureLifelineHeights,
-        PartResized: ensureLifelineHeights,
+        SelectionMoved: e => ensureLifelineHeights(e.diagram),
+        PartResized:   e => ensureLifelineHeights(e.diagram),
         "undoManager.isEnabled":true
       });
 
-      /* ---------------- LIFELINE GROUP TEMPLATE ---------------- */
-      myDiagram.groupTemplate = $(go.Group, "Vertical",
+      diagram.groupTemplate = $(go.Group, "Vertical",
         {
           locationSpot: go.Spot.Bottom,
           locationObjectName: "HEADER",
@@ -69,8 +202,13 @@
         },
         new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
         $(go.Panel, "Auto", {name:"HEADER"},
-          $(go.Shape, "Rectangle", {stroke:null, fill: $(go.Brush, "Linear", {0:'#bbdefb',1:go.Brush.darkenBy('#bbdefb',0.1)})},
-            new go.Binding("fill", "color", function(c) { return c || $(go.Brush, "Linear", {0: "#bbdefb", 1: go.Brush.darkenBy("#bbdefb", 0.1)});})
+          $(go.Shape, "Rectangle", {
+              stroke:null,
+              fill: $(go.Brush, "Linear", {0:'#bbdefb',1:go.Brush.darkenBy('#bbdefb',0.1)})
+            },
+            new go.Binding("fill", "color", function(c) {
+              return c || $(go.Brush, "Linear", {0:"#bbdefb",1:go.Brush.darkenBy("#bbdefb",0.1)});
+            })
           ),
           $(go.TextBlock, {margin:5, font:"400 10pt Source Sans Pro"}, new go.Binding("text"))
         ),
@@ -84,8 +222,7 @@
         )
       );
 
-      /* ---------------- ACTIVITY NODE TEMPLATE ---------------- */
-      myDiagram.nodeTemplate = $(go.Node,
+      diagram.nodeTemplate = $(go.Node,
         {
           locationSpot: go.Spot.Top,
           locationObjectName:"SHAPE",
@@ -100,7 +237,7 @@
               $(go.Shape, {alignment:go.Spot.Bottom, cursor:"col-resize", desiredSize:new go.Size(6,6), fill:"yellow"})
             )
         },
-        new go.Binding("location", "", actLoc, backActLoc).makeTwoWay(),
+        new go.Binding("location", "", actLoc(diagram), backActLoc(diagram)).makeTwoWay(),
         $(go.Shape, "Rectangle", {
             name:"SHAPE", fill:"white", stroke:"black", width:ActivityWidth,
             minSize:new go.Size(ActivityWidth, actH(0.25))
@@ -109,8 +246,7 @@
         )
       );
 
-      /* ---------------- MESSAGE LINK TEMPLATE ---------------- */
-      myDiagram.linkTemplate = $(MessageLink,
+      diagram.linkTemplate = $(MessageLink,
         {selectionAdorned:true, curviness:0},
         $(go.Shape, "Rectangle", new go.Binding("stroke", "color")),
         $(go.Shape, {toArrow:"OpenTriangle"}, new go.Binding("stroke", "color")),
@@ -122,231 +258,149 @@
             editable:true
           },
           new go.Binding("text").makeTwoWay(),
-          new go.Binding("background", "color") // 🟡 텍스트 배경색
+          new go.Binding("background", "color")
         )
       );
 
-      // finally load data
-      loadData();
+      return diagram;
     }
 
     /* =========================================================
-       UTILITY FUNCTIONS
+       PER-DIAGRAM UTILITIES
     ========================================================= */
-    function ensureLifelineHeights(){
-      const arr = myDiagram.model.nodeDataArray;
+    function ensureLifelineHeights(diagram){
+      const arr = diagram.model.nodeDataArray;
       let max = -1;
       arr.forEach(n => { if(!n.isGroup) max = Math.max(max, n.start + n.duration); });
-      if(max > 0){ arr.forEach(g => { if(g.isGroup && max > g.duration) myDiagram.model.setDataProperty(g, "duration", max); }); }
+      if(max > 0){
+        arr.forEach(g => { if(g.isGroup && max > g.duration) diagram.model.setDataProperty(g, "duration", max); });
+      }
     }
-
-    const actLoc = act => {
-      const grp = myDiagram.model.findNodeDataForKey(act.group);
+    const actLoc   = (diagram) => (act) => {
+      const grp = diagram.model.findNodeDataForKey(act.group);
       if(!grp) return new go.Point();
       const p = go.Point.parse(grp.loc);
       return new go.Point(p.x, yOfTime(act.start) - ActivityStart);
     };
-    const backActLoc = (loc, act) => myDiagram.model.setDataProperty(act, "start", timeOfY(loc.y + ActivityStart));
+    const backActLoc = (diagram) => (loc, act) => diagram.model.setDataProperty(act, "start", timeOfY(loc.y + ActivityStart));
     const actH = d => ActivityStart + d * MessageSpacing + ActivityEnd;
     const backActH = h => (h - ActivityStart - ActivityEnd) / MessageSpacing;
 
     /* =========================================================
-       CUSTOM LINK & TOOLS
+       FILE DETECTION & PANEL RENDERING
     ========================================================= */
-    class MessageLink extends go.Link {
-      constructor(){ super(); this.time = 0; }
-      _aw(node,time){
-        let w = ActivityWidth;
-        if(node instanceof go.Group){
-          if(!node.memberParts.any(m=>{const d=m.data; return d && d.start<=time && time<=d.start+d.duration;})) w=0;
-        }
-        return w;
+    let currentBaseName = "";
+    const fileExists = async (name) => {
+      try {
+        const r = await fetch(apiFor(name), { method:"GET" });
+        return r.ok;
+      } catch { return false; }
+    };
+
+    async function detectVariants(base) {
+      const candidates = {
+        "_old": `${base}_old.json`,
+        "_new": `${base}_new.json`,
+        "":     `${base}.json`
+      };
+      const present = [];
+      for (const suf of order) {
+        const fname = candidates[suf];
+        if (await fileExists(fname)) present.push({ suffix:suf, file:fname });
       }
-      getLinkPoint(node,port,spot,from,ortho,othernode,otherport){
-        const p = port.getDocumentPoint(go.Spot.Center);
-        const op = otherport.getDocumentPoint(go.Spot.Center);
-        const time = this.data ? this.data.time : this.time;
-        const aw = this._aw(node,time);
-        const x = op.x > p.x ? p.x + aw/2 : p.x - aw/2;
-        return new go.Point(x, yOfTime(time));
-      }
-      getLinkDirection(node,port,lp,spot,from,ortho,othernode,otherport){
-        return otherport.getDocumentPoint(go.Spot.Center).x > port.getDocumentPoint(go.Spot.Center).x ? 0 : 180;
-      }
-      computePoints(){
-        if(this.fromNode === this.toNode){
-          const time = this.data ? this.data.time : this.time;
-          const p = this.fromNode.port.getDocumentPoint(go.Spot.Center);
-          const aw = this._aw(this.fromNode,time);
-          const x = p.x + aw/2;
-          const y = yOfTime(time);
-          this.clearPoints();
-          this.addPoint(new go.Point(x,y));
-          this.addPoint(new go.Point(x+50,y));
-          this.addPoint(new go.Point(x+50,y+5));
-          this.addPoint(new go.Point(x,y+5));
-          return true;
-        }
-        return super.computePoints();
-      }
+      return present;
     }
 
-    class MessagingTool extends go.LinkingTool {
-      constructor(){
-        super();
-        this.temporaryLink = new MessageLink();
-        this.temporaryLink.add(go.GraphObject.make(go.Shape,"Rectangle",{stroke:"magenta",strokeWidth:2}),
-                               go.GraphObject.make(go.Shape,{toArrow:"OpenTriangle",stroke:"magenta"}));
-      }
-      doActivate(){ super.doActivate(); this.temporaryLink.time = Math.ceil(timeOfY(this.diagram.firstInput.documentPoint.y)); }
-      insertLink(f,fp,t,tp){
-        const l = super.insertLink(f,fp,t,tp);
-        if(l){ const s = this.temporaryLink.time; l.data.time = s;
-          this.diagram.model.setDataProperty(l.data,"text","msg");
-          this.diagram.model.addNodeData({group:l.data.to,start:s,duration:1});
-          ensureLifelineHeights();
-        }
-        return l;
-      }
+    function setBaseInfo(base, present) {
+      const el = document.getElementById("baseInfo");
+      const parts = present.map(p => labelMap[p.suffix]);
+      el.textContent = `Base: ${base}  |  표시: ${parts.join(" · ")}`; // OLD · NEW · 원본 순
     }
 
-    class MessageDraggingTool extends go.DraggingTool {
-      computeEffectiveCollection(parts,options){
-        const res = super.computeEffectiveCollection(parts,options);
-        res.add(new go.Node(), new go.DraggingInfo(new go.Point()));
-        parts.each(p=>{ if(p instanceof go.Link) res.add(p,new go.DraggingInfo(p.getPoint(0).copy())); });
-        return res;
-      }
-      mayMove(){ return !this.diagram.isReadOnly && this.diagram.allowMove; }
-      moveParts(parts,off,check){
-        super.moveParts(parts,off,check);
-        parts.iterator.each(kv=>{
-          const link = kv.key;
-          if(link instanceof go.Link){
-            let y = kv.value.point.y + off.y;
-            const snap = this.gridSnapCellSize.height;
-            y = Math.round(y/snap)*snap;
-            const t = Math.max(0, timeOfY(y));
-            link.diagram.model.set(link.data,"time", t);
-            link.invalidateRoute();
-          }
+    function addPanel(container, {suffix, file}) {
+      const panel = document.createElement("div");
+      panel.className = "panel";
+
+      const header = document.createElement("div");
+      header.className = "panelHeader";
+      const title = document.createElement("div");
+      title.textContent = labelMap[suffix] || "";
+      const badge = document.createElement("span");
+      badge.className = "badge " + (suffix === "_old" ? "old" : suffix === "_new" ? "new" : "orig");
+      badge.textContent = (suffix === "_old" ? "OLD" : suffix === "_new" ? "NEW" : "ORIG");
+
+      header.appendChild(title);
+      header.appendChild(badge);
+
+      const wrap = document.createElement("div");
+      wrap.className = "diagramWrap";
+
+      const diagDiv = document.createElement("div");
+      const divId = `diagram-${suffix || "orig"}`;
+      diagDiv.id = divId;
+      diagDiv.className = "diagram";
+      wrap.appendChild(diagDiv);
+
+      const fileLabel = document.createElement("div");
+      fileLabel.className = "fileLabel";
+      fileLabel.textContent = file;
+
+      panel.appendChild(header);
+      panel.appendChild(wrap);
+      panel.appendChild(fileLabel);
+      container.appendChild(panel);
+
+      const diagram = makeDiagram(divId);
+      loadJsonToDiagram(diagram, file);
+    }
+
+    function loadJsonToDiagram(diagram, fileName) {
+      fetch(apiFor(fileName))
+        .then(resp => resp.json())
+        .then(json => {
+          const GAP = 200;
+          let idx = 0;
+          json.nodeDataArray.forEach(n => {
+            if (n.isGroup) {
+              const y = parseFloat((n.loc || "0 0").split(" ")[1]) || 0;
+              n.loc = (idx * GAP) + " " + y;
+              idx++;
+            }
+          });
+          diagram.model = go.Model.fromJson(json);
+          ensureLifelineHeights(diagram);
+        })
+        .catch(err => {
+          console.error("JSON load error:", err);
+          alert("JSON 로드 실패: " + err);
         });
-      }
     }
-
-    /* =========================================================
-       LOAD JSON AND AUTO-ADJUST HORIZONTAL GAP
-    ========================================================= */
-let currentBaseName = "";
-let fileVariants = [];        // 실제 존재하는 파일 목록
-let currentFileIndex = 0;     // 현재 인덱스
-
-const labelMap = {
-  "_new": "NEW 버전",
-  "_old": "OLD 버전",
-  "": "원본"
-};
-
-function updateFileLabel(fileName) {
-  const labelDiv = document.getElementById("fileLabel");
-  const suffix = fileName.includes("_new.json") ? "_new"
-                : fileName.includes("_old.json") ? "_old"
-                : "";
-  labelDiv.textContent = labelMap[suffix] || "";
-}
-
-async function checkFileExists(fileName) {
-  try {
-    const res = await fetch(fileName, { method: "GET" });
-    return res.ok;
-  } catch {
-    return false;
-  }
-}
-
-async function loadData() {
-  const params = new URLSearchParams(window.location.search);
-  const file = params.get("file");
-  if (!file) {
-    myDiagram.model = go.Model.fromJson({ "class": "go.GraphLinksModel", "nodeDataArray": [], "linkDataArray": [] });
-    updateFileLabel("");
-    return;
-  }
-
-  const match = file.match(/^(.+?)(?:_new|_old)?\.json$/);
-  if (!match) {
-    alert("파일명 형식 오류: xxxx.json, xxxx_new.json, xxxx_old.json 형식 필요");
-    updateFileLabel("");
-    return;
-  }
-
-  currentBaseName = match[1];
-  const candidates = [
-    `${currentBaseName}.json`,
-    `${currentBaseName}_new.json`,
-    `${currentBaseName}_old.json`
-  ];
-
-  fileVariants = [];
-  for (const f of candidates) {
-    if (await checkFileExists(f)) {
-      fileVariants.push(f);
-    }
-  }
-
-  if (fileVariants.length === 0) {
-    alert("사용 가능한 JSON 파일이 없습니다.");
-    return;
-  }
-
-  // 초기 파일이 있으면 그 인덱스로 시작
-  const initialIndex = fileVariants.findIndex(f => f === file);
-  currentFileIndex = initialIndex >= 0 ? initialIndex : 0;
-
-  loadDataFromFile(fileVariants[currentFileIndex]);
-}
-
-function loadDataFromFile(fileName) {
-  // FastAPI API 경로로 fetch
-  fetch(`/build/sequence_diagram/${fileName.split('/').pop()}`)
-    .then(resp => resp.json())
-    .then(json => {
-      const GAP = 200;
-      let idx = 0;
-      json.nodeDataArray.forEach(n => {
-        if (n.isGroup) {
-          const y = parseFloat((n.loc || "0 0").split(" ")[1]) || 0;
-          n.loc = (idx * GAP) + " " + y;
-          idx++;
-        }
-      });
-
-      myDiagram.model = go.Model.fromJson(json);
-      ensureLifelineHeights();
-      updateFileLabel(fileName);
-    })
-    .catch(err => {
-      console.error("JSON load error:", err);
-      alert("JSON 로드 실패: " + err);
-    });
-}
-
-window.addEventListener("keydown", (e) => {
-  if (!fileVariants.length) return;
-
-  if (e.key === "ArrowRight") {
-    currentFileIndex = (currentFileIndex + 1) % fileVariants.length;
-    loadDataFromFile(fileVariants[currentFileIndex]);
-  } else if (e.key === "ArrowLeft") {
-    currentFileIndex = (currentFileIndex - 1 + fileVariants.length) % fileVariants.length;
-    loadDataFromFile(fileVariants[currentFileIndex]);
-  }
-});
 
     /* =========================================================
        STARTUP
     ========================================================= */
-    window.addEventListener("DOMContentLoaded", init);
+    async function boot() {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get("file");
+      const baseMatch = file && file.match(/^(.+?)(?:_new|_old)?\.json$/);
+      if (!baseMatch) {
+        document.getElementById("baseInfo").textContent = "쿼리스트링 ?file=xxxx.json | xxxx_new.json | xxxx_old.json";
+        return;
+      }
+      currentBaseName = baseMatch[1];
+
+      const present = await detectVariants(currentBaseName);
+      if (!present.length) {
+        document.getElementById("baseInfo").textContent = `사용 가능한 파일이 없습니다 (base=${currentBaseName})`;
+        return;
+      }
+      setBaseInfo(currentBaseName, present);
+
+      const grid = document.getElementById("grid");
+      present.forEach(v => addPanel(grid, v)); // ✅ OLD → NEW → 원본 순으로 추가
+    }
+
+    window.addEventListener("DOMContentLoaded", boot);
   </script>
 </body>
 </html>
