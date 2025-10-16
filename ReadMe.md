@@ -56,4 +56,10 @@ make          # 또는 make runAll
 bear -- make
 
 
-pyinstaller --onefile --windowed --name SimpleMakeBuilder main.py
+pip install PySide6 pyinstaller
+
+pyinstaller --onefile --windowed --name TraceRecoviz_linux main.py
+source venv/bin/activate
+
+한글 폰트 설치
+sudo apt install -y fonts-noto-cjk fonts-nanum fonts-noto-color-emoji
