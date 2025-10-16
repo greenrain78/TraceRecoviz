@@ -377,18 +377,30 @@ class ControlPanel(QWidget):
         root.setSpacing(10)
 
         # ----- 프로젝트 경로 입력/선택 (그룹 1) -----
-        gb_proj1 = QGroupBox("프로젝트")
+        gb_proj1 = QGroupBox("프로젝트 패널")
         fl = QFormLayout(gb_proj1); fl.setLabelAlignment(Qt.AlignLeft)
-        self.edit_proj = QLineEdit(self)
-        self.edit_proj.setReadOnly(True)
-        self.btn_browse = QPushButton("폴더 선택", self)
-        self.btn_browse.clicked.connect(lambda: self._browse("new"))
 
-        proj_row = QHBoxLayout()
-        proj_row.addWidget(self.edit_proj, 1)
-        proj_row.addWidget(self.btn_browse)
-        fl.addRow("프로젝트 경로", proj_row)
+        # old 프로젝트 경로
+        self.edit_proj_old = QLineEdit(self)
+        self.edit_proj_old.setReadOnly(True)
+        btn_browse = QPushButton("폴더 선택", self)
+        btn_browse.clicked.connect(lambda: self._browse("old", self.edit_proj_old))
 
+        proj_row_old = QHBoxLayout()
+        proj_row_old.addWidget(self.edit_proj_old, 1)
+        proj_row_old.addWidget(btn_browse)
+        fl.addRow("수정 전 프로젝트 경로", proj_row_old)
+
+        # new 프로젝트 경로
+        self.edit_proj_new = QLineEdit(self)
+        self.edit_proj_new.setReadOnly(True)
+        btn_browse = QPushButton("폴더 선택", self)
+        btn_browse.clicked.connect(lambda: self._browse("new", self.edit_proj_new))
+
+        proj_row_new = QHBoxLayout()
+        proj_row_new.addWidget(self.edit_proj_new, 1)
+        proj_row_new.addWidget(btn_browse)
+        fl.addRow("수정 후 프로젝트 경로", proj_row_new)
 
         # ----- 액션 버튼 -----
         gb_actions = QGroupBox("작업")
@@ -407,16 +419,22 @@ class ControlPanel(QWidget):
         root.addStretch(1)
 
         # 마지막 프로젝트 경로 복원(QSettings)
-        last_project_new = self.settings.value("project_dir_new", "")
-        if last_project_new: self.edit_proj.setText(last_project_new)
+        last_project_old = self.settings.value("project_dir_old", "")
+        if last_project_old: self.edit_proj_old.setText(last_project_old)
 
-    def _browse(self, type):
+        last_project_new = self.settings.value("project_dir_new", "")
+        if last_project_new: self.edit_proj_new.setText(last_project_new)
+
+    def _init_gb_project(self):
+        pass
+
+    def _browse(self, type, edit: QLineEdit):
         """
         '폴더 선택' 버튼 콜백:
         - 파일 대화상자로 디렉터리 선택
         - 선택 시 QSettings('project_dir') 저장 및 상위 콜백(on_pick_folder) 호출
         """
-        cur = self.edit_proj.text().strip() or str(Path.home())
+        cur = edit.text().strip() or str(Path.home())
         src_str = QFileDialog.getExistingDirectory(self, "프로젝트 폴더 선택", cur, QFileDialog.ShowDirsOnly)
         if not src_str:
             return  # 취소
@@ -449,9 +467,9 @@ class ControlPanel(QWidget):
             return
 
         # 4) UI/설정 갱신
-        self.edit_proj.setText(str(src))
+        edit.setText(str(src))
         self.settings.setValue(f"project_dir_{type}", str(src))
-
+        print(f"프로젝트 폴더 복사 완료: project_dir_{type}")
         # 5) 메인으로 콜백: 우측 탐색기를 target_new로 바로 열어 보여줌
         if self.on_pick_folder:
             self.on_pick_folder(dst)
