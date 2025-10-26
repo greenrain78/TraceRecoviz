@@ -1,14 +1,9 @@
+import shutil
 import os
+import pathlib
 import shutil
 import sys
 import threading
-import pathlib
-# from pathlib import Path
-
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
-import os
 
 from PySide6.QtCore import (
     QDir, Qt, QSortFilterProxyModel, QSettings, QRegularExpression, QSize, QModelIndex, QProcess
@@ -19,8 +14,13 @@ from PySide6.QtWidgets import (
     QTreeView, QTableView, QLineEdit, QLabel, QHeaderView, QFileSystemModel,
     QSplitter, QStyleFactory, QToolBar, QStyle, QSizePolicy,
     QWidget, QVBoxLayout, QHBoxLayout, QPlainTextEdit, QStackedWidget,
-    QGroupBox, QPushButton, QCheckBox, QComboBox, QFormLayout, QMessageBox, QDialogButtonBox, QDialog
+    QGroupBox, QPushButton, QFormLayout, QMessageBox, QDialogButtonBox, QDialog
 )
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, FileResponse
+
+# from pathlib import Path
 
 APP_ORG = "ExampleCo"
 APP_NAME = "TraceRecoViz"  # 앱/설정 저장용 애플리케이션 이름
@@ -698,10 +698,31 @@ class ControlPanel(QWidget):
                 QMessageBox.critical(self, "웹서버 시작 실패", f"{e}")
                 return
             self.btn_web.setText("웹서버 ON")
-            QMessageBox.information(self, "웹서버 시작",
-                                    "FastAPI 서버를 시작했습니다.\n\n"
-                                    "URL: http://127.0.0.1:8000\n"
-                                    "헬스체크: /health")
+
+            # ✅ 커스텀 다이얼로그로 클릭 가능한 링크 표시
+            dlg = QDialog(self)
+            dlg.setWindowTitle("웹서버 시작")
+            dlg.setMinimumWidth(400)
+
+            layout = QVBoxLayout(dlg)
+            lbl_info = QLabel("FastAPI 서버를 시작했습니다.<br>아래 링크를 클릭해 접속할 수 있습니다.")
+            lbl_info.setWordWrap(True)
+            lbl_info.setTextFormat(Qt.RichText)
+
+            lbl_link = QLabel('<a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>')
+            lbl_link.setOpenExternalLinks(True)  # 클릭 시 기본 브라우저로 열림
+            lbl_link.setTextInteractionFlags(Qt.TextBrowserInteraction)
+            lbl_link.setAlignment(Qt.AlignCenter)
+
+            btn_ok = QPushButton("확인")
+            btn_ok.clicked.connect(dlg.accept)
+
+            layout.addWidget(lbl_info)
+            layout.addWidget(lbl_link)
+            layout.addWidget(btn_ok, alignment=Qt.AlignCenter)
+
+            dlg.exec()
+
         else:
             # 종료
             try:
@@ -719,6 +740,10 @@ class ControlPanel(QWidget):
         self._cmds = []
         self._cmds.append(("make", ["clean"]))
         self._cmds.append(("make", []))
+        self._cmds.append(("./all_tests_new", []))
+        self._cmds.append(("./all_tests_old", []))
+        self._cmds.append(("python", ["src/diff/main.py"]))
+        self._cmds.append(("python", ["src/parser/main.py"]))
         self._cmd_index = 0
 
         # 팝업 준비
@@ -1160,4 +1185,14 @@ def main():
 
 
 if __name__ == "__main__":
+    BUILD_DIRS = [
+        os.path.join(os.path.dirname(__file__), "build", "sequence_diagram"),
+        os.path.join(os.path.dirname(__file__), "build", "log"),
+        os.path.join(os.path.dirname(__file__), "build", "new"),
+        os.path.join(os.path.dirname(__file__), "build", "old"),
+        os.path.join(os.path.dirname(__file__), "build", "result"),
+    ]
+    for path in BUILD_DIRS:
+        os.makedirs(path, exist_ok=True)
     main()
+
