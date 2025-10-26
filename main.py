@@ -1002,11 +1002,11 @@ class MainWindow(QMainWindow):
         # self.action_log_save.triggered.connect(self._save_log)          # 로그 저장
 
         # ----- 설정 복원 -----
-        # start_dir = self.settings.value("last_dir", str(Path.home()))
+        start_dir = self.settings.value("last_dir", str(pathlib.Path.home()))
         theme = self.settings.value("theme", "dark")
         self.action_dark.setChecked(theme == "dark")
         self.apply_theme(theme)
-        # self.set_root(Path(start_dir))
+        self.set_root(pathlib.Path(start_dir))
 
         # 초기 안내 메시지(로그 창)
         self._append_log("ℹ️ UI 스켈레톤 준비 완료. 미리보기는 Makefile 계열까지 텍스트로 표시됩니다.")
@@ -1111,7 +1111,7 @@ class MainWindow(QMainWindow):
 
     def update_breadcrumb(self, path: str):
         """단순 경로 파츠를 ' / '로 이어서 브레드크럼 라벨에 표시."""
-        root = Path(path)
+        root = pathlib.Path(path)
         parts = root.parts
         pretty = " / ".join(parts) if parts else "/"
         self.breadcrumb.setText(pretty)

@@ -58,8 +58,22 @@ bear -- make
 
 pip install PySide6 pyinstaller
 
-pyinstaller --onefile --windowed --name TraceRecoviz_linux main.py
+pyinstaller --onefile --windowed --name TraceRecoviz_linux --add-data ".:." main.py
+
 source venv/bin/activate
 
 한글 폰트 설치
 sudo apt install -y fonts-noto-cjk fonts-nanum fonts-noto-color-emoji
+
+
+sds - 
+
+#todo 객체 생성 소멸 추가 - 
+객체의 lifeline이 색칠되는지 확인
+파라미터가 바꼈다는 것을 잘 드러나게
+
+gui
+비기능요구사항 호환성
+
+
+pyinstaller TraceRecoviz_linux.spec
