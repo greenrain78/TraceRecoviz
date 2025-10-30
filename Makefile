@@ -1,5 +1,5 @@
 CXX = clang++-18
-CXXFLAGS = -std=c++17 -I. -I$(GTEST_INCLUDE)
+CXXFLAGS = -std=c++17 -I. -I$(GTEST_INCLUDE) -include limits -include climits
 LDFLAGS = -lgtest -lgtest_main -lpthread -ldl
 GTEST_INCLUDE = /usr/include/gtest
 GTEST_LIB = /usr/lib/libgtest.a /usr/lib/libgtest_main.a
@@ -30,21 +30,23 @@ inject_trace_tool: $(INJECT_TOOL_SRC)
 instrument: inject_trace_tool
 	mkdir -p $(INSTR_DIR)
 	for d in $(TARGET_DIRS); do \
-		mkdir -p $(INSTR_DIR)/$$d; \
-		for f in $$(find $$d -maxdepth 1 -type f \( -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \)); do \
-			base=$$(basename $$f); \
-			./inject_trace_tool $$f > $(INSTR_DIR)/$$d/$$base; \
+		for f in $$(find $$d -type f \( -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \)); do \
+			rel_path=$${f#$$d/}; \
+			out_file=$(INSTR_DIR)/$$d/$$rel_path; \
+			out_dir=$$(dirname $$out_file); \
+			mkdir -p $$out_dir; \
+			./inject_trace_tool $$f > $$out_file; \
 		done; \
 	done
 
 # 디렉토리별로 별도 테스트 바이너리 생성
 all_tests_new: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"new\" -Itarget_new -I$(INSTR_NEW) -include $(LISTENER_HDR) \
-	$(INSTR_NEW)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
+	$$(find $(INSTR_NEW) -type f \( -name '*.cc' -o -name '*.cpp' \)) $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 all_tests_old: instrument $(TRACE_SRC) $(TRACE_HDR) $(LISTENER_HDR)
 	$(CXX) $(CXXFLAGS) -DTRACE_VARIANT=\"old\" -Itarget_old -I$(INSTR_OLD) -include $(LISTENER_HDR) \
-	$(INSTR_OLD)/*.cc $(TRACE_SRC) -o $@ $(GTEST_LIB)
+	$$(find $(INSTR_OLD) -type f \( -name '*.cc' -o -name '*.cpp' \)) $(TRACE_SRC) -o $@ $(GTEST_LIB)
 
 # 메타 타겟: 두 바이너리 모두 빌드
 all_tests: all_tests_new all_tests_old
